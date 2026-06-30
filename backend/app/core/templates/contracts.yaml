@@ -1,0 +1,13 @@
+apiVersion: v1
+info:
+  title: Templates Module API
+  description: API contracts for templates module
+  version: 1.0.0
+
+endpoints:
+  - summary: Create template
+  - summary: List templates
+  - summary: Get template
+  - summary: Update template
+  - summary: Delete template
+  - summary: Render

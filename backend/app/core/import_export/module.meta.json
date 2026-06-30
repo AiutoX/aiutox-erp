@@ -1,0 +1,118 @@
+{
+  "module_id": "import_export",
+  "module_type": "core",
+  "name": "Import/Export",
+  "description": "Multi-format data import and export with template-based mapping",
+  "version": "1.0.0",
+  "status": "production",
+  "maturity_score": 95,
+  "components": {
+    "service": {
+      "description": "ImportExportService for managing import/export operations",
+      "status": "stable"
+    },
+    "router": {
+      "description": "API endpoints for import/export CRUD operations",
+      "status": "stable"
+    },
+    "events": {
+      "description": "ImportExportEventPublisher for PubSub events",
+      "events": ["import.started", "import.completed", "import.failed", "export.started", "export.completed", "export.failed"],
+      "status": "stable"
+    },
+    "permissions": {
+      "description": "RBAC permissions (read, write, delete, admin)",
+      "status": "stable"
+    },
+    "schemas": {
+      "description": "Pydantic schemas for request/response validation",
+      "status": "stable"
+    }
+  },
+  "dependencies": {
+    "internal": ["pubsub", "auth", "db"],
+    "external": ["sqlalchemy", "pydantic", "fastapi", "openpyxl", "pandas"]
+  },
+  "interfaces": {
+    "http": {
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/import-export/import/jobs",
+          "permission": "import_export.write"
+        },
+        {
+          "method": "GET",
+          "path": "/import-export/import/jobs",
+          "permission": "import_export.read"
+        },
+        {
+          "method": "GET",
+          "path": "/import-export/import/jobs/{job_id}",
+          "permission": "import_export.read"
+        },
+        {
+          "method": "POST",
+          "path": "/import-export/export/jobs",
+          "permission": "import_export.write"
+        },
+        {
+          "method": "GET",
+          "path": "/import-export/export/jobs",
+          "permission": "import_export.read"
+        },
+        {
+          "method": "GET",
+          "path": "/import-export/export/jobs/{job_id}/download",
+          "permission": "import_export.read"
+        },
+        {
+          "method": "GET",
+          "path": "/import-export/templates",
+          "permission": "import_export.read"
+        },
+        {
+          "method": "POST",
+          "path": "/import-export/templates",
+          "permission": "import_export.write"
+        }
+      ]
+    }
+  },
+  "features": {
+    "csv_import": "Import data from CSV files with column mapping",
+    "excel_import": "Import data from Excel workbooks (.xlsx, .xls)",
+    "csv_export": "Export data to CSV format",
+    "excel_export": "Export data to Excel format with formatting",
+    "template_mapping": "Reusable templates for column-to-field mapping",
+    "validation_rules": "Define validation rules per template",
+    "error_reporting": "Detailed error reports per row/column",
+    "batch_processing": "Handle large files with async processing",
+    "tenant_isolation": "All import/export operations isolated by tenant"
+  },
+  "performance": {
+    "typical_processing_time_ms": 5000,
+    "max_file_size_mb": 100,
+    "batch_size": 1000,
+    "max_rows": 1000000,
+    "async_processing": true,
+    "progress_tracking": "Via PubSub events"
+  },
+  "testing": {
+    "coverage_target": 80,
+    "test_suites": ["unit", "integration"],
+    "status": "implemented"
+  },
+  "compliance": {
+    "rbac_enforced": true,
+    "multi_tenancy": true,
+    "audit_logging": true,
+    "data_validation": true
+  },
+  "changelog": {
+    "1.0.0": {
+      "date": "2026-03-14",
+      "changes": "Initial implementation with CSV/Excel support, template system, and async batch processing"
+    }
+  }
+}

@@ -1,0 +1,155 @@
+apiVersion: v1
+info:
+  title: Search Module API
+  description: API contracts for multi-entity full-text search
+  version: 1.0.0
+
+endpoints:
+  - method: GET
+    path: /search
+    summary: Search across multiple entities
+    description: |
+      Execute a full-text search query across registered searchable entities.
+      Uses PostgreSQL Full-Text Search (FTS) with GIN indexes for performance.
+    permission: search.read
+    query_params:
+      - name: q
+        type: string
+        required: true
+        min_length: 2
+        description: Search query text (minimum 2 characters)
+      - name: entity_types
+        type: array[string]
+        required: false
+        description: Entity types to search (e.g., ['products', 'orders', 'contacts']). If empty, searches all registered types.
+      - name: limit
+        type: integer
+        default: 100
+        min: 1
+        max: 1000
+        description: Maximum number of results per entity type
+      - name: offset
+        type: integer
+        default: 0
+        min: 0
+        description: Pagination offset
+    response:
+      status: 200
+      schema: SearchResponse
+      fields:
+        - results: array[SearchResultItem]
+          - entity_type: string
+          - entity_id: UUID
+          - title: string
+          - preview: string (first 200 chars of matched content)
+          - score: float (0-1, relevance score from ts_rank)
+          - highlighted: string (snippet with matched terms highlighted)
+          - matched_fields: array[string]
+        - total: integer (total results across all entity types)
+        - limit: integer
+        - offset: integer
+        - query: string (echoed back)
+        - search_time_ms: integer
+
+  - method: GET
+    path: /search/suggest
+    summary: Get search suggestions
+    description: Get autocomplete suggestions for search queries
+    permission: search.read
+    query_params:
+      - name: q
+        type: string
+        required: true
+        min_length: 1
+        description: Partial search query
+      - name: entity_types
+        type: array[string]
+        required: false
+        description: Entity types to get suggestions from
+      - name: limit
+        type: integer
+        default: 10
+        min: 1
+        max: 50
+        description: Maximum suggestions to return
+    response:
+      status: 200
+      schema: SearchSuggestionsResponse
+      fields:
+        - suggestions: array[SearchSuggestion]
+          - text: string (suggested query)
+          - entity_type: string
+          - count: integer (number of results for this suggestion)
+        - query: string (echoed back)
+
+data_sources:
+  - name: products
+    description: Product catalog search
+    search_fields:
+      - name: full text search index
+      - sku: product SKU
+      - description: product description
+    display_fields:
+      - id: product ID
+      - name: product name
+      - sku: SKU
+      - price: current price
+
+  - name: orders
+    description: Sales orders search
+    search_fields:
+      - order_number: order number
+      - customer_name: customer name
+      - description: order notes
+    display_fields:
+      - id: order ID
+      - order_number: order number
+      - customer_name: customer name
+      - total: order total
+      - status: order status
+
+  - name: contacts
+    description: Contact/lead information search
+    search_fields:
+      - name: contact name
+      - email: email address
+      - phone: phone number
+      - company: company name
+    display_fields:
+      - id: contact ID
+      - name: contact name
+      - email: email
+      - phone: phone
+      - company: company
+
+search_features:
+  - multi_entity_search: "Search across multiple entity types in a single query"
+  - postgresql_fts: "PostgreSQL Full-Text Search with GIN indexes for fast querying"
+  - relevance_ranking: "Results ranked by relevance (ts_rank) with score 0-1"
+  - tenant_isolation: "All searches automatically filtered by tenant_id"
+  - search_suggestions: "Auto-complete suggestions endpoint"
+  - field_highlighting: "Matched terms highlighted in results"
+
+performance:
+  typical_query_time_ms: 100
+  max_results: 1000
+  min_query_length: 2
+  indexes: "GIN indexes on tsvector columns for fast FTS"
+  query_optimization: "Uses PostgreSQL ts_rank for relevance sorting"
+
+errors:
+  - status: 400
+    code: INVALID_QUERY_LENGTH
+    description: Query text is too short (minimum 2 characters)
+  - status: 400
+    code: INVALID_ENTITY_TYPE
+    description: One or more entity_types are not registered
+  - status: 401
+    code: UNAUTHORIZED
+    description: Missing or invalid authentication token
+  - status: 403
+    code: FORBIDDEN
+    description: User does not have search.read permission
+  - status: 500
+    code: SEARCH_ERROR
+    description: Search engine error

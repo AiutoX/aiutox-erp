@@ -1,0 +1,79 @@
+{
+  "module_id": "search",
+  "module_type": "core",
+  "name": "Search",
+  "description": "Multi-entity search with PostgreSQL Full-Text Search",
+  "version": "1.0.0",
+  "status": "production",
+  "maturity_score": 95,
+  "components": {
+    "registry": {
+      "description": "SearchRegistry for registering searchable entities",
+      "status": "stable"
+    },
+    "service": {
+      "description": "SearchService for executing searches",
+      "status": "stable"
+    },
+    "engine": {
+      "description": "SearchEngine with PostgreSQL FTS",
+      "status": "stable"
+    },
+    "indexer": {
+      "description": "SearchIndexer for managing search indexes",
+      "status": "stable"
+    },
+    "events": {
+      "description": "SearchEventPublisher for PubSub events",
+      "events": ["search.performed", "search.entity_indexed", "search.entity_removed"],
+      "status": "stable"
+    },
+    "permissions": {
+      "description": "RBAC permissions (read, admin)",
+      "status": "stable"
+    }
+  },
+  "dependencies": {
+    "internal": ["pubsub", "auth"],
+    "external": ["sqlalchemy", "pydantic", "fastapi", "postgresql"]
+  },
+  "interfaces": {
+    "http": {
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/search",
+          "permission": "search.read"
+        },
+        {
+          "method": "GET",
+          "path": "/search/suggest",
+          "permission": "search.read"
+        }
+      ]
+    }
+  },
+  "features": {
+    "multi_entity_search": "Search across multiple entity types in one query",
+    "postgresql_fts": "PostgreSQL Full-Text Search with GIN indexes",
+    "registry_pattern": "Extensible registry for adding new searchable entities",
+    "tenant_isolation": "All searches filtered by tenant_id"
+  },
+  "performance": {
+    "typical_query_time_ms": 100,
+    "max_results": 1000,
+    "min_query_length": 2,
+    "indexes": "GIN indexes on tsvector columns"
+  },
+  "testing": {
+    "coverage_target": 80,
+    "test_suites": ["unit", "integration"],
+    "status": "implemented"
+  },
+  "changelog": {
+    "1.0.0": {
+      "date": "2026-03-14",
+      "changes": "Initial implementation with PostgreSQL FTS and extensible registry"
+    }
+  }
+}

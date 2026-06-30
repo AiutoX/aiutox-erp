@@ -1,0 +1,45 @@
+{
+  "include": [
+    "**/*",
+    "**/.server/**/*",
+    "**/.client/**/*",
+    ".react-router/types/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    ".react-router",
+    "app/__tests__/e2e/**/*",
+    "test-results/**/*",
+    "playwright-report/**/*"
+  ],
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "rootDirs": [".", "./.react-router/types"],
+    "paths": {
+      "~/*": ["./app/*"]
+    },
+    "esModuleInterop": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+
+    // Opciones adicionales para detectar más errores
+    "noUnusedLocals": true, // Detecta variables locales no usadas
+    "noUnusedParameters": true, // Detecta parámetros no usados
+    "noImplicitReturns": true, // Todas las rutas de código deben retornar
+    "noFallthroughCasesInSwitch": true, // Previene fallthrough en switch
+    "noUncheckedIndexedAccess": true, // Requiere verificación de índices de arrays
+    "forceConsistentCasingInFileNames": true, // Consistencia en nombres de archivos
+    "allowUnusedLabels": false, // No permite labels no usados
+    "allowUnreachableCode": false, // No permite código inalcanzable
+    "noImplicitOverride": true // Requiere override explícito
+  }
+}

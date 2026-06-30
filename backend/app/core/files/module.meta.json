@@ -1,0 +1,28 @@
+{
+  "id": "files",
+  "name": "Gestión de Archivos",
+  "type": "core",
+  "category": "document-management",
+  "description": "Sistema de gestión de archivos, documentos y carpetas con control de permisos, versioning y almacenamiento híbrido (local/S3).",
+  "version": "1.0.0",
+  "depends_on": [
+    "auth",
+    "users",
+    "tags",
+    "pubsub"
+  ],
+  "publishes": [
+    "file.uploaded",
+    "file.deleted",
+    "file.permanently_deleted",
+    "file.restored",
+    "file.accessed"
+  ],
+  "consumes": [],
+  "permissions": [
+    "files.read",
+    "files.write",
+    "files.delete",
+    "files.admin"
+  ]
+}

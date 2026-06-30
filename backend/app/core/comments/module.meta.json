@@ -1,0 +1,28 @@
+{
+  "id": "comments",
+  "name": "Gestión de Comentarios",
+  "type": "core",
+  "category": "collaboration",
+  "description": "Sistema de comentarios y colaboración con soporte polimórfico (entity_type + entity_id), threads básicos (parent_id) y menciones de usuarios (@usuario).",
+  "version": "1.0.0",
+  "depends_on": [
+    "auth",
+    "users",
+    "files",
+    "pubsub"
+  ],
+  "publishes": [
+    "comment.created",
+    "comment.updated",
+    "comment.deleted",
+    "comment.mentioned"
+  ],
+  "consumes": [],
+  "permissions": [
+    "comments.read",
+    "comments.write",
+    "comments.delete",
+    "comments.admin"
+  ],
+  "score": 100
+}

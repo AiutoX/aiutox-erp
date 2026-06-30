@@ -1,0 +1,71 @@
+{
+  "id": "notifications",
+  "name": "Sistema de Notificaciones",
+  "type": "core",
+  "category": "messaging",
+  "description": "Sistema de notificaciones multi-canal (email, SMS, webhook, in-app) con plantillas, cola de entrega, preferencias de usuario y streaming en tiempo real vía SSE/WebSocket. Soporta sustitución de variables e integración con automatización.",
+  "version": "1.0.0",
+  "depends_on": [
+    "auth",
+    "users",
+    "pubsub",
+    "automation"
+  ],
+  "publishes": [
+    "notification.sent",
+    "notification.failed"
+  ],
+  "consumes": [],
+  "permissions": [
+    "notifications.read",
+    "notifications.write"
+  ],
+  "endpoints": 10,
+  "score": 90,
+  "test_coverage": "85%",
+  "status": "production",
+  "features": [
+    "Multi-channel notification delivery",
+    "Email via SMTP",
+    "SMS (TWILIO - partial)",
+    "Webhook integration",
+    "In-app notifications",
+    "Template system with {{ variables }}",
+    "Real-time SSE/WebSocket streaming",
+    "Queue-based async delivery",
+    "User preference integration",
+    "Notification audit trail",
+    "Adaptive polling intervals",
+    "Auto-reconnect capability"
+  ],
+  "channels_supported": [
+    "email",
+    "sms",
+    "webhook",
+    "in_app"
+  ],
+  "architecture": {
+    "service": "NotificationService",
+    "consumer": "NotificationEventConsumer",
+    "repository": "NotificationRepository",
+    "channels": [
+      "EmailChannel",
+      "SMSChannel (partial)",
+      "WebhookChannel (partial)",
+      "InAppChannel"
+    ]
+  },
+  "implementation_status": {
+    "models": "complete",
+    "service": "complete",
+    "router": "complete",
+    "events": "complete",
+    "rbac": "complete",
+    "tests": "complete",
+    "frontend": "complete",
+    "email_channel": "complete",
+    "sms_channel": "partial",
+    "webhook_channel": "partial",
+    "sse_streaming": "complete"
+  }
+}

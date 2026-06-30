@@ -1,0 +1,60 @@
+{
+  "id": "automation",
+  "name": "Automatización de Reglas",
+  "type": "core",
+  "category": "workflow",
+  "description": "Motor de automatización basado en reglas con soporte para triggers (eventos, schedule, webhooks), condiciones complejas y acciones (notificaciones, crear tareas, webhooks). Ejecución asincrónica con idempotencia y auditoría completa.",
+  "version": "1.0.0",
+  "depends_on": [
+    "auth",
+    "users",
+    "pubsub",
+    "activities"
+  ],
+  "publishes": [
+    "automation.created",
+    "automation.updated",
+    "automation.deleted",
+    "automation.executed"
+  ],
+  "consumes": [],
+  "permissions": [
+    "automation.read",
+    "automation.write",
+    "automation.delete",
+    "automation.admin"
+  ],
+  "endpoints": 7,
+  "score": 95,
+  "test_coverage": "80%",
+  "status": "production",
+  "features": [
+    "Rule-based automation engine",
+    "Event-driven triggers",
+    "Scheduled execution (cron)",
+    "Webhook triggers",
+    "Complex condition evaluation",
+    "Action execution framework",
+    "Idempotency guarantees",
+    "Execution audit trail",
+    "Rule versioning",
+    "Multi-action rules"
+  ],
+  "architecture": {
+    "service": "AutomationService",
+    "engine": "AutomationEngine",
+    "executor": "ActionExecutor",
+    "evaluator": "ConditionEvaluator",
+    "scheduler": "Scheduler",
+    "parser": "RuleParser"
+  },
+  "implementation_status": {
+    "models": "complete",
+    "service": "complete",
+    "router": "complete",
+    "events": "complete",
+    "rbac": "complete",
+    "tests": "complete",
+    "frontend": "complete"
+  }
+}

@@ -1,0 +1,30 @@
+apiVersion: v1
+info:
+  title: Files Module API
+  description: File upload, download, and management
+  version: 1.0.0
+
+endpoints:
+  - method: POST
+    path: /files/upload
+    summary: Upload file
+    permission: files.write
+
+  - method: GET
+    path: /files
+    summary: List files
+    permission: files.read
+
+  - method: GET
+    path: /files/{file_id}
+    summary: Get file details
+    permission: files.read
+
+  - method: DELETE
+    path: /files/{file_id}
+    summary: Delete file
+    permission: files.delete
+
+events:
+  - file.uploaded
+  - file.deleted

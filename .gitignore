@@ -1,0 +1,52 @@
+.env
+__pycache__/
+*.pyc
+node_modules/
+dist/
+.DS_Store
+.idea/
+.vscode/
+venv/
+.venv/
+.idea/
+.mcp/
+.pytest_cache/
+.vscode/
+.venv/
+.logs/
+*.log
+.windsurf/sentences/.protectec_pass.md
+.windsurf\sentences\.protectec_pass.md
+.claude/sentences/.protectec_pass.md
+.oldconfig
+
+# Playwright MCP session captures (archivos temporales de sesión)
+.playwright-mcp/
+
+# Screenshots de verificación local
+verify-*.png
+
+# Codex CLI marker
+.codex
+
+# MCP Configuration Files (contienen tokens sensibles)
+# Excluir archivos de configuración reales, pero permitir los .example
+.mcp/config/*.json
+!.mcp/config/*.example
+coolify-mcp-config.json
+woodpecker-mcp-config.json
+mcp-combined.json
+.mcp/servers/node_modules/
+.mcp/servers/package-lock.json
+.mcp
+
+# Directorio mcp-servers obsoleto (debe estar en .mcp/servers/)
+mcp-servers/
+
+# Backend scripts (contienen tokens hardcodeados en diagnostics/)
+backend/scripts/
+
+# Scripts con tokens (opcional - descomentar si no quieres trackear cambios)
+# scripts/woodpecker-api-examples.ps1
+# scripts/woodpecker-api-examples.py
+# scripts/woodpecker-api-examples.sh

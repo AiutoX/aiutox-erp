@@ -1,0 +1,27 @@
+{
+  "id": "templates",
+  "name": "Gestión de Plantillas",
+  "type": "core",
+  "category": "document-management",
+  "description": "Sistema de gestión de plantillas de documentos y mensajes con sustitución de variables {{ var }}. Soporta renderizado de contenido dinámico y registro de auditoría de renders.",
+  "version": "1.0.0",
+  "depends_on": [
+    "auth",
+    "users",
+    "pubsub"
+  ],
+  "publishes": [
+    "template.created",
+    "template.updated",
+    "template.deleted",
+    "template.rendered"
+  ],
+  "consumes": [],
+  "permissions": [
+    "templates.read",
+    "templates.write",
+    "templates.delete",
+    "templates.admin"
+  ],
+  "score": 100
+}

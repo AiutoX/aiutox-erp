@@ -1,0 +1,15 @@
+{
+  "name": "@aiutox/module-TEMPLATE",
+  "version": "0.1.0",
+  "description": "AiutoX TEMPLATE module frontend",
+  "private": false,
+  "type": "module",
+  "main": "app/features/TEMPLATE/index.ts",
+  "files": [
+    "app/features/TEMPLATE/"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "license": "Proprietary"
+}

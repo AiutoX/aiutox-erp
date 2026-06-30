@@ -1,0 +1,497 @@
+[
+  {
+    "key": "auth",
+    "name": "AutenticaciÃ³n y RBAC",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "path": "backend/app/api/v1/auth.py",
+    "description": "Infraestructura base: AutenticaciÃ³n JWT, permisos, roles, delegaciÃ³n de permisos"
+  },
+  {
+    "key": "users",
+    "name": "Usuarios y Organizaciones",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "path": "backend/app/api/v1/users.py",
+    "description": "Infraestructura base: CRUD de usuarios, perfiles, multi-tenancy (Tenants), organizaciones, contactos"
+  },
+  {
+    "key": "audit",
+    "name": "AuditorÃ­a",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "path": "backend/app/api/v1/auth.py",
+    "description": "Infraestructura base: Sistema de audit logs, logs automÃ¡ticos por mÃ³dulo"
+  },
+  {
+    "key": "reporting",
+    "name": "Motor de Reportes",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "description": "Infraestructura base: Motor de reportes extensible con DataSource, Engine, Visualizaciones. Los mÃ³dulos empresariales crean sus propios DataSources."
+  },
+  {
+    "key": "config",
+    "name": "Sistema de ConfiguraciÃ³n",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "path": "backend/app/api/v1/config.py",
+    "description": "Infraestructura base: Esquema JSON central, sobreescribible por mÃ³dulo. Cada mÃ³dulo empresarial define su propia configuraciÃ³n. Incluye configuraciÃ³n visual del tema (colores, logos, tipografÃ­a).",
+    "depends_on": [
+      "auth",
+      "users"
+    ]
+  },
+  {
+    "key": "pubsub",
+    "name": "MÃ³dulo de Pub-Sub (Event Bus)",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "path": "backend/app/api/v1/pubsub.py",
+    "description": "Infraestructura base crÃ­tica: Bus de eventos interno basado en Redis Streams. Desacopla mÃ³dulos mediante eventos. Base para AutomatizaciÃ³n, Notificaciones e Integraciones.",
+    "depends_on": []
+  },
+  {
+    "key": "automation",
+    "name": "MÃ³dulo de AutomatizaciÃ³n",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "description": "Infraestructura base: Motor de reglas y workflows basado en eventos. Permite definir y ejecutar reglas de negocio sin modificar cÃ³digo. Orquesta procesos entre mÃ³dulos.",
+    "depends_on": [
+      "auth",
+      "users",
+      "pubsub"
+    ]
+  },
+  {
+    "key": "preferences",
+    "name": "MÃ³dulo de Preferencias y PersonalizaciÃ³n",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": false,
+    "description": "Infraestructura base: PersonalizaciÃ³n de experiencia de usuario. Preferencias de usuario, vistas personalizadas, dashboards configurables, configuraciÃ³n de notificaciones.",
+    "depends_on": [
+      "auth",
+      "users"
+    ]
+  },
+  {
+    "key": "notifications",
+    "name": "Notificaciones",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "path": "backend/app/api/v1/notifications.py",
+    "description": "Infraestructura base: Email/SMS/Webhooks. Los mÃ³dulos empresariales registran sus eventos y templates. Consume eventos del bus y consulta preferencias de usuario.",
+    "depends_on": [
+      "auth",
+      "users",
+      "pubsub",
+      "preferences"
+    ]
+  },
+  {
+    "key": "files",
+    "name": "Sistema de Archivos y Documentos",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "path": "backend/app/api/v1/files.py",
+    "description": "Infraestructura base: Almacenamiento de archivos, gestiÃ³n de versiones, metadatos, permisos. RelaciÃ³n polimÃ³rfica con cualquier entidad.",
+    "depends_on": [
+      "auth",
+      "users"
+    ]
+  },
+  {
+    "key": "activities",
+    "name": "Sistema de Actividades/Timeline",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "path": "backend/app/api/v1/activities.py",
+    "description": "Infraestructura base: Timeline de actividades por entidad (polimÃ³rfico). Tipos: comentario, llamada, email, reuniÃ³n, tarea, cambio de estado.",
+    "depends_on": [
+      "auth",
+      "users",
+      "audit"
+    ]
+  },
+  {
+    "key": "tasks",
+    "name": "Sistema de Tareas y Workflows",
+    "type": "core",
+    "category": "productivity",
+    "enabled": true,
+    "path": "backend/app/core/tasks",
+    "description": "Módulo core: gestión de tareas asignables, estados, prioridades, checklists, workflows configurables y aprobaciones. Infraestructura transversal reutilizable por todos los módulos de negocio.",
+    "depends_on": [
+      "auth",
+      "users",
+      "notifications"
+    ]
+  },
+  {
+    "key": "tags",
+    "name": "Sistema de Etiquetas/Tags",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "description": "Infraestructura base: Sistema de tags polimÃ³rfico, categorÃ­as de tags, filtrado y bÃºsqueda por tags, tags automÃ¡ticos.",
+    "depends_on": [
+      "auth",
+      "users"
+    ]
+  },
+  {
+    "key": "search",
+    "name": "Sistema de BÃºsqueda Global",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "description": "Infraestructura base: BÃºsqueda unificada en todas las entidades, Ã­ndices de bÃºsqueda, resultados categorizados, bÃºsqueda inteligente.",
+    "depends_on": [
+      "auth",
+      "users"
+    ]
+  },
+  {
+    "key": "integrations",
+    "name": "Sistema de Integraciones y Webhooks",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "description": "Infraestructura base: API Gateway, webhooks configurables por evento, gestiÃ³n de credenciales, logs de integraciones, reintentos automÃ¡ticos.",
+    "depends_on": [
+      "auth",
+      "users",
+      "notifications"
+    ]
+  },
+  {
+    "key": "calendar",
+    "name": "Sistema de Calendario y Eventos",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "path": "backend/app/api/v1/calendar.py",
+    "description": "Infraestructura base: Calendario unificado, eventos y citas, recordatorios, sincronizaciÃ³n con calendarios externos, disponibilidad de recursos.",
+    "depends_on": [
+      "auth",
+      "users",
+      "notifications"
+    ]
+  },
+  {
+    "key": "import_export",
+    "name": "Sistema de ExportaciÃ³n/ImportaciÃ³n",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "path": "backend/app/api/v1/import_export.py",
+    "description": "Infraestructura base: ExportaciÃ³n a CSV/Excel/PDF, importaciÃ³n masiva con validaciÃ³n, plantillas de importaciÃ³n, mapeo de campos, procesamiento asÃ­ncrono.",
+    "depends_on": [
+      "auth",
+      "users"
+    ]
+  },
+  {
+    "key": "views",
+    "name": "Sistema de Filtros Guardados y Vistas",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "path": "backend/app/api/v1/views.py",
+    "description": "Infraestructura base: Filtros guardados por usuario/mÃ³dulo, vistas personalizadas (columnas, ordenamiento), compartir filtros/vistas, vistas por defecto.",
+    "depends_on": [
+      "auth",
+      "users"
+    ]
+  },
+  {
+    "key": "approvals",
+    "name": "Sistema de Aprobaciones",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "path": "backend/app/api/v1/approvals.py",
+    "description": "Infraestructura base: Flujos de aprobaciÃ³n configurables, mÃºltiples niveles, delegaciÃ³n, notificaciones, historial de aprobaciones.",
+    "depends_on": [
+      "auth",
+      "users",
+      "tasks",
+      "notifications"
+    ]
+  },
+  {
+    "key": "templates",
+    "name": "Sistema de Plantillas/Templates",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "path": "backend/app/api/v1/templates.py",
+    "description": "Infraestructura base: Plantillas de documentos (PDF, HTML), plantillas de emails/SMS, variables dinÃ¡micas, editor visual, versiones de plantillas.",
+    "depends_on": [
+      "auth",
+      "users",
+      "files"
+    ]
+  },
+  {
+    "key": "comments",
+    "name": "Sistema de Comentarios y ColaboraciÃ³n",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "path": "backend/app/api/v1/comments.py",
+    "description": "Infraestructura base: Comentarios en entidades (polimÃ³rfico), menciones de usuarios, notificaciones, ediciÃ³n/eliminaciÃ³n, archivos adjuntos.",
+    "depends_on": [
+      "auth",
+      "users",
+      "files",
+      "notifications"
+    ]
+  },
+  {
+    "key": "products",
+    "name": "CatÃ¡logo de Productos",
+    "type": "business",
+    "category": "catalog",
+    "enabled": false,
+    "description": "Modulo empresarial extraido — instalar via: pip install aiutox-module-products. Se registra automaticamente via entry point 'aiutox.modules'. No es built-in desde Plan C.",
+    "depends_on": [
+      "auth",
+      "users",
+      "pubsub"
+    ],
+    "publishes": [
+      "product.created",
+      "product.updated",
+      "product.deleted"
+    ],
+    "consumes": [],
+    "external": true,
+    "package": "aiutox-module-products",
+    "entry_point": "aiutox_module_products:ProductsModule"
+  },
+  {
+    "key": "inventory",
+    "name": "Inventario Base",
+    "type": "business",
+    "category": "operations",
+    "enabled": false,
+    "description": "MÃ³dulo empresarial: Stock, ubicaciones, ajustes, movimientos. Usa infraestructura base (Reporting, Config, Notificaciones). Publica eventos al bus (inventory.stock_low, inventory.movement.created, etc.).",
+    "depends_on": [
+      "auth",
+      "users",
+      "products",
+      "pubsub"
+    ],
+    "publishes": [
+      "inventory.stock_low",
+      "inventory.movement.created"
+    ],
+    "consumes": [
+      "product.created",
+      "product.updated",
+      "product.deleted"
+    ],
+    "external": true,
+    "package": "aiutox-module-inventory",
+    "entry_point": "aiutox_module_inventory:InventoryModule"
+  },
+  {
+    "key": "crm",
+    "name": "Clientes (CRM)",
+    "type": "business",
+    "category": "sales",
+    "enabled": false,
+    "description": "MÃ³dulo empresarial: Contactos, historial, segmentaciÃ³n, campaÃ±as. Usa infraestructura base (Reporting, Config, Notificaciones). Publica eventos al bus (customer.created, customer.contact.logged, etc.).",
+    "depends_on": [
+      "auth",
+      "users",
+      "pubsub"
+    ],
+    "publishes": [
+      "customer.created",
+      "customer.contact.logged"
+    ],
+    "consumes": [],
+    "external": true,
+    "package": "aiutox-module-crm",
+    "entry_point": "aiutox_module_crm:CrmModule"
+  },
+  {
+    "key": "gamification",
+    "name": "Sistema de GamificaciÃ³n",
+    "type": "core",
+    "category": "infrastructure",
+    "enabled": true,
+    "description": "Infraestructura base: Puntos, niveles, badges, streaks, leaderboards. Sistema transversal que recompensa actividad en cualquier mÃ³dulo.",
+    "depends_on": [
+      "auth",
+      "users",
+      "pubsub",
+      "tasks"
+    ],
+    "publishes": [
+      "gamification.points_added",
+      "gamification.level_up",
+      "gamification.badge_awarded"
+    ],
+    "consumes": [
+      "task.completed",
+      "task.created",
+      "calendar.event_attended"
+    ]
+  },
+  {
+    "key": "billing",
+    "name": "MÃ³dulo de FacturaciÃ³n",
+    "type": "business",
+    "category": "finances",
+    "enabled": false,
+    "description": "MÃ³dulo empresarial: GestiÃ³n de cobros, pagos, planes de pago, tasas de mora, condonaciÃ³n de intereses, cÃ¡lculo de envejecimiento. Usa infraestructura base (PubSub para eventos, Notificaciones, Actividades).",
+    "depends_on": [
+      "auth",
+      "users",
+      "pubsub",
+      "notifications",
+      "activities"
+    ],
+    "publishes": [
+      "billing.charge.created",
+      "billing.payment.recorded",
+      "billing.mora.calculated",
+      "billing.owner_liquidation.generated",
+      "billing.interest.condoned"
+    ],
+    "consumes": [],
+    "external": true,
+    "package": "aiutox-module-billing",
+    "entry_point": "aiutox_module_billing:BillingModule"
+  },
+  {
+    "key": "real_estate",
+    "name": "Real Estate",
+    "type": "business",
+    "category": "real_estate",
+    "enabled": false,
+    "description": "Unified real estate module: property management, lease agreements (Ley 820/2003 Colombia), and maintenance CMMS.",
+    "submodules": [
+      "properties",
+      "leases",
+      "maintenance"
+    ],
+    "depends_on": [
+      "auth",
+      "users",
+      "files",
+      "activities",
+      "templates",
+      "approvals",
+      "pubsub",
+      "notifications",
+      "contacts"
+    ],
+    "publishes": [
+      "building.created",
+      "building.updated",
+      "building.deleted",
+      "property.created",
+      "property.updated",
+      "property.status_changed",
+      "property.deleted",
+      "property_asset.registered",
+      "lease.created",
+      "lease.activated",
+      "lease.terminated",
+      "work_order.created",
+      "work_order.status_changed",
+      "work_order.completed",
+      "work_order.sla_breached",
+      "asset.created",
+      "asset.status_changed",
+      "inspection.completed"
+    ],
+    "consumes": [
+      "lease.activated",
+      "lease.terminated",
+      "billing.charge.created"
+    ],
+    "external": true,
+    "package": "aiutox-module-real-estate",
+    "entry_point": "aiutox_module_real_estate:RealEstateModule"
+  },
+  {
+    "key": "finances",
+    "name": "MÃ³dulo de Finanzas",
+    "type": "business",
+    "category": "finances",
+    "enabled": false,
+    "description": "MÃ³dulo empresarial: Estados financieros (P&L, flujo de caja), perÃ­odos cerrados e inmutables, snapshots mensuales, cuentas de dueÃ±o. Integra datos de FacturaciÃ³n para anÃ¡lisis. Usa infraestructura base (PubSub para eventos, Notificaciones).",
+    "depends_on": [
+      "auth",
+      "users",
+      "pubsub",
+      "notifications",
+      "billing"
+    ],
+    "publishes": [
+      "finances.month_closed",
+      "finances.period.created",
+      "finances.account.updated"
+    ],
+    "consumes": [
+      "billing.payment.recorded",
+      "billing.charge.created"
+    ],
+    "external": true,
+    "package": "aiutox-module-finances",
+    "entry_point": "aiutox_module_finances:FinancesModule"
+  },
+  {
+    "key": "data_collection",
+    "name": "RecolecciÃ³n de Datos",
+    "type": "business",
+    "category": "operations",
+    "enabled": false,
+    "description": "MÃ³dulo empresarial: Constructor de formularios dinÃ¡micos, recolecciÃ³n offline-first con sincronizaciÃ³n, dashboards analÃ­ticos y cifrado E2E. Soporte para formularios mÃ³viles de campo (Field App).",
+    "depends_on": [
+      "auth",
+      "users",
+      "pubsub",
+      "notifications",
+      "activities",
+      "search",
+      "templates",
+      "approvals",
+      "files",
+      "reporting",
+      "tags"
+    ],
+    "publishes": [
+      "form.created",
+      "form.updated",
+      "form.published",
+      "form.archived",
+      "form.version_saved",
+      "form.encryption_enabled",
+      "form.encryption_disabled",
+      "submission.created",
+      "submission.synced",
+      "submission.conflict"
+    ],
+    "consumes": [],
+    "external": true,
+    "package": "aiutox-module-data-collection",
+    "entry_point": "aiutox_module_data_collection:DataCollectionModule"
+  }
+]

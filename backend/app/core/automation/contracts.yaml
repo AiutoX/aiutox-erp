@@ -1,0 +1,12 @@
+apiVersion: v1
+info:
+  title: Automation Module API
+  description: API contracts for automation module
+  version: 1.0.0
+
+endpoints:
+  - summary: Create rule
+  - summary: List rules
+  - summary: Get rule
+  - summary: Update rule
+  - summary: Delete rule

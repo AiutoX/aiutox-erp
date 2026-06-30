@@ -1,0 +1,205 @@
+# Tags Module Service Contracts
+
+contracts:
+  - id: "tag.create"
+    service: "TagService.create_tag"
+    input:
+      name: string (required)
+      tenant_id: UUID (required)
+      color: string (optional, hex format)
+      description: string (optional)
+      category_id: UUID (optional)
+    output: Tag
+    side_effects:
+      - publishes event "tag.created"
+      - requires permission "tags.write"
+    errors:
+      - ValueError if tag name already exists for tenant
+      - IntegrityError on DB constraint violation
+
+  - id: "tag.read"
+    service: "TagService.get_tag"
+    input:
+      tag_id: UUID (required)
+      tenant_id: UUID (required)
+    output: Tag | None
+    side_effects:
+      - requires permission "tags.read"
+      - only returns active tags
+    errors:
+      - None if tag not found
+
+  - id: "tag.list"
+    service: "TagService.get_all_tags"
+    input:
+      tenant_id: UUID (required)
+      category_id: UUID (optional)
+    output: list[Tag]
+    side_effects:
+      - requires permission "tags.read"
+      - only returns active tags
+      - ordered by name
+
+  - id: "tag.update"
+    service: "TagService.update_tag"
+    input:
+      tag_id: UUID (required)
+      tenant_id: UUID (required)
+      name: string (optional)
+      color: string (optional)
+      description: string (optional)
+      category_id: UUID (optional)
+    output: Tag | None
+    side_effects:
+      - publishes event "tag.updated"
+      - requires permission "tags.write"
+      - updates timestamp
+    errors:
+      - None if tag not found
+
+  - id: "tag.delete"
+    service: "TagService.delete_tag"
+    input:
+      tag_id: UUID (required)
+      tenant_id: UUID (required)
+    output: bool (success)
+    side_effects:
+      - soft delete via is_active flag
+      - publishes event "tag.deleted"
+      - requires permission "tags.delete"
+      - cascades delete to entity_tags
+    errors:
+      - False if tag not found
+
+  - id: "entity_tag.apply"
+    service: "TagService.add_tag_to_entity"
+    input:
+      tag_id: UUID (required)
+      entity_type: string (required)
+      entity_id: UUID (required)
+      tenant_id: UUID (required)
+    output: EntityTag
+    side_effects:
+      - publishes event "tag.applied"
+      - requires permission "tags.write"
+      - polymorphic: no FK to specific entity table
+    errors:
+      - ValueError if tag not found
+      - ValueError if entity already has tag
+      - IntegrityError on unique constraint violation
+
+  - id: "entity_tag.remove"
+    service: "TagService.remove_tag_from_entity"
+    input:
+      tag_id: UUID (required)
+      entity_type: string (required)
+      entity_id: UUID (required)
+      tenant_id: UUID (required)
+    output: bool (success)
+    side_effects:
+      - publishes event "tag.removed"
+      - requires permission "tags.delete"
+    errors:
+      - False if relationship not found
+
+  - id: "entity_tag.get_for_entity"
+    service: "TagService.get_entity_tags"
+    input:
+      entity_type: string (required)
+      entity_id: UUID (required)
+      tenant_id: UUID (required)
+    output: list[Tag]
+    side_effects:
+      - requires permission "tags.read"
+      - only returns active tags
+    errors:
+      - Empty list if entity has no tags
+
+  - id: "tag.search"
+    service: "TagService.search_tags"
+    input:
+      tenant_id: UUID (required)
+      query: string (required)
+    output: list[Tag]
+    side_effects:
+      - requires permission "tags.read"
+      - case-insensitive LIKE search on name
+      - only searches active tags
+    errors:
+      - Empty list if no matches
+
+events:
+  tag.created:
+    triggers: ["TagService.create_tag"]
+    payload:
+      tag_id: UUID
+      tenant_id: UUID
+      name: string
+    subscribers:
+      - ActivityService (logs creation)
+      - NotificationService (optional)
+
+  tag.updated:
+    triggers: ["TagService.update_tag"]
+    payload:
+      tag_id: UUID
+      tenant_id: UUID
+      changes: dict
+    subscribers:
+      - ActivityService (logs updates)
+
+  tag.deleted:
+    triggers: ["TagService.delete_tag"]
+    payload:
+      tag_id: UUID
+      tenant_id: UUID
+    subscribers:
+      - ActivityService (logs deletion)
+
+  tag.applied:
+    triggers: ["TagService.add_tag_to_entity"]
+    payload:
+      tag_id: UUID
+      entity_type: string
+      entity_id: UUID
+      tenant_id: UUID
+    subscribers:
+      - ActivityService (logs application)
+      - NotificationService (optional)
+
+  tag.removed:
+    triggers: ["TagService.remove_tag_from_entity"]
+    payload:
+      tag_id: UUID
+      entity_type: string
+      entity_id: UUID
+      tenant_id: UUID
+    subscribers:
+      - ActivityService (logs removal)
+
+permissions:
+  tags.read:
+    description: "View tags and tag relationships"
+    operations: ["get_tag", "list_tags", "search_tags", "get_entity_tags"]
+
+  tags.write:
+    description: "Create, apply and update tags"
+    operations: ["create_tag", "update_tag", "add_tag_to_entity"]
+    implies: ["tags.read"]
+
+  tags.delete:
+    description: "Remove tags and tag relationships"
+    operations: ["delete_tag", "remove_tag_from_entity"]
+    implies: ["tags.read"]
+
+  tags.admin:
+    description: "Administer tags module (all permissions)"
+    implies: ["tags.read", "tags.write", "tags.delete"]
+
+constraints:
+  - Tag names are unique per tenant (unique constraint)
+  - Entity-tag relationships are unique (no duplicate tags per entity)
+  - All operations are tenant-isolated via tenant_id
+  - EntityTag is polymorphic: no FK to specific entity tables
+  - Tag deletion is soft via is_active flag
+  - Tags cannot be applied to non-existent entities (application responsibility)

@@ -1,0 +1,81 @@
+{
+  "module_id": "reporting",
+  "module_type": "core",
+  "name": "Reporting",
+  "description": "Dynamic reporting engine with pluggable data sources",
+  "version": "1.0.0",
+  "status": "production",
+  "maturity_score": 95,
+  "components": {
+    "base": {
+      "description": "BaseDataSource Protocol for extensible data sources",
+      "status": "stable"
+    },
+    "registry": {
+      "description": "DataSourceRegistry singleton for managing datasources",
+      "status": "stable"
+    },
+    "engine": {
+      "description": "ReportingEngine for orchestrating report generation",
+      "status": "stable"
+    },
+    "datasources": {
+      "billing": {
+        "description": "BillingDataSource for charges and payments",
+        "status": "stable"
+      },
+      "finances": {
+        "description": "FinancesDataSource for financial periods and documents",
+        "status": "stable"
+      }
+    },
+    "events": {
+      "description": "ReportingEventPublisher for PubSub events",
+      "events": ["report.generated", "report.failed"],
+      "status": "stable"
+    },
+    "permissions": {
+      "description": "RBAC permissions (read, run, admin)",
+      "status": "stable"
+    }
+  },
+  "dependencies": {
+    "internal": ["billing", "finances", "pubsub", "auth"],
+    "external": ["sqlalchemy", "pydantic", "fastapi"]
+  },
+  "interfaces": {
+    "http": {
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/reports/datasources",
+          "permission": "reporting.read"
+        },
+        {
+          "method": "POST",
+          "path": "/reports/run",
+          "permission": "reporting.run"
+        }
+      ]
+    }
+  },
+  "extension_points": {
+    "datasources": "Implement BaseDataSource protocol and register with DataSourceRegistry"
+  },
+  "testing": {
+    "coverage_target": 80,
+    "test_suites": ["unit", "integration"],
+    "status": "implemented"
+  },
+  "performance": {
+    "typical_query_time_ms": 500,
+    "max_rows_per_report": 100000,
+    "caching": "enabled_by_default"
+  },
+  "changelog": {
+    "1.0.0": {
+      "date": "2026-03-14",
+      "changes": "Initial implementation with billing and finances datasources"
+    }
+  }
+}

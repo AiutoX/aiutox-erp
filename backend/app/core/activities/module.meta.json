@@ -1,0 +1,25 @@
+{
+  "id": "activities",
+  "name": "Gestión de Actividades",
+  "type": "core",
+  "category": "timeline",
+  "description": "Sistema de auditoría y timeline de actividades con soporte polimórfico (entity_type + entity_id). Registra todas las actividades de usuarios sobre entidades.",
+  "version": "1.0.0",
+  "depends_on": [
+    "auth",
+    "users",
+    "pubsub"
+  ],
+  "publishes": [
+    "activity.created",
+    "activity.deleted"
+  ],
+  "consumes": [],
+  "permissions": [
+    "activities.read",
+    "activities.write",
+    "activities.delete",
+    "activities.admin"
+  ],
+  "score": 100
+}

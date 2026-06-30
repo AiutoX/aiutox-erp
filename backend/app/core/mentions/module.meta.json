@@ -1,0 +1,128 @@
+{
+  "name": "mentions",
+  "version": "1.0.0",
+  "description": "Polymorphic mention system for @user mentions across entities (comments, tasks, activities, etc.)",
+  "type": "core",
+  "phase": 2,
+  "status": "in_progress",
+  "maturity": "alpha",
+  "dependencies": [
+    "auth",
+    "pubsub",
+    "notifications",
+    "events"
+  ],
+  "models": [
+    {
+      "name": "Mention",
+      "table": "mentions",
+      "description": "Represents a @user mention in a polymorphic entity",
+      "fields": [
+        {
+          "name": "id",
+          "type": "UUID",
+          "description": "Primary key"
+        },
+        {
+          "name": "tenant_id",
+          "type": "UUID",
+          "description": "Tenant isolation"
+        },
+        {
+          "name": "user_id",
+          "type": "UUID",
+          "description": "ID of the mentioned user"
+        },
+        {
+          "name": "mencionable_type",
+          "type": "String(50)",
+          "description": "Type of entity being mentioned in (comment, task, activity, etc.)"
+        },
+        {
+          "name": "mencionable_id",
+          "type": "UUID",
+          "description": "ID of the entity being mentioned in"
+        },
+        {
+          "name": "resolved",
+          "type": "Boolean",
+          "description": "Whether the mention has been acknowledged/resolved"
+        },
+        {
+          "name": "notification_sent",
+          "type": "Boolean",
+          "description": "Whether notification was sent to mentioned user"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP",
+          "description": "Creation timestamp"
+        },
+        {
+          "name": "resolved_at",
+          "type": "TIMESTAMP",
+          "description": "Resolution timestamp (nullable)"
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP",
+          "description": "Last update timestamp"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "mention.created",
+      "description": "Emitted when a mention is created"
+    },
+    {
+      "name": "mention.resolved",
+      "description": "Emitted when a mention is resolved/acknowledged"
+    }
+  ],
+  "permissions": [
+    "mentions.read",
+    "mentions.write",
+    "mentions.delete",
+    "mentions.admin"
+  ],
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/api/mentions",
+      "description": "Create a mention",
+      "permission": "mentions.write"
+    },
+    {
+      "method": "GET",
+      "path": "/api/mentions/user",
+      "description": "Get mentions for current user",
+      "permission": "mentions.read"
+    },
+    {
+      "method": "GET",
+      "path": "/api/mentions/user/unresolved",
+      "description": "Get unresolved mentions for current user",
+      "permission": "mentions.read"
+    },
+    {
+      "method": "GET",
+      "path": "/api/mentions/entity/{mencionable_type}/{mencionable_id}",
+      "description": "Get mentions for an entity",
+      "permission": "mentions.read"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/mentions/{mention_id}/resolve",
+      "description": "Resolve a mention",
+      "permission": "mentions.write"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/mentions/{mention_id}",
+      "description": "Delete a mention",
+      "permission": "mentions.delete"
+    }
+  ]
+}

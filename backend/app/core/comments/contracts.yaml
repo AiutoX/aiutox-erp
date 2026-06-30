@@ -1,0 +1,13 @@
+apiVersion: v1
+info:
+  title: Comments Module API
+  description: API contracts for comments module
+  version: 1.0.0
+
+endpoints:
+  - summary: Create comment
+  - summary: List comments
+  - summary: Get comment
+  - summary: Update comment
+  - summary: Delete comment
+  - summary: Get replies

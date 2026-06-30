@@ -1,0 +1,49 @@
+{
+  "module": "calendar",
+  "version": "1.0.0",
+  "status": "stable",
+  "description": "Calendar and event management with multi-tenant support",
+  "layer": "core",
+  "depends_on": ["auth", "notifications"],
+  "provides": {
+    "services": [
+      "CalendarService",
+      "ReminderService",
+      "CalendarResourceService",
+      "CalendarSyncService"
+    ],
+    "events": [
+      "calendar.created",
+      "calendar.updated",
+      "calendar.deleted",
+      "calendar.event.created",
+      "calendar.event.updated",
+      "calendar.event.deleted",
+      "calendar.event.status_changed",
+      "calendar.attendee.added",
+      "calendar.attendee.removed"
+    ],
+    "permissions": [
+      "calendar.read",
+      "calendar.write",
+      "calendar.delete",
+      "calendar.admin"
+    ],
+    "endpoints": [
+      "GET /api/v1/calendar/",
+      "POST /api/v1/calendar/",
+      "GET /api/v1/calendar/{id}",
+      "PUT /api/v1/calendar/{id}",
+      "DELETE /api/v1/calendar/{id}",
+      "GET /api/v1/calendar/{id}/events",
+      "POST /api/v1/calendar/{id}/events",
+      "GET /api/v1/calendar/{id}/events/{event_id}",
+      "PUT /api/v1/calendar/{id}/events/{event_id}",
+      "DELETE /api/v1/calendar/{id}/events/{event_id}"
+    ]
+  },
+  "tests": {
+    "unit": "tests/core/calendar/test_calendar_service.py",
+    "integration": "tests/core/calendar/test_calendar_integration.py"
+  }
+}

@@ -1,0 +1,170 @@
+apiVersion: v1
+info:
+  title: Import/Export Module API
+  description: API contracts for import/export operations
+  version: 1.0.0
+
+endpoints:
+  # Import Operations
+  - method: POST
+    path: /import-export/import/jobs
+    summary: Create import job
+    permission: import_export.write
+    request:
+      content_type: multipart/form-data
+      fields:
+        - name: file
+          type: file
+          required: true
+          description: CSV or Excel file to import
+        - name: template_id
+          type: UUID
+          required: false
+          description: Template ID for mapping columns
+    response:
+      status: 201
+      schema: ImportJobResponse
+      fields:
+        - id: UUID
+        - status: string (pending, processing, completed, failed)
+        - filename: string
+        - total_rows: integer
+        - processed_rows: integer
+        - error_rows: integer
+        - created_at: timestamp
+
+  - method: GET
+    path: /import-export/import/jobs
+    summary: List import jobs
+    permission: import_export.read
+    query_params:
+      - name: skip
+        type: integer
+        default: 0
+        description: Pagination offset
+      - name: limit
+        type: integer
+        default: 50
+        description: Pagination limit
+      - name: status
+        type: string
+        required: false
+        description: Filter by status (pending, processing, completed, failed)
+    response:
+      status: 200
+      schema: ImportJobListResponse
+      fields:
+        - items: array[ImportJobResponse]
+        - total: integer
+        - skip: integer
+        - limit: integer
+
+  - method: GET
+    path: /import-export/import/jobs/{job_id}
+    summary: Get import job details
+    permission: import_export.read
+    path_params:
+      - name: job_id
+        type: UUID
+        required: true
+    response:
+      status: 200
+      schema: ImportJobResponse
+
+  - method: GET
+    path: /import-export/import/jobs/{job_id}/errors
+    summary: Get import job errors
+    permission: import_export.read
+    path_params:
+      - name: job_id
+        type: UUID
+        required: true
+    response:
+      status: 200
+      fields:
+        - errors: array[object]
+          - row: integer
+          - column: string
+          - value: string
+          - error_message: string
+
+  # Export Operations
+  - method: POST
+    path: /import-export/export/jobs
+    summary: Create export job
+    permission: import_export.write
+    request:
+      schema: ExportJobCreateRequest
+      fields:
+        - entity_type: string (required) - e.g., 'products', 'orders'
+        - format: string (required) - 'csv' or 'excel'
+        - filters: object (optional) - filters to apply
+        - columns: array[string] (optional) - specific columns to export
+    response:
+      status: 201
+      schema: ExportJobResponse
+
+  - method: GET
+    path: /import-export/export/jobs
+    summary: List export jobs
+    permission: import_export.read
+    query_params:
+      - name: skip
+        type: integer
+        default: 0
+      - name: limit
+        type: integer
+        default: 50
+    response:
+      status: 200
+      schema: ExportJobListResponse
+
+  - method: GET
+    path: /import-export/export/jobs/{job_id}/download
+    summary: Download export file
+    permission: import_export.read
+    path_params:
+      - name: job_id
+        type: UUID
+        required: true
+    response:
+      status: 200
+      content_type: application/octet-stream
+
+  # Templates
+  - method: GET
+    path: /import-export/templates
+    summary: List import templates
+    permission: import_export.read
+    response:
+      status: 200
+      schema: ImportTemplateListResponse
+
+  - method: POST
+    path: /import-export/templates
+    summary: Create import template
+    permission: import_export.write
+    request:
+      schema: ImportTemplateCreateRequest
+      fields:
+        - name: string (required)
+        - entity_type: string (required)
+        - column_mappings: object (required) - maps file columns to entity fields
+        - validation_rules: object (optional)
+    response:
+      status: 201
+      schema: ImportTemplateResponse
+
+events:
+  - name: import.started
+    description: Import job started
+  - name: import.completed
+    description: Import job completed successfully
+  - name: import.failed
+    description: Import job failed
+  - name: export.started
+    description: Export job started
+  - name: export.completed
+    description: Export job completed successfully
+  - name: export.failed
+    description: Export job failed

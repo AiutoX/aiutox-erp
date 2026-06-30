@@ -1,0 +1,304 @@
+{
+  "name": "tasks",
+  "version": "1.0.0",
+  "display_name": "Task Management",
+  "display_name_es": "Gestión de Tareas",
+  "description": "Comprehensive task and workflow management system with multi-module integration",
+  "description_es": "Sistema integral de gestión de tareas e integraciones con múltiples módulos",
+  "maturity_score": 100,
+  "status": "production",
+  "phase": 5,
+  "last_updated": "2026-03-07T00:00:00Z",
+
+  "permissions": [
+    {
+      "code": "task.read",
+      "description": "View tasks and task details",
+      "description_es": "Ver tareas y sus detalles",
+      "resource": "task",
+      "action": "read"
+    },
+    {
+      "code": "task.write",
+      "description": "Create and update tasks",
+      "description_es": "Crear y actualizar tareas",
+      "resource": "task",
+      "action": "write"
+    },
+    {
+      "code": "task.delete",
+      "description": "Delete tasks (soft and hard delete)",
+      "description_es": "Eliminar tareas",
+      "resource": "task",
+      "action": "delete"
+    },
+    {
+      "code": "task.admin",
+      "description": "Administer all task operations, including bulk operations and system settings",
+      "description_es": "Administrar todas las operaciones de tareas",
+      "resource": "task",
+      "action": "admin"
+    }
+  ],
+
+  "events": [
+    "task.created",
+    "task.updated",
+    "task.deleted",
+    "task.status_changed",
+    "task.completed",
+    "task.cancelled",
+    "task.assigned",
+    "task.unassigned",
+    "task.comment_added",
+    "task.comment_updated",
+    "task.comment_deleted",
+    "task.user_mentioned",
+    "task.file_attached",
+    "task.file_removed",
+    "task.due_soon",
+    "task.overdue",
+    "task.calendar_synced",
+    "task.calendar_unsynced",
+    "task.calendar_updated",
+    "task.dependency.added"
+  ],
+
+  "dependencies": {
+    "modules": [
+      {
+        "name": "files",
+        "reason": "Tasks can have attached files",
+        "reason_es": "Las tareas pueden tener archivos adjuntos",
+        "events_consumed": [
+          "file.uploaded",
+          "file.deleted",
+          "file.renamed"
+        ],
+        "events_produced": [
+          "task.file_attached",
+          "task.file_removed"
+        ]
+      },
+      {
+        "name": "approvals",
+        "reason": "Tasks can require approval workflows",
+        "reason_es": "Las tareas pueden requerir flujos de aprobación",
+        "events_consumed": [
+          "approval.approved",
+          "approval.rejected",
+          "approval.pending"
+        ]
+      },
+      {
+        "name": "comments",
+        "reason": "Tasks support threaded discussions",
+        "reason_es": "Las tareas permiten discusiones encadenadas",
+        "events_consumed": [
+          "comment.created",
+          "comment.updated",
+          "comment.deleted",
+          "user.mentioned"
+        ],
+        "events_produced": [
+          "task.comment_added",
+          "task.comment_updated",
+          "task.comment_deleted",
+          "task.user_mentioned"
+        ]
+      },
+      {
+        "name": "notifications",
+        "reason": "Tasks trigger real-time notifications",
+        "reason_es": "Las tareas generan notificaciones en tiempo real",
+        "events_consumed": [
+          "notification.sent",
+          "notification.read"
+        ],
+        "events_produced": [
+          "task.assigned",
+          "task.overdue",
+          "task.due_soon"
+        ]
+      },
+      {
+        "name": "users",
+        "reason": "Tasks are assigned to and created by users",
+        "reason_es": "Las tareas son asignadas a usuarios",
+        "optional": false
+      },
+      {
+        "name": "tenants",
+        "reason": "Task isolation and multi-tenancy support",
+        "reason_es": "Aislamiento de tareas y soporte multi-inquilino",
+        "optional": false
+      }
+    ]
+  },
+
+  "features": {
+    "core": [
+      "CRUD operations (Create, Read, Update, Delete)",
+      "Task status workflow with custom status definitions",
+      "Priority levels (Low, Medium, High, Urgent)",
+      "Task types (Generic, Deadline, Meeting, Approval, Review, Bug, Feature, etc.)",
+      "Soft delete with audit trail"
+    ],
+    "assignments": [
+      "Single and multiple task assignments",
+      "Bulk assignment operations",
+      "Assignment history tracking"
+    ],
+    "scheduling": [
+      "Start date, due date, end date management",
+      "All-day event support",
+      "Recurring tasks (recurrence rules)",
+      "Task reminders with configurable timing"
+    ],
+    "organization": [
+      "Subtasks with hierarchy validation",
+      "Task templates for quick creation",
+      "Custom tags per task",
+      "Metadata storage (JSONB)",
+      "Color override for visual organization"
+    ],
+    "dependencies": [
+      "Task dependency tracking",
+      "Dependency types (blocks, requires, extends)",
+      "Circular dependency prevention"
+    ],
+    "collaboration": [
+      "Threaded comments with mentions",
+      "File attachments and resources",
+      "Task history/audit trail",
+      "Real-time event publishing"
+    ],
+    "integration": [
+      "Calendar sync integration",
+      "Webhook support",
+      "Multi-module source linking",
+      "Workflow integration"
+    ],
+    "analytics": [
+      "Task statistics (total, completed, overdue)",
+      "Completion trends",
+      "User productivity metrics",
+      "Custom status analytics"
+    ]
+  },
+
+  "endpoints": {
+    "total_count": 40,
+    "by_category": {
+      "core": 5,
+      "status": 8,
+      "assignments": 6,
+      "checklist": 8,
+      "comments": 6,
+      "dependencies": 4,
+      "files": 6,
+      "tags": 4,
+      "calendar": 4,
+      "analytics": 6,
+      "preferences": 2,
+      "other": 1
+    }
+  },
+
+  "database": {
+    "tables": [
+      "tasks",
+      "task_statuses",
+      "task_templates",
+      "task_dependencies",
+      "task_resources",
+      "task_assignments",
+      "task_checklist_items",
+      "task_reminders",
+      "task_recurrence",
+      "task_comments",
+      "task_files",
+      "task_tags",
+      "entity_tags"
+    ],
+    "migrations_count": 5,
+    "last_migration": "2026-03-07"
+  },
+
+  "testing": {
+    "unit_tests": true,
+    "integration_tests": true,
+    "coverage_target": 80,
+    "coverage_actual": 85,
+    "test_files": [
+      "backend/tests/unit/tasks/test_service.py",
+      "backend/tests/unit/tasks/test_router.py",
+      "backend/tests/unit/tasks/test_events.py",
+      "backend/tests/integration/tasks/test_workflow.py"
+    ]
+  },
+
+  "documentation": {
+    "api_docs": true,
+    "user_guide": true,
+    "developer_guide": true,
+    "architecture_diagram": true,
+    "docs_location": "docs/40-modules/tasks.md"
+  },
+
+  "performance": {
+    "caching": {
+      "enabled": true,
+      "strategy": "redis",
+      "ttl_seconds": 300
+    },
+    "indexing": [
+      "tenant_id",
+      "status",
+      "priority",
+      "assigned_to_id",
+      "due_date",
+      "created_at",
+      "source_module"
+    ],
+    "pagination_default_size": 50,
+    "pagination_max_size": 200
+  },
+
+  "security": {
+    "rbac_enabled": true,
+    "permissions_count": 4,
+    "audit_trail": true,
+    "data_encryption": "at_rest",
+    "sensitive_fields": []
+  },
+
+  "configuration": {
+    "settings_prefix": "tasks.",
+    "settings_keys": [
+      "tasks.enable_comments",
+      "tasks.enable_files",
+      "tasks.enable_reminders",
+      "tasks.enable_checklist",
+      "tasks.enable_dependencies",
+      "tasks.enable_templates",
+      "tasks.enable_tags",
+      "tasks.enable_history",
+      "tasks.allow_bulk_operations",
+      "tasks.max_file_size",
+      "tasks.max_tags_per_task",
+      "tasks.max_checklist_items",
+      "tasks.max_assignees_per_task"
+    ]
+  },
+
+  "health_check": {
+    "enabled": true,
+    "endpoint": "/health/tasks",
+    "checks": [
+      "database_connectivity",
+      "redis_connectivity",
+      "event_publisher_status"
+    ]
+  }
+}

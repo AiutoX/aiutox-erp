@@ -1,0 +1,77 @@
+{
+  "maintenance": {
+    "common": {
+      "property": "Property",
+      "billable": "Billable"
+    },
+    "workOrder": {
+      "create": "Create Work Order",
+      "edit": "Edit Work Order",
+      "fields": {
+        "titulo": "Title",
+        "descripcion": "Description",
+        "notas": "Notes",
+        "estimatedCost": "Estimated Cost",
+        "totalCost": "Total Cost",
+        "billedTo": "Billed To",
+        "sla": "SLA Due",
+        "fotosInspeccion": "Inspection Photos",
+        "fotosTrabajo": "Work Photos",
+        "photos": "Photos",
+        "reports": "Stage Reports",
+        "by": "By"
+      },
+      "stages": {
+        "inspection": "Inspection",
+        "execution": "Execution",
+        "approval": "Approval"
+      },
+      "tipo": {
+        "label": "Type",
+        "corrective": "Corrective",
+        "preventive": "Preventive",
+        "inspection": "Inspection",
+        "emergency": "Emergency"
+      },
+      "prioridad": {
+        "label": "Priority",
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High",
+        "critical": "Critical"
+      },
+      "status": {
+        "borrador": "Draft",
+        "asignada": "Assigned",
+        "en_progreso": "In Progress",
+        "en_revision": "In Review",
+        "completada": "Completed",
+        "cancelada": "Cancelled"
+      },
+      "billedTo": {
+        "owner": "Owner",
+        "tenant": "Tenant"
+      },
+      "actions": {
+        "assign": "Assign",
+        "startWork": "Start Work",
+        "sendToApproval": "Send to Approval",
+        "complete": "Complete",
+        "cancel": "Cancel",
+        "addPhoto": "Add Photo"
+      },
+      "transitions": {
+        "fotosDespuesRequired": "After-work photos are required to send for approval",
+        "photosRequired": "Required photos are missing"
+      },
+      "messages": {
+        "uploadPhotoError": "Failed to upload photo. Please try again.",
+        "noReportYet": "No report has been added for this stage yet."
+      },
+      "validation": {
+        "titleRequired": "Title is required",
+        "propertyRequired": "Property is required"
+      }
+    }
+  }
+}

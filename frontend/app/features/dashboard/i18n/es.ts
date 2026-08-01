@@ -1,0 +1,57 @@
+export const translations = {
+  dashboard: {
+    title: "Dashboard",
+    description: "Panel principal de AiutoX ERP",
+    welcome: "Bienvenido",
+    welcomeDescription: "Panel principal del sistema",
+    comingSoon: "El contenido del dashboard se implementará próximamente",
+    configure: "Personalizar",
+    configureWidgets: "Widgets del Dashboard",
+    resetDefaults: "Restaurar predeterminados",
+    errorLoading: "Error al cargar el dashboard",
+    noData: "Sin datos disponibles",
+    widgets: {
+      realEstate: "Bienes Raíces",
+      realEstateDesc: "Ocupación, cartera aging, contratos por vencer",
+      financial: "Financiero",
+      financialDesc: "P&G mensual, flujo de caja, top rentables",
+      cmms: "Mantenimiento",
+      cmmsDesc: "OTs por estado, MTTR, activos con fallas",
+    },
+
+    realEstate: {
+      title: "Dashboard Inmobiliario",
+      ocupacionTitle: "Ocupación de inmuebles",
+      agingTitle: "Cartera vencida (aging)",
+      contratosTitle: "Contratos por vencer",
+      otsCriticasTitle: "Órdenes de trabajo críticas / altas",
+      total: "inmuebles",
+      ocupados: "Ocupados",
+      disponibles: "Disponibles",
+      mantenimiento: "En mantenimiento",
+      otros: "Otros",
+    },
+
+    financial: {
+      title: "Dashboard Financiero",
+      plTitle: "P&L mes actual",
+      ingresos: "Ingresos",
+      egresos: "Egresos",
+      neto: "Resultado neto",
+      flujoCajaTitle: "Flujo de caja",
+      topRentablesTitle: "Top 5 inmuebles por ingresos",
+      topMorososTitle: "Top 5 morosos",
+    },
+
+    cmms: {
+      title: "Dashboard CMMS",
+      otsByStatusTitle: "OTs por estado",
+      mttrTitle: "MTTR últimos 6 meses",
+      mttrLabel: "Horas promedio",
+      pmTitle: "Cumplimiento PM",
+      pmDescription: "% órdenes preventivas completadas a tiempo",
+      topAssetsTitle: "Top activos con más fallas",
+      failures: "fallas",
+    },
+  },
+};

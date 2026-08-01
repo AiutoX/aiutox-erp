@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "aiutox://events/core/module_installed/1.0.0",
+  "title": "core.module.installed",
+  "description": "Published when a module is successfully installed for a tenant",
+  "type": "object",
+  "required": [
+    "module",
+    "tenant_id",
+    "version",
+    "tier"
+  ],
+  "properties": {
+    "module": {
+      "type": "string",
+      "description": "Module identifier (e.g., 'products', 'maintenance')"
+    },
+    "tenant_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Tenant ID"
+    },
+    "version": {
+      "type": "string",
+      "description": "Module version (semver)"
+    },
+    "tier": {
+      "type": "string",
+      "enum": [
+        "basic",
+        "pro",
+        "enterprise"
+      ],
+      "description": "Tier level"
+    }
+  },
+  "additionalProperties": true
+}

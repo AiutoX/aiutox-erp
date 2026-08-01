@@ -1,0 +1,27 @@
+{
+  "id": "approvals",
+  "name": "Gestión de Aprobaciones",
+  "type": "core",
+  "category": "workflow",
+  "description": "Sistema de gestión de aprobaciones con workflow states (pending → approved|rejected|cancelled). Soporta aprobaciones monetarias, polimórficas y con RBAC granular.",
+  "version": "1.0.0",
+  "depends_on": [
+    "auth",
+    "users",
+    "pubsub"
+  ],
+  "publishes": [
+    "approval.requested",
+    "approval.approved",
+    "approval.rejected",
+    "approval.cancelled"
+  ],
+  "consumes": [],
+  "permissions": [
+    "approvals.read",
+    "approvals.write",
+    "approvals.approve",
+    "approvals.admin"
+  ],
+  "score": 100
+}

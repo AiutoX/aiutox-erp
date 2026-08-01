@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#023E87" />
+    <title>AiutoX Field — Recolección de Datos</title>
+    <link rel="manifest" href="/field/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/field/icons/field-192.png" />
+  </head>
+  <body>
+    <div id="field-root"></div>
+    <script type="module" src="./main.tsx"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("/field/sw.js", {
+            scope: "/field/",
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

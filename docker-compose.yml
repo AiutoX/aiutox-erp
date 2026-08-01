@@ -1,0 +1,189 @@
+# ============================================================================
+# AiutoX ERP – docker-compose.yml (único archivo, perfiles dev / prod / ops)
+# ----------------------------------------------------------------------------
+# Uso:
+#   dev local:    docker compose --profile dev up --build
+#   prod local:   docker compose --profile prod up --build
+#   herramientas: docker compose --profile ops up -d
+#   Coolify:      usa docker-compose.coolify.yml (override mínimo sobre este)
+#
+# Variables: backend/.env.docker  (fuente canónica para Docker)
+# ============================================================================
+
+services:
+
+  # ── Infraestructura compartida (sin perfil = siempre activa) ─────────────
+  db:
+    image: pgvector/pgvector:pg17
+    container_name: aiutox_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "15432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    command: postgres -c max_locks_per_transaction=256
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: aiutox_redis
+    restart: unless-stopped
+    command: >
+      sh -c "redis-server --appendonly yes --appendfsync everysec $${REDIS_PASSWORD:+--requirepass $$REDIS_PASSWORD}"
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+
+  # ── Backend dev (hot-reload, código montado como volumen) ─────────────────
+  backend-dev:
+    profiles: [dev]
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: aiutox_backend_dev
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env.docker
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      REDIS_URL: redis://:${REDIS_PASSWORD:-}@redis:6379/0
+      FRONTEND_URL: http://localhost:5173
+      CORS_ORIGINS: http://localhost:5173,http://127.0.0.1:5173,http://frontend-dev:5173
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    volumes:
+      - ./backend:/app
+      - /app/.venv
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/healthz', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # ── Backend prod (imagen compilada, entrypoint: alembic + seeds + uvicorn) ─
+  backend:
+    profiles: [prod]
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: aiutox_backend
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env.docker
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      REDIS_URL: redis://:${REDIS_PASSWORD:-}@redis:6379/0
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/healthz', timeout=3)"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 45s
+
+  # ── Frontend dev (Vite hot-reload) ────────────────────────────────────────
+  frontend-dev:
+    profiles: [dev]
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: development-dependencies-env
+    container_name: aiutox_frontend_dev
+    restart: unless-stopped
+    environment:
+      VITE_API_BASE_URL: http://localhost:8000/api/v1
+      VITE_WS_URL: ws://localhost:8000/ws
+      VITE_PUBLIC_URL: http://localhost:5173
+    ports:
+      - "${FRONTEND_PORT:-5173}:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      backend-dev:
+        condition: service_healthy
+    command: npm run dev -- --host 0.0.0.0 --port 5173
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "--quiet", "http://localhost:5173/@vite/client"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  # ── Frontend prod (nginx + build estático + proxy /api → backend) ─────────
+  frontend:
+    profiles: [prod]
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: production
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-/api/v1}
+        VITE_WS_URL: ${VITE_WS_URL:-/ws}
+        VITE_PUBLIC_URL: ${VITE_PUBLIC_URL:-}
+    container_name: aiutox_frontend
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-80}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "--quiet", "http://localhost/healthz"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  # ── Herramientas opcionales (perfil ops) ──────────────────────────────────
+  pgadmin:
+    profiles: [ops]
+    image: dpage/pgadmin4:latest
+    container_name: aiutox_pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
+    ports:
+      - "8888:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+  redisdata:
+  pgadmin_data:

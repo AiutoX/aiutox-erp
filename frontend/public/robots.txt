@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin
+Disallow: /api
+Disallow: /config
+Disallow: /_next
+Disallow: /.env
+Allow: /
+Sitemap: https://erp.app.aiutox.com/sitemap.xml

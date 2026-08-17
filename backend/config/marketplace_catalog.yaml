@@ -1,0 +1,194 @@
+# Marketplace catalog — source of truth for all available modules.
+# Each entry is validated against ModuleCatalogEntry on startup.
+modules:
+  - module_id: crm
+    name: CRM
+    description: Manage customers, leads, and the full sales pipeline. Track interactions, assign leads, and monitor pipeline health.
+    category: sales
+    icon: ContactBook
+    available_tiers:
+      - basic
+      - pro
+      - enterprise
+    pricing:
+      basic:
+        monthly_usd: 0
+        annual_usd: 0
+        description: Up to 500 contacts, basic pipeline
+      pro:
+        monthly_usd: 49
+        annual_usd: 470
+        description: Unlimited contacts, advanced pipeline, automations
+      enterprise:
+        monthly_usd: 149
+        annual_usd: 1430
+        description: Everything in Pro + CRM Pipeline insights widget
+    screenshots: []
+    features_by_tier:
+      basic:
+        - Contact management (up to 500)
+        - Lead tracking
+        - Basic pipeline view
+      pro:
+        - Unlimited contacts
+        - Advanced pipeline stages
+        - Lead assignment automations
+        - Activity timeline
+      enterprise:
+        - Everything in Pro
+        - CRM Pipeline leadership widget
+        - API access
+    tags:
+      - sales
+      - leads
+      - pipeline
+
+  - module_id: maintenance
+    name: Maintenance (CMMS)
+    description: Full computerized maintenance management system. Work orders, preventive maintenance, asset tracking, and technician dispatch.
+    category: operations
+    icon: Wrench
+    available_tiers:
+      - basic
+      - pro
+      - enterprise
+    pricing:
+      basic:
+        monthly_usd: 0
+        annual_usd: 0
+        description: Up to 50 work orders/month, manual dispatch
+      pro:
+        monthly_usd: 69
+        annual_usd: 662
+        description: Unlimited WOs, PM schedules, mobile app
+      enterprise:
+        monthly_usd: 199
+        annual_usd: 1910
+        description: Everything in Pro + Backlog by Technician insights widget
+    screenshots: []
+    features_by_tier:
+      basic:
+        - Work order creation
+        - Basic asset register
+        - Manual dispatch
+      pro:
+        - Unlimited work orders
+        - Preventive maintenance schedules
+        - Mobile-first technician app
+        - QR code asset scanning
+      enterprise:
+        - Everything in Pro
+        - Maintenance Backlog leadership widget
+        - Advanced SLA reporting
+    tags:
+      - maintenance
+      - work-orders
+      - assets
+
+  - module_id: billing
+    name: Billing
+    description: Invoicing, payment tracking, aging reports, and revenue analytics. Integrates with leases and CRM for automated billing workflows.
+    category: finance
+    icon: Receipt
+    available_tiers:
+      - basic
+      - pro
+      - enterprise
+    pricing:
+      basic:
+        monthly_usd: 0
+        annual_usd: 0
+        description: Up to 100 invoices/month
+      pro:
+        monthly_usd: 59
+        annual_usd: 566
+        description: Unlimited invoices, recurring billing, payment reminders
+      enterprise:
+        monthly_usd: 179
+        annual_usd: 1718
+        description: Everything in Pro + Monthly Revenue insights widget
+    screenshots: []
+    features_by_tier:
+      basic:
+        - Invoice creation (up to 100/month)
+        - Payment recording
+        - Basic aging report
+      pro:
+        - Unlimited invoices
+        - Recurring billing schedules
+        - Automated payment reminders
+        - PDF export
+      enterprise:
+        - Everything in Pro
+        - Billing Revenue leadership widget
+        - Multi-currency support
+    tags:
+      - billing
+      - invoicing
+      - finance
+
+  - module_id: inventory
+    name: Inventory
+    description: Stock management, low-stock alerts, purchase orders, and warehouse locations. Integrates with maintenance for spare parts tracking.
+    category: operations
+    icon: Package
+    available_tiers:
+      - basic
+      - pro
+    pricing:
+      basic:
+        monthly_usd: 0
+        annual_usd: 0
+        description: Up to 200 SKUs
+      pro:
+        monthly_usd: 39
+        annual_usd: 374
+        description: Unlimited SKUs, purchase orders, multi-location
+    screenshots: []
+    features_by_tier:
+      basic:
+        - Stock tracking (up to 200 SKUs)
+        - Low-stock alerts
+        - Basic reports
+      pro:
+        - Unlimited SKUs
+        - Purchase order management
+        - Multi-warehouse locations
+        - Barcode scanning
+    tags:
+      - inventory
+      - stock
+      - warehouse
+
+  - module_id: leases
+    name: Leases
+    description: Full lease lifecycle management for real estate portfolios. Track lease terms, renewals, rent escalations, and tenant communications.
+    category: real_estate
+    icon: Home
+    available_tiers:
+      - pro
+      - enterprise
+    pricing:
+      pro:
+        monthly_usd: 79
+        annual_usd: 758
+        description: Unlimited leases, renewal alerts, document storage
+      enterprise:
+        monthly_usd: 219
+        annual_usd: 2102
+        description: Everything in Pro + multi-property analytics
+    screenshots: []
+    features_by_tier:
+      pro:
+        - Unlimited lease management
+        - Renewal reminder notifications
+        - Document attachment storage
+        - Tenant portal (read-only)
+      enterprise:
+        - Everything in Pro
+        - Multi-property portfolio analytics
+        - Custom lease templates
+    tags:
+      - leases
+      - real-estate
+      - property

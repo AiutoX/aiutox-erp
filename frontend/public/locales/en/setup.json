@@ -1,0 +1,73 @@
+{
+  "setup": {
+    "loading": "Loading setup status...",
+    "welcome": {
+      "title": "Welcome to AiutoX ERP",
+      "subtitle": "Set up your system by creating the first administrator user"
+    },
+    "status": {
+      "required": {
+        "title": "Setup Required",
+        "message": "No users exist in the system. Please create the first administrator user to get started."
+      }
+    },
+    "form": {
+      "title": "Create Administrator User",
+      "description": "This user will have full system access with owner permissions.",
+      "email": {
+        "label": "Email Address",
+        "placeholder": "admin@example.com",
+        "description": "This will be your login email",
+        "invalid": "Please enter a valid email address",
+        "required": "Email address is required"
+      },
+      "fullName": {
+        "label": "Full Name",
+        "placeholder": "John Doe",
+        "description": "Your full name as it will appear in the system",
+        "required": "Full name is required"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "••••••••",
+        "description": "Minimum 8 characters, must include uppercase, lowercase and number",
+        "minLength": "Password must be at least 8 characters long",
+        "uppercase": "Password must include at least one uppercase letter",
+        "lowercase": "Password must include at least one lowercase letter",
+        "digit": "Password must include at least one number"
+      },
+      "confirmPassword": {
+        "label": "Confirm Password",
+        "placeholder": "••••••••",
+        "mismatch": "Passwords do not match"
+      },
+      "submit": "Create User and Complete Setup",
+      "success": {
+        "title": "Setup Successful!",
+        "message": "Administrator user has been created. Redirecting to login..."
+      },
+      "error": {
+        "title": "Setup Error",
+        "message": "An error occurred while creating the user. Please try again."
+      }
+    },
+    "windowClosed": {
+      "title": "Setup Window Closed",
+      "message": "The setup window has expired. Please contact the system administrator or use the CLI to create a user."
+    },
+    "error": {
+      "title": "Connection Error",
+      "message": "Could not connect to the server. Please check your connection and try again."
+    },
+    "info": {
+      "security": {
+        "title": "Security",
+        "message": "This page will be automatically disabled after creating the first user."
+      },
+      "window": {
+        "title": "Time Window",
+        "message": "You have {{minutes}} minutes to complete the setup from the system's first startup."
+      }
+    }
+  }
+}

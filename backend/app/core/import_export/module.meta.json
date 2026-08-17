@@ -1,0 +1,150 @@
+{
+  "module_id": "import_export",
+  "module_type": "core",
+  "name": "Import/Export",
+  "description": "Multi-format data import and export with template-based mapping",
+  "version": "1.1.0",
+  "status": "partial",
+  "maturity_score": 60,
+  "components": {
+    "service": {
+      "description": "ImportExportService for managing import/export operations, including synchronous process_import_job/process_export_job",
+      "status": "stable"
+    },
+    "router": {
+      "description": "API endpoints for import/export CRUD operations",
+      "status": "stable"
+    },
+    "handler_extension_point": {
+      "description": "ModuleInterface.get_import_export_handler() — a module must implement ImportExportHandler (app.core.import_export.handler) to actually support bulk import/export. Only 'tasks' does as of this version; other modules' jobs are created but processed to status=failed with an explanatory error. GET /import-export/supported-modules exposes only modules that implement this hook (self-discovering, no manual list to maintain here); the frontend module picker sources from that endpoint instead of listing every enabled module.",
+      "status": "partial"
+    },
+    "events": {
+      "description": "safe_publish_event() calls inline in ImportExportService — the ImportExportEventPublisher class in events.py exists but is unused (dead code)",
+      "events": ["import.started", "import.completed", "import.failed", "export.completed"],
+      "status": "partial"
+    },
+    "permissions": {
+      "description": "RBAC permissions (view, import, export, manage) — matches app.core.auth.permissions MODULE_ROLES for internal.viewer/importer/exporter/manager",
+      "status": "stable"
+    },
+    "schemas": {
+      "description": "Pydantic schemas for request/response validation",
+      "status": "stable"
+    }
+  },
+  "dependencies": {
+    "internal": ["pubsub", "auth", "db", "files"],
+    "external": ["sqlalchemy", "pydantic", "fastapi", "openpyxl", "reportlab"]
+  },
+  "interfaces": {
+    "http": {
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/import-export/supported-modules",
+          "permission": "import_export.view"
+        },
+        {
+          "method": "POST",
+          "path": "/import-export/import/upload",
+          "permission": "import_export.import"
+        },
+        {
+          "method": "POST",
+          "path": "/import-export/import/jobs",
+          "permission": "import_export.import"
+        },
+        {
+          "method": "GET",
+          "path": "/import-export/import/jobs",
+          "permission": "import_export.view"
+        },
+        {
+          "method": "GET",
+          "path": "/import-export/import/jobs/{job_id}",
+          "permission": "import_export.view"
+        },
+        {
+          "method": "GET",
+          "path": "/import-export/import/jobs/{job_id}/errors",
+          "permission": "import_export.view"
+        },
+        {
+          "method": "POST",
+          "path": "/import-export/import/templates",
+          "permission": "import_export.manage"
+        },
+        {
+          "method": "GET",
+          "path": "/import-export/import/templates",
+          "permission": "import_export.view"
+        },
+        {
+          "method": "GET",
+          "path": "/import-export/import/templates/{template_id}/download",
+          "permission": "import_export.view"
+        },
+        {
+          "method": "POST",
+          "path": "/import-export/export/jobs",
+          "permission": "import_export.export"
+        },
+        {
+          "method": "GET",
+          "path": "/import-export/export/jobs",
+          "permission": "import_export.view"
+        },
+        {
+          "method": "GET",
+          "path": "/import-export/export/jobs/{job_id}",
+          "permission": "import_export.view"
+        },
+        {
+          "method": "GET",
+          "path": "/import-export/export/jobs/{job_id}/download",
+          "permission": "import_export.view"
+        }
+      ]
+    }
+  },
+  "features": {
+    "csv_import": "Import data from CSV files with column mapping — functional for modules implementing ImportExportHandler (currently: tasks)",
+    "excel_import": "Import data from Excel workbooks (.xlsx) — parsing exists; real handler wiring same as csv_import",
+    "csv_export": "Export data to CSV format — functional for modules implementing ImportExportHandler (currently: tasks)",
+    "excel_export": "Export data to Excel format with formatting — same scope as csv_export",
+    "pdf_export": "Accepted by the export_format field but process_export_job does not yet route to PDFExporter — known gap, not fixed",
+    "template_mapping": "Backend create/list/download-template endpoints are real and functional; no frontend UI exists to manage them yet",
+    "validation_rules": "Define validation rules per template",
+    "error_reporting": "Row-level errors returned in ImportJob.errors",
+    "handler_extension_point": "ModuleInterface.get_import_export_handler() — modules must implement this to support import/export; only 'tasks' does as of this version",
+    "tenant_isolation": "All import/export operations isolated by tenant"
+  },
+  "performance": {
+    "processing_model": "synchronous, in-request — no background worker exists (backend/app/tasks/__init__.py is an empty Celery stub)",
+    "max_file_size_mb": 100,
+    "async_processing": false,
+    "progress_tracking": "job.status field only (pending -> processing -> completed/failed, set synchronously within the same request); import.completed/import.failed/export.completed events published on finish for external consumers"
+  },
+  "testing": {
+    "coverage_target": 80,
+    "test_suites": ["unit", "integration"],
+    "status": "implemented"
+  },
+  "compliance": {
+    "rbac_enforced": true,
+    "multi_tenancy": true,
+    "audit_logging": true,
+    "data_validation": true
+  },
+  "changelog": {
+    "1.1.0": {
+      "date": "2026-07-19",
+      "changes": "Added the real job-processing pipeline (process_import_job/process_export_job) and the ModuleInterface.get_import_export_handler() extension point, with 'tasks' as the first real handler. Previously, jobs were created and permanently stuck at status=pending with no data ever actually imported or exported. Deduplicated DataExporter to delegate to exporters/*.py. Corrected this file and contracts.yaml, which had previously and incorrectly claimed async_processing=true and status=production."
+    },
+    "1.0.0": {
+      "date": "2026-03-14",
+      "changes": "Initial implementation with CSV/Excel support, template system. Note: despite the original changelog entry claiming 'async batch processing', no such processing was ever implemented — jobs were created but never processed."
+    }
+  }
+}

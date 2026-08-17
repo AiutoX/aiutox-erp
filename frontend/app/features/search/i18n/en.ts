@@ -1,0 +1,46 @@
+export const translations = {
+  common: {
+    error: "Error",
+    loadMore: "Load More",
+    loading: "Loading...",
+    retry: "Retry",
+  },
+  search: {
+    clearRecent: "Clear Recent",
+    clearSearch: "Clear Search",
+    error: {
+      clearFailed: "Clear Failed",
+      saveFailed: "Save Failed",
+      loadFailed: "Failed to load search results. Please try again.",
+    },
+    loading: "Loading",
+    loadingMore: "Loading More...",
+    match: "match",
+    noResults: "No results found",
+    typeToSearch: "Type to search (at least 2 characters)…",
+    noResultsDescription: "Try adjusting your search terms or filters",
+    noResultsFor: "No results found",
+    noResultsTitle: "No results found",
+    permissionDenied: "You do not have permission to use search.",
+    placeholder: "Search...",
+    recentSearches: "Recent Searches",
+    results: "Results",
+    resultsCount: "{count} results",
+    shortcuts: {
+      close: "Close",
+      navigate: "Navigate",
+      press: "Press",
+      toSearch: "to search",
+    },
+    empty: {
+      description: "Enter terms to search documents, users and more",
+      title: "Start your search",
+    },
+    popularSearches: "Popular searches",
+    resultsFor: "Results for",
+    title: "Search",
+    types: {
+      all: "All",
+    },
+  },
+};

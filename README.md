@@ -4,7 +4,7 @@
 
 **Your data, working for you.**
 
-Open-source, multi-tenant ERP platform built for the way people actually work —
+Open-source, multi-tenant ERP platform built for the way people actually work -
 not the way accountants wish they did.
 
 [Getting Started](#getting-started) · [Core Features](#core-features) · [Install a Module](#installing-business-modules) · [Build a Module](#building-custom-modules) · [Español](README.es.md)

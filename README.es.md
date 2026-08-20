@@ -4,7 +4,7 @@
 
 **Tus datos, trabajando para ti.**
 
-Plataforma ERP open-source y multi-tenant construida para la forma en que las personas realmente trabajan —
+Plataforma ERP open-source y multi-tenant construida para la forma en que las personas realmente trabajan -
 no la forma en que los contadores quisieran que lo hicieran.
 
 [Primeros pasos](#primeros-pasos) · [Funcionalidades del core](#funcionalidades-del-core) · [Instalar un modulo](#instalando-modulos-de-negocio) · [Crear un modulo](#creando-modulos-personalizados) · [English](README.md)
@@ -15,20 +15,20 @@ no la forma en que los contadores quisieran que lo hicieran.
 
 ## Que es AiutoX ERP?
 
-AiutoX ERP es un sistema ERP modular y orientado a eventos, disenado para empresas medianas que estan cansadas de software que las obliga a adaptarse a el. El nombre combina *Aiuto* (ayuda en italiano) con *X* de extensibilidad — porque esta plataforma existe para ayudar, no para estorbar.
+AiutoX ERP es un sistema ERP modular y orientado a eventos, disenado para empresas medianas que estan cansadas de software que las obliga a adaptarse a el. El nombre combina *Aiuto* (ayuda en italiano) con *X* de extensibilidad - porque esta plataforma existe para ayudar, no para estorbar.
 
-La filosofia central es simple: **tus datos deben trabajar para ti**. AiutoX conecta la informacion de tu organizacion de forma automatica, muestra lo que importa en contexto, y te permite construir los flujos de trabajo que realmente necesitas — no los que un proveedor decidio que debias tener.
+La filosofia central es simple: **tus datos deben trabajar para ti**. AiutoX conecta la informacion de tu organizacion de forma automatica, muestra lo que importa en contexto, y te permite construir los flujos de trabajo que realmente necesitas - no los que un proveedor decidio que debias tener.
 
 ### Por que AiutoX es diferente
 
 La mayoria de los sistemas ERP son bodegas de datos. Lo guardan todo y no muestran nada. AiutoX esta disenado desde la premisa opuesta:
 
-- **Conciencia contextual** — tareas, aprobaciones, notificaciones y automatizaciones estan conectadas. Cuando algo cambia, las personas correctas lo saben de inmediato, sin que nadie tenga que revisar un dashboard.
-- **Automatizacion primero** — el motor de automatizacion ejecuta reglas y flujos asistidos por IA en cualquier modulo. El trabajo repetitivo desaparece sin necesidad de un desarrollador.
-- **Modular por diseno** — habilita solo lo que necesitas. Los modulos estan aislados; deshabilitar uno nunca rompe otro. Los modulos de negocio se instalan como paquetes, no como switches de configuracion.
-- **Disenado para operadores, no solo administradores** — trabajadores de campo, supervisores y usuarios finales tienen vistas optimizadas para su realidad, no una sola pantalla que todos deben compartir.
-- **Nucleo orientado a eventos** — cada accion en el sistema emite un evento. Los modulos reaccionan a eventos, no entre si. Esto significa que puedes extender el sistema sin tocar el nucleo.
-- **Listo para PWA** — la plataforma se instala en dispositivos moviles y el modulo de recoleccion de datos soporta operacion sin conexion para equipos en campo.
+- **Conciencia contextual** - tareas, aprobaciones, notificaciones y automatizaciones estan conectadas. Cuando algo cambia, las personas correctas lo saben de inmediato, sin que nadie tenga que revisar un dashboard.
+- **Automatizacion primero** - el motor de automatizacion ejecuta reglas y flujos asistidos por IA en cualquier modulo. El trabajo repetitivo desaparece sin necesidad de un desarrollador.
+- **Modular por diseno** - habilita solo lo que necesitas. Los modulos estan aislados; deshabilitar uno nunca rompe otro. Los modulos de negocio se instalan como paquetes, no como switches de configuracion.
+- **Disenado para operadores, no solo administradores** - trabajadores de campo, supervisores y usuarios finales tienen vistas optimizadas para su realidad, no una sola pantalla que todos deben compartir.
+- **Nucleo orientado a eventos** - cada accion en el sistema emite un evento. Los modulos reaccionan a eventos, no entre si. Esto significa que puedes extender el sistema sin tocar el nucleo.
+- **Listo para PWA** - la plataforma se instala en dispositivos moviles y el modulo de recoleccion de datos soporta operacion sin conexion para equipos en campo.
 
 ---
 
@@ -44,7 +44,7 @@ Estos modulos vienen incluidos en cada instalacion de AiutoX sin costo adicional
 | **Calendario y eventos** | Calendarios compartidos, programacion de eventos, sincronizacion con calendarios externos |
 | **Flujos de aprobacion** | Flujos de aprobacion multi-etapa configurables para cualquier entidad |
 | **Motor de automatizacion** | Automatizacion basada en reglas + agentes de IA que actuan sobre eventos del sistema |
-| **Notificaciones** | Email, SMS, en-app, webhook — todo configurable por tipo de evento |
+| **Notificaciones** | Email, SMS, en-app, webhook - todo configurable por tipo de evento |
 | **Gestion de archivos** | Almacenamiento seguro de archivos con aislamiento por tenant y organizacion en carpetas |
 | **Comentarios y colaboracion** | Comentarios en hilo sobre cualquier entidad en cualquier modulo |
 | **Plantillas** | Plantillas de contenido reutilizables para documentos y mensajes recurrentes |
@@ -63,7 +63,7 @@ Estos modulos vienen incluidos en cada instalacion de AiutoX sin costo adicional
 
 ## Arquitectura
 
-AiutoX es un **monolito modular** — no microservicios, pero cada modulo esta completamente encapsulado. Los modulos nunca se importan directamente entre si; se comunican exclusivamente a traves del bus de eventos.
+AiutoX es un **monolito modular** - no microservicios, pero cada modulo esta completamente encapsulado. Los modulos nunca se importan directamente entre si; se comunican exclusivamente a traves del bus de eventos.
 
 ```
 frontend/                     # React + TypeScript + Vite + TailwindCSS
@@ -195,7 +195,7 @@ Reinicia la aplicacion despues de instalar modulos.
 
 ## Creando Modulos de Negocio
 
-Un modulo de negocio es un paquete autocontenido — un wheel de Python para el backend y un paquete npm para el frontend — que se conecta al core sin modificarlo. El core descubre tu modulo automaticamente al iniciar a traves de un entry point de Python; sin archivos de registro que editar, sin listas de rutas que actualizar.
+Un modulo de negocio es un paquete autocontenido - un wheel de Python para el backend y un paquete npm para el frontend - que se conecta al core sin modificarlo. El core descubre tu modulo automaticamente al iniciar a traves de un entry point de Python; sin archivos de registro que editar, sin listas de rutas que actualizar.
 
 ### 1. Partir de la plantilla
 
@@ -236,7 +236,7 @@ aiutox-module-mi-modulo/
 
 ### 2. Como se conecta el backend al core
 
-El unico punto de conexion es la subclase de `ModuleInterface` en `__init__.py`. El core llama a sus metodos para descubrir rutas, items de navegacion, migraciones y dependencias — tu modulo nunca importa del core, solo del SDK.
+El unico punto de conexion es la subclase de `ModuleInterface` en `__init__.py`. El core llama a sus metodos para descubrir rutas, items de navegacion, migraciones y dependencias - tu modulo nunca importa del core, solo del SDK.
 
 ```python
 from pathlib import Path
@@ -311,7 +311,7 @@ Tu modulo solo importa de `aiutox-sdk`. El SDK expone las interfaces y helpers q
 |---|---|
 | `ModuleInterface` | Clase base que el core llama para descubrir tu modulo |
 | `ModuleNavigationItem` | Dataclass para items de navegacion |
-| Servicios core (via inyeccion de dependencias) | `NotificationService`, `ConfigService`, `EventPublisher`, `FileService` — inyectados en tus rutas FastAPI via `Depends()` |
+| Servicios core (via inyeccion de dependencias) | `NotificationService`, `ConfigService`, `EventPublisher`, `FileService` - inyectados en tus rutas FastAPI via `Depends()` |
 | PubSub events | Publicar eventos con `EventPublisher`; suscribirse a eventos de otros modulos |
 
 **Los modulos nunca se importan entre si directamente.** Si tu modulo necesita reaccionar a algo que hace otro modulo (ej. un pago confirmado), suscribete al evento en el bus PubSub:
@@ -330,9 +330,9 @@ async def on_payment_confirmed(event):
 
 ### 4. Como se conecta el frontend al core
 
-Solo se necesitan dos archivos. El core los descubre automaticamente — nunca editas un archivo central de rutas ni una config de navegacion.
+Solo se necesitan dos archivos. El core los descubre automaticamente - nunca editas un archivo central de rutas ni una config de navegacion.
 
-**`routes.config.ts`** — declara que rutas URL pertenecen a tu modulo:
+**`routes.config.ts`** - declara que rutas URL pertenecen a tu modulo:
 
 ```typescript
 export const moduleKey = "mi_modulo";
@@ -346,7 +346,7 @@ export const routes = [
 
 Ejecutar `npm run generate-routes` (o instalar el modulo via `install-module.sh`) detecta este archivo y agrega tus rutas a la app automaticamente.
 
-**`i18n/en.ts`** y **`i18n/es.ts`** — las traducciones se auto-descubren via `import.meta.glob` de Vite; no hace falta ningun import en el index de i18n compartido.
+**`i18n/en.ts`** y **`i18n/es.ts`** - las traducciones se auto-descubren via `import.meta.glob` de Vite; no hace falta ningun import en el index de i18n compartido.
 
 **Las llamadas a la API** siempre deben ir a traves de `apiClient` de `~/lib/api/client`, nunca directamente con `fetch` o `axios`:
 
@@ -357,7 +357,7 @@ export const getMisItems = (params: ListParams) =>
   apiClient.get("/mi-modulo/items", { params });
 ```
 
-**La navegacion** la maneja completamente el backend. El metodo `get_navigation_items()` en tu `ModuleInterface` le dice al frontend que entradas de menu mostrar y que permiso verificar — sin ningun archivo de configuracion de navegacion en el frontend.
+**La navegacion** la maneja completamente el backend. El metodo `get_navigation_items()` en tu `ModuleInterface` le dice al frontend que entradas de menu mostrar y que permiso verificar - sin ningun archivo de configuracion de navegacion en el frontend.
 
 ### 5. Migraciones de base de datos
 
@@ -372,7 +372,7 @@ alembic revision --autogenerate \
   --version-path=aiutox_module_mi_modulo/migrations/versions
 ```
 
-Cuando el modulo se instala, `alembic upgrade heads` aplica todos los heads pendientes incluyendo el tuyo. Cuando se desinstala, la rama simplemente no se aplica — sin conflicto con otros modulos.
+Cuando el modulo se instala, `alembic upgrade heads` aplica todos los heads pendientes incluyendo el tuyo. Cuando se desinstala, la rama simplemente no se aplica - sin conflicto con otros modulos.
 
 Cada tabla que tu modulo crea **debe** incluir una columna `tenant_id UUID NOT NULL`. El core refuerza el aislamiento de tenant en la capa de API, pero tus queries de repositorio tambien deben filtrar siempre por el.
 
@@ -407,7 +407,7 @@ Lee [CONTRIBUTING.md](CONTRIBUTING.md) antes de enviar cambios.
 
 ## Licencia
 
-**Plataforma core:** Licencia MIT — libre de usar, modificar y distribuir.
+**Plataforma core:**  AGPL-3.0 license.
 
 **Modulos de negocio:** Distribuidos por separado bajo licencias propietarias. Ver repositorios individuales de cada modulo para los terminos.
 

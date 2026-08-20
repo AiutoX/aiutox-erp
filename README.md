@@ -15,7 +15,7 @@ not the way accountants wish they did.
 
 ## What is AiutoX ERP?
 
-AiutoX ERP is a modular, event-driven ERP system designed for mid-sized companies that are tired of software that forces them to adapt to it. The name combines *Aiuto* (Italian for "help") with *X* for extensibility — because this platform exists to help, not to get in the way.
+AiutoX ERP is a modular, event-driven ERP system designed for mid-sized companies that are tired of software that forces them to adapt to it. The name combines *Aiuto* (Italian for "help") with *X* for extensibility - because this platform exists to help, not to get in the way.
 
 The core philosophy is simple: **your data should work for you**. AiutoX connects information across your organization automatically, surfaces what matters in context, and lets you build the workflows you actually need instead of the ones a vendor decided you should have.
 
@@ -23,12 +23,12 @@ The core philosophy is simple: **your data should work for you**. AiutoX connect
 
 Most ERP systems are data vaults. They store everything and surface nothing. AiutoX is designed around the opposite premise:
 
-- **Contextual awareness** — tasks, approvals, notifications, and automations are connected. When something changes, the right people know immediately, without anyone having to check a dashboard.
-- **Automation first** — the automation engine runs rules and AI-assisted workflows across any module. Repetitive work disappears without requiring a developer.
-- **Modular by design** — enable only what you need. Modules are isolated; disabling one never breaks another. Business modules install as packages, not as config switches.
-- **Built for operators, not just admins** — field workers, supervisors, and end users each get views optimized for their reality, not a single screen everyone has to share.
-- **Event-driven core** — every action in the system emits an event. Modules react to events, not to each other. This means you can extend the system without touching the core.
-- **PWA-ready** — the platform installs on mobile devices and the data collection module supports offline operation for field teams without connectivity.
+- **Contextual awareness** - tasks, approvals, notifications, and automations are connected. When something changes, the right people know immediately, without anyone having to check a dashboard.
+- **Automation first** - the automation engine runs rules and AI-assisted workflows across any module. Repetitive work disappears without requiring a developer.
+- **Modular by design** - enable only what you need. Modules are isolated; disabling one never breaks another. Business modules install as packages, not as config switches.
+- **Built for operators, not just admins** - field workers, supervisors, and end users each get views optimized for their reality, not a single screen everyone has to share.
+- **Event-driven core** - every action in the system emits an event. Modules react to events, not to each other. This means you can extend the system without touching the core.
+- **PWA-ready** - the platform installs on mobile devices and the data collection module supports offline operation for field teams without connectivity.
 
 ---
 
@@ -44,7 +44,7 @@ These modules ship with every AiutoX installation at no additional cost:
 | **Calendar & Events** | Shared calendars, event scheduling, external calendar sync |
 | **Approval Workflows** | Configurable multi-step approval flows attached to any entity |
 | **Automation Engine** | Rule-based automation + AI agents that act on system events |
-| **Notifications** | Email, SMS, in-app, webhook — all configurable per event type |
+| **Notifications** | Email, SMS, in-app, webhook - all configurable per event type |
 | **File Management** | Secure file storage with tenant isolation and folder organization |
 | **Comments & Collaboration** | Threaded comments on any entity across any module |
 | **Templates** | Reusable content templates for recurring documents and messages |
@@ -63,7 +63,7 @@ These modules ship with every AiutoX installation at no additional cost:
 
 ## Architecture
 
-AiutoX is a **modular monolith** — not microservices, but each module is fully encapsulated. Modules never import each other directly; they communicate exclusively through the event bus.
+AiutoX is a **modular monolith** - not microservices, but each module is fully encapsulated. Modules never import each other directly; they communicate exclusively through the event bus.
 
 ```
 frontend/                     # React + TypeScript + Vite + TailwindCSS
@@ -195,7 +195,7 @@ Restart the application after installing modules.
 
 ## Building Custom Modules
 
-A business module is a self-contained package — a Python wheel for the backend and an npm package for the frontend — that plugs into the core without modifying it. The core discovers your module automatically at startup through a Python entry point; no registration file to edit, no route list to update.
+A business module is a self-contained package - a Python wheel for the backend and an npm package for the frontend - that plugs into the core without modifying it. The core discovers your module automatically at startup through a Python entry point; no registration file to edit, no route list to update.
 
 ### 1. Start from the template
 
@@ -236,7 +236,7 @@ aiutox-module-my-module/
 
 ### 2. How the backend connects to the core
 
-The single connection point is the `ModuleInterface` subclass in `__init__.py`. The core calls its methods to discover routes, navigation items, migrations, and dependencies — your module never imports from the core, only from the SDK.
+The single connection point is the `ModuleInterface` subclass in `__init__.py`. The core calls its methods to discover routes, navigation items, migrations, and dependencies - your module never imports from the core, only from the SDK.
 
 ```python
 from pathlib import Path
@@ -311,7 +311,7 @@ Your module only imports from `aiutox-sdk`. The SDK exposes the interfaces and h
 |---|---|
 | `ModuleInterface` | Base class the core calls to discover your module |
 | `ModuleNavigationItem` | Navigation entry dataclass |
-| Core services (via dependency injection) | `NotificationService`, `ConfigService`, `EventPublisher`, `FileService` — injected into your FastAPI routes via `Depends()` |
+| Core services (via dependency injection) | `NotificationService`, `ConfigService`, `EventPublisher`, `FileService` - injected into your FastAPI routes via `Depends()` |
 | PubSub events | Publish events with `EventPublisher`; subscribe to events from other modules |
 
 **Modules never import each other directly.** If your module needs to react to something another module does (e.g., a payment confirmed), subscribe to the event on the PubSub bus:
@@ -330,9 +330,9 @@ async def on_payment_confirmed(event):
 
 ### 4. How the frontend connects to the core
 
-Two files are all that is needed. The core discovers both automatically — you never edit a central routes file or a navigation config.
+Two files are all that is needed. The core discovers both automatically - you never edit a central routes file or a navigation config.
 
-**`routes.config.ts`** — declares which URL paths your module owns:
+**`routes.config.ts`** - declares which URL paths your module owns:
 
 ```typescript
 export const moduleKey = "my_module";
@@ -346,7 +346,7 @@ export const routes = [
 
 Running `npm run generate-routes` (or installing the module via `install-module.sh`) picks up this file and adds your routes to the app automatically.
 
-**`i18n/en.ts`** and **`i18n/es.ts`** — translations are auto-discovered via Vite's `import.meta.glob`; no import needed in the shared i18n index.
+**`i18n/en.ts`** and **`i18n/es.ts`** - translations are auto-discovered via Vite's `import.meta.glob`; no import needed in the shared i18n index.
 
 **API calls** must always go through `apiClient` from `~/lib/api/client`, never through `fetch` or `axios` directly:
 
@@ -357,7 +357,7 @@ export const getMyItems = (params: ListParams) =>
   apiClient.get("/my-module/items", { params });
 ```
 
-**Navigation** is driven entirely by the backend. The `get_navigation_items()` method on your `ModuleInterface` tells the frontend what menu entries to show and which permission to check — no frontend navigation config file to edit.
+**Navigation** is driven entirely by the backend. The `get_navigation_items()` method on your `ModuleInterface` tells the frontend what menu entries to show and which permission to check - no frontend navigation config file to edit.
 
 ### 5. Database migrations
 
@@ -372,7 +372,7 @@ alembic revision --autogenerate \
   --version-path=aiutox_module_my_module/migrations/versions
 ```
 
-When the module is installed, `alembic upgrade heads` applies all pending heads including yours. When it is uninstalled, the branch is simply not applied — no conflict with other modules.
+When the module is installed, `alembic upgrade heads` applies all pending heads including yours. When it is uninstalled, the branch is simply not applied - no conflict with other modules.
 
 Every table your module creates **must** include a `tenant_id UUID NOT NULL` column. The core enforces tenant isolation at the API layer, but your repository queries must also always filter by it.
 
@@ -407,7 +407,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting changes.
 
 ## License
 
-**Core platform:** MIT License — free to use, modify, and distribute.
+**Core platform:** AGPL-3.0 license, modify, and distribute.
 
 **Business modules:** Distributed separately under proprietary licenses. See individual module repositories for terms.
 

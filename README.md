@@ -6,7 +6,7 @@
 
 [![Backend CI](https://github.com/AiutoX/aiutox-erp/actions/workflows/backend-ci.yml/badge.svg)](https://github.com/AiutoX/aiutox-erp/actions/workflows/backend-ci.yml)
 [![Frontend CI](https://github.com/AiutoX/aiutox-erp/actions/workflows/frontend-ci.yml/badge.svg)](https://github.com/AiutoX/aiutox-erp/actions/workflows/frontend-ci.yml)
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Open-source, multi-tenant ERP platform built for the way people actually work -
 not the way accountants wish they did.
@@ -411,10 +411,9 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting changes.
 
 ## License
 
-**Core platform:** AGPL-3.0 - free to use, modify, and self-host. If you modify the platform and offer it as a network service, the AGPL requires you to make your modified source available to users of that service.
+**Core platform:** MIT License - free to use, modify, and distribute.
 
 **Business modules:** Distributed separately under proprietary licenses. See individual module repositories for terms.
-
 ---
 
 <div align="center">

@@ -1,0 +1,225 @@
+apiVersion: v1
+info:
+  title: Reporting Module API
+  description: API contracts for report generation and management
+  version: 1.0.0
+
+endpoints:
+  - method: GET
+    path: /reporting/datasources
+    summary: List available data sources
+    description: Get list of all available data sources for report generation
+    permission: reporting.read
+    response:
+      status: 200
+      schema: AvailableDataSourcesResponse
+      fields:
+        - datasources: array[DataSourceInfo]
+          - name: string (e.g., 'products', 'orders', 'billing')
+          - description: string
+          - supported_report_types: array[string]
+          - available_fields: array[string]
+          - filters: array[FilterDefinition]
+            - field_name: string
+            - field_type: string (text, number, date, boolean, enum)
+            - operators: array[string] (eq, ne, gt, lt, gte, lte, contains, in)
+            - description: string
+        - total: integer (total number of datasources)
+
+  - method: POST
+    path: /reporting/run
+    summary: Execute a report
+    description: Run a report using a specified data source with optional parameters
+    permission: reporting.run
+    request:
+      schema: ReportRequest
+      fields:
+        - datasource: string (required) - name of the data source
+        - report_type: string (optional) - specific report type within datasource
+        - params: object (optional) - parameters for the report
+          - filters: object (optional) - field:value pairs for filtering
+          - limit: integer (optional) - max rows to return
+          - offset: integer (optional) - pagination offset
+        - pagination: object (optional)
+          - limit: integer (default: 100)
+          - offset: integer (default: 0)
+    response:
+      status: 200
+      schema: ReportResultResponse
+      fields:
+        - success: boolean
+        - message: string
+        - result: ReportData (if successful)
+          - datasource: string
+          - report_type: string
+          - row_count: integer
+          - execution_time_ms: integer
+          - data: array[object] (actual report rows)
+          - columns: array[string] (column names)
+        - error: string (if failed)
+
+  - method: GET
+    path: /reporting/reports
+    summary: List saved report definitions
+    permission: reporting.read
+    query_params:
+      - name: skip
+        type: integer
+        default: 0
+      - name: limit
+        type: integer
+        default: 50
+    response:
+      status: 200
+      schema: ReportListResponse
+
+  - method: POST
+    path: /reporting/reports
+    summary: Create report definition
+    permission: reporting.admin
+    request:
+      schema: ReportCreateRequest
+      fields:
+        - name: string (required)
+        - datasource: string (required)
+        - description: string (optional)
+        - filters: object (optional)
+        - config: object (optional) - visualization config
+    response:
+      status: 201
+      schema: ReportResponse
+
+  - method: GET
+    path: /reporting/reports/{report_id}
+    summary: Get report definition
+    permission: reporting.read
+    path_params:
+      - name: report_id
+        type: UUID
+        required: true
+    response:
+      status: 200
+      schema: ReportResponse
+
+  - method: PUT
+    path: /reporting/reports/{report_id}
+    summary: Update report definition
+    permission: reporting.admin
+    path_params:
+      - name: report_id
+        type: UUID
+        required: true
+    request:
+      schema: ReportUpdateRequest
+    response:
+      status: 200
+      schema: ReportResponse
+
+  - method: DELETE
+    path: /reporting/reports/{report_id}
+    summary: Delete report definition
+    permission: reporting.admin
+    path_params:
+      - name: report_id
+        type: UUID
+        required: true
+    response:
+      status: 204
+
+available_datasources:
+  - name: products
+    description: Product catalog reports
+    report_types:
+      - inventory: "Current inventory levels"
+      - sales: "Product sales data"
+      - performance: "Top/bottom performing products"
+    sample_fields:
+      - id: product ID
+      - name: product name
+      - sku: SKU code
+      - price: unit price
+      - inventory: stock quantity
+      - sales_count: total units sold
+
+  - name: orders
+    description: Sales and order reports
+    report_types:
+      - daily_sales: "Daily sales summary"
+      - customer_orders: "Orders by customer"
+      - revenue: "Revenue analysis"
+    sample_fields:
+      - id: order ID
+      - order_date: order date
+      - customer_id: customer ID
+      - total: order total
+      - status: order status
+
+  - name: billing
+    description: Billing and payment reports
+    report_types:
+      - charges: "Billing charges"
+      - payments: "Payment history"
+      - overdue: "Overdue invoices"
+    sample_fields:
+      - id: charge ID
+      - amount: charge amount
+      - status: payment status
+      - created_at: creation date
+
+  - name: finances
+    description: Financial reports
+    report_types:
+      - periods: "Financial periods"
+      - documents: "Financial documents"
+      - summary: "Financial summary"
+    sample_fields:
+      - id: document ID
+      - period: financial period
+      - amount: amount
+      - type: document type
+
+permissions:
+  - name: reporting.read
+    description: View available reports and datasources
+  - name: reporting.run
+    description: Execute reports and generate data
+  - name: reporting.admin
+    description: Manage all report definitions and configurations
+
+events:
+  - name: report.created
+    description: Report definition created
+  - name: report.updated
+    description: Report definition updated
+  - name: report.deleted
+    description: Report definition deleted
+  - name: report.executed
+    description: Report executed successfully
+  - name: report.failed
+    description: Report execution failed
+
+errors:
+  - status: 400
+    code: INVALID_DATASOURCE
+    description: Specified data source does not exist
+  - status: 400
+    code: INVALID_PARAMS
+    description: Invalid report parameters
+  - status: 401
+    code: UNAUTHORIZED
+    description: Missing or invalid authentication
+  - status: 403
+    code: FORBIDDEN
+    description: User does not have required permission
+  - status: 404
+    code: REPORT_NOT_FOUND
+    description: Report definition not found
+  - status: 500
+    code: EXECUTION_ERROR
+    description: Error executing report
+
+performance:
+  typical_execution_time_ms: 500
+  max_rows: 100000
+  timeout_seconds: 60
+  optimization: "Indexed queries with pagination support"

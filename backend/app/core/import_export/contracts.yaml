@@ -1,0 +1,250 @@
+apiVersion: v1
+info:
+  title: Import/Export Module API
+  description: API contracts for import/export operations
+  version: 1.0.0
+
+endpoints:
+  # Module Discovery
+  - method: GET
+    path: /import-export/supported-modules
+    summary: List enabled modules that actually support import/export
+    permission: import_export.view
+    response:
+      status: 200
+      schema: StandardResponse[list[str]]
+    notes: >
+      Self-discovering — a module appears here solely by overriding
+      ModuleInterface.get_import_export_handler() on its own definition;
+      import_export never maintains a manual list. A module the tenant has
+      disabled is excluded before it would ever be instantiated, so a
+      disabled module costs nothing at runtime here. This is the source the
+      frontend's module picker uses instead of listing every enabled module.
+
+  # Import Operations
+  - method: POST
+    path: /import-export/import/upload
+    summary: Upload file for import
+    permission: import_export.import
+    request:
+      content_type: multipart/form-data
+      fields:
+        - name: file
+          type: file
+          required: true
+          description: CSV or Excel file to upload
+    response:
+      status: 201
+      schema: dict
+      fields:
+        - id: string
+        - name: string
+        - url: string
+        - storage_path: string
+          description: Pass this as options.file_path when creating the import job
+
+  - method: POST
+    path: /import-export/import/jobs
+    summary: Create import job (processed synchronously; returns with real status)
+    permission: import_export.import
+    request:
+      content_type: application/json
+      schema: ImportJobCreate
+      fields:
+        - module: string (required) — target module, e.g. 'tasks'
+        - file_name: string (required)
+        - template_id: UUID (optional)
+        - mapping: object (optional)
+        - options: object (optional) — must include file_path from /import/upload
+    response:
+      status: 201
+      schema: ImportJobResponse
+      fields:
+        - id: UUID
+        - status: string (completed, failed) — never stays pending; processed inline
+        - module: string
+        - file_name: string
+        - total_rows: integer
+        - successful_rows: integer
+        - failed_rows: integer
+        - errors: array[object] | null
+        - created_at: timestamp
+    notes: >
+      Only succeeds if the target module implements ImportExportHandler
+      (see app.core.import_export.handler). As of this contract version,
+      only 'tasks' does. Other modules return status=failed with an
+      explanatory error, not a 4xx — the job is still created for audit
+      purposes.
+
+  - method: GET
+    path: /import-export/import/jobs
+    summary: List import jobs
+    permission: import_export.view
+    query_params:
+      - name: module
+        type: string
+        required: false
+      - name: status
+        type: string
+        required: false
+      - name: page
+        type: integer
+        default: 1
+      - name: page_size
+        type: integer
+        default: 20
+    response:
+      status: 200
+      schema: StandardListResponse[ImportJobResponse]
+
+  - method: GET
+    path: /import-export/import/jobs/{job_id}
+    summary: Get import job details
+    permission: import_export.view
+    path_params:
+      - name: job_id
+        type: UUID
+        required: true
+    response:
+      status: 200
+      schema: ImportJobResponse
+
+  - method: GET
+    path: /import-export/import/jobs/{job_id}/errors
+    summary: Get import job row-level errors
+    permission: import_export.view
+    path_params:
+      - name: job_id
+        type: UUID
+        required: true
+    response:
+      status: 200
+      fields:
+        - errors: array[object]
+
+  # Import Templates
+  - method: POST
+    path: /import-export/import/templates
+    summary: Create import template
+    permission: import_export.manage
+    request:
+      schema: ImportTemplateCreate
+      fields:
+        - name: string (required)
+        - module: string (required)
+        - field_mapping: object (required) — maps file columns to entity fields
+        - validation_rules: object (optional)
+    response:
+      status: 201
+      schema: ImportTemplateResponse
+
+  - method: GET
+    path: /import-export/import/templates
+    summary: List import templates
+    permission: import_export.view
+    response:
+      status: 200
+      schema: StandardListResponse[ImportTemplateResponse]
+
+  - method: GET
+    path: /import-export/import/templates/{template_id}/download
+    summary: Download blank import template file (Excel, header row only)
+    permission: import_export.view
+    path_params:
+      - name: template_id
+        type: UUID
+        required: true
+    response:
+      status: 200
+      content_type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+  # Export Operations
+  - method: POST
+    path: /import-export/export/jobs
+    summary: Create export job (processed synchronously; returns with a downloadable file)
+    permission: import_export.export
+    request:
+      content_type: application/json
+      schema: ExportJobCreate
+      fields:
+        - module: string (required) — target module, e.g. 'tasks'
+        - "export_format: string (required) — 'csv' or 'excel' (pdf is accepted but not yet generated correctly by process_export_job — see notes)"
+        - filters: object (optional)
+        - columns: array[string] (optional)
+    response:
+      status: 201
+      schema: ExportJobResponse
+      fields:
+        - id: UUID
+        - status: string (completed, failed) — never stays pending
+        - file_name: string | null
+        - file_path: string | null
+        - exported_rows: integer
+    notes: >
+      Only succeeds (status=completed with a real file) if the target module
+      implements ImportExportHandler. As of this contract version, only
+      'tasks' does. export_format='pdf' is accepted by the schema but
+      process_export_job currently treats any non-'excel' value as CSV —
+      this is a known gap, not yet fixed.
+
+  - method: GET
+    path: /import-export/export/jobs
+    summary: List export jobs
+    permission: import_export.view
+    query_params:
+      - name: module
+        type: string
+        required: false
+      - name: status
+        type: string
+        required: false
+      - name: page
+        type: integer
+        default: 1
+      - name: page_size
+        type: integer
+        default: 20
+    response:
+      status: 200
+      schema: StandardListResponse[ExportJobResponse]
+
+  - method: GET
+    path: /import-export/export/jobs/{job_id}
+    summary: Get export job details
+    permission: import_export.view
+    path_params:
+      - name: job_id
+        type: UUID
+        required: true
+    response:
+      status: 200
+      schema: ExportJobResponse
+
+  - method: GET
+    path: /import-export/export/jobs/{job_id}/download
+    summary: Download the generated export file
+    permission: import_export.view
+    path_params:
+      - name: job_id
+        type: UUID
+        required: true
+    response:
+      status: 200
+      content_type: application/octet-stream | text/csv | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+events:
+  - name: import.started
+    description: Import job created (before processing)
+  - name: import.completed
+    description: Import job finished with zero row failures
+  - name: import.failed
+    description: Import job finished with at least one row failure, or the
+      target module has no handler, or the uploaded file could not be read
+  - name: export.completed
+    description: Export job finished and produced a downloadable file
+  - name: export.started
+    description: "NOT CURRENTLY PUBLISHED — reserved for when async
+      processing is introduced"
+  - name: export.failed
+    description: "NOT CURRENTLY PUBLISHED — reserved for when async
+      processing is introduced"

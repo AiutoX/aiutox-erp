@@ -1,0 +1,11 @@
+apiVersion: v1
+info:
+  title: Notifications Module API
+  description: API contracts for notifications module
+  version: 1.0.0
+
+endpoints:
+  - summary: Send notification
+  - summary: Get templates
+  - summary: List queue
+  - summary: Get history

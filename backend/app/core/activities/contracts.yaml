@@ -1,0 +1,13 @@
+apiVersion: v1
+info:
+  title: Activities Module API
+  description: API contracts for activities module
+  version: 1.0.0
+
+endpoints:
+  - summary: Create activity
+  - summary: List activities
+  - summary: Get activity
+  - summary: Update activity
+  - summary: Delete activity
+  - summary: Search

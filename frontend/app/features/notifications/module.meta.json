@@ -1,0 +1,62 @@
+{
+  "name": "notifications",
+  "version": "1.0.0",
+  "status": "production",
+  "coverage": 85,
+  "description": "Real-time notification management via Server-Sent Events (SSE)",
+
+  "components": {
+    "NotificationsPage": {
+      "path": "routes/notifications.tsx",
+      "type": "page",
+      "description": "Main notification center hub with real-time updates"
+    }
+  },
+
+  "hooks": {
+    "useNotifications": {
+      "path": "hooks/useNotifications.ts",
+      "description": "API queries for notification templates and queue"
+    },
+    "useNotificationsWebSocket": {
+      "path": "hooks/useNotificationsWebSocket.ts",
+      "description": "Real-time SSE connection with auto-reconnect (name kept for backward compatibility, connects via fetch()+ReadableStream, not a browser WebSocket)"
+    }
+  },
+
+  "types": {
+    "NotificationQueue": "Notification in delivery queue",
+    "NotificationTemplate": "Notification message template",
+    "NotificationChannel": "Delivery channel (email, SMS, in-app, webhook)"
+  },
+
+  "api": {
+    "endpoints": [
+      "GET /api/v1/notifications/queue",
+      "POST /api/v1/notifications/send",
+      "PUT /api/v1/notifications/{id}",
+      "DELETE /api/v1/notifications/{id}",
+      "GET /api/v1/sse/notifications"
+    ]
+  },
+
+  "i18n": {
+    "languages": ["en", "es"],
+    "keys": 100,
+    "coverage": "100%"
+  },
+
+  "features": {
+    "realTimeUpdates": "SSE-based real-time push notifications",
+    "autoReconnect": "Exponential backoff reconnection strategy",
+    "filtering": "Filter by channel, status, and search term",
+    "statistics": "Live statistics (total, pending, sent, failed)",
+    "preferences": "User notification preferences via ~/features/preferences"
+  },
+
+  "tests": {
+    "unit": ["NotificationsWebSocket.test.tsx"],
+    "coverage": "85%",
+    "status": "passing"
+  }
+}

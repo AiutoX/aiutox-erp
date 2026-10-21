@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "task.assigned",
+  "type": "object",
+  "required": ["task_id", "assignee_user_id", "assigned_by", "tenant_id"],
+  "properties": {
+    "task_id": {"type": "string", "format": "uuid"},
+    "assignee_user_id": {"type": "string", "format": "uuid"},
+    "assigned_by": {"type": "string", "format": "uuid"},
+    "tenant_id": {"type": "string", "format": "uuid"}
+  },
+  "additionalProperties": true
+}

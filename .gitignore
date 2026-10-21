@@ -1,0 +1,71 @@
+.env
+__pycache__/
+*.pyc
+node_modules/
+dist/
+.DS_Store
+.idea/
+.vscode/
+venv/
+.venv/
+.idea/
+.mcp/
+.pytest_cache/
+.vscode/
+.venv/
+.logs/
+*.log
+.windsurf/sentences/.protectec_pass.md
+.windsurf\sentences\.protectec_pass.md
+.claude/sentences/.protectec_pass.md
+.claude/sentences (Claude - no usar)/.protectec_pass.md
+.oldconfig
+llm-workspace/.protectec_pass.md
+
+# Playwright MCP session captures (archivos temporales de sesión)
+.playwright-mcp/
+
+# Screenshots de verificación local
+verify-*.png
+
+# Codex CLI marker
+.codex
+
+# Local CI autofix watcher state (per-machine, not shared)
+scripts/60-ci-local/.processed-runs.json
+
+# MCP Configuration Files (contienen tokens sensibles)
+# Excluir archivos de configuración reales, pero permitir los .example
+.mcp/config/*.json
+!.mcp/config/*.example
+coolify-mcp-config.json
+woodpecker-mcp-config.json
+mcp-combined.json
+.mcp/servers/node_modules/
+.mcp/servers/package-lock.json
+.mcp
+
+# Directorio mcp-servers obsoleto (debe estar en .mcp/servers/)
+mcp-servers/
+
+# Backend scripts (contienen tokens hardcodeados en diagnostics/)
+backend/scripts/
+
+# Scripts con tokens (opcional - descomentar si no quieres trackear cambios)
+# scripts/woodpecker-api-examples.ps1
+# scripts/woodpecker-api-examples.py
+# scripts/woodpecker-api-examples.sh
+
+# External module package source is regenerated from backend/app/modules/{module}/
+# and frontend/app/features/{module}/ by scripts/repo-split/build-module-package.sh
+# on every publish — do not track it as if it were hand-maintained source.
+packages/aiutox-module-*/aiutox_module_*/
+packages/aiutox-module-*/app/
+
+# /226-ux-walkthrough screenshot scratch space — session evidence, never committed.
+# Cleared automatically at the end of every /226 run; any screenshot a finding
+# needs to keep is copied/inlined into the UX-NNN issue or the report first.
+llm-dev-issues/manual-e2e/.screenshots/
+
+# Playwright run artifacts at the repo root — regenerated on every run.
+test-results/

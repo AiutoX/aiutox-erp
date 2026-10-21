@@ -1,0 +1,74 @@
+{
+  "admin": {
+    "modules": {
+      "title": "Module Management",
+      "description": "Manage tenant modules and their lifecycle states",
+      "table": {
+        "module": "Module",
+        "version": "Version",
+        "tier": "Tier",
+        "state": "State",
+        "installedAt": "Installed",
+        "gracePeriod": "Grace Period",
+        "actions": "Actions"
+      },
+      "states": {
+        "not_installed": "Not Installed",
+        "installing": "Installing",
+        "active": "Active",
+        "disabled": "Disabled",
+        "grace_period": "Grace Period",
+        "exported": "Exported",
+        "uninstalled": "Uninstalled"
+      },
+      "tiers": {
+        "basic": "Basic",
+        "pro": "Pro",
+        "enterprise": "Enterprise"
+      },
+      "actions": {
+        "install": "Install",
+        "disable": "Disable",
+        "enable": "Enable",
+        "uninstallRequest": "Request Uninstall",
+        "reactivate": "Reactivate",
+        "export": "Export Data",
+        "hardUninstall": "Hard Uninstall"
+      },
+      "buttons": {
+        "install": "Install Module",
+        "refresh": "Refresh",
+        "cancel": "Cancel",
+        "confirm": "Confirm"
+      },
+      "messages": {
+        "loading": "Loading modules...",
+        "empty": "No modules found",
+        "installSuccess": "Module installed successfully",
+        "disableSuccess": "Module disabled successfully",
+        "enableSuccess": "Module enabled successfully",
+        "uninstallRequestSuccess": "Uninstall request submitted. Module will be removed in 90 days.",
+        "reactivateSuccess": "Module reactivated successfully",
+        "exportSuccess": "Module data exported successfully",
+        "hardUninstallSuccess": "Module permanently uninstalled",
+        "error": "Failed to perform action",
+        "gracePeriodNotice": "Grace period ends: {date}",
+        "dependentModules": "Other modules depend on this one"
+      },
+      "confirmDialogs": {
+        "disableTitle": "Disable Module?",
+        "disableDescription": "This will disable the module for all users.",
+        "uninstallTitle": "Uninstall Module?",
+        "uninstallDescription": "This module will be uninstalled after a 90-day grace period.",
+        "reactivateTitle": "Reactivate Module?",
+        "reactivateDescription": "This will cancel the uninstall request and reactivate the module.",
+        "hardUninstall": {
+          "title": "Permanently Uninstall Module?",
+          "description": "This will permanently delete all data for module \"{module}\". This action cannot be undone.",
+          "cancel": "Cancel",
+          "confirm": "Yes, delete everything"
+        }
+      }
+    }
+  }
+}

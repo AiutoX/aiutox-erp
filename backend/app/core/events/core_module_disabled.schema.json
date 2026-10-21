@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "aiutox://events/core/module_disabled/1.0.0",
+  "title": "core.module.disabled",
+  "description": "Published when a module is disabled",
+  "type": "object",
+  "required": ["module", "tenant_id"],
+  "properties": {
+    "module": {"type": "string"},
+    "tenant_id": {"type": "string", "format": "uuid"}
+  },
+  "additionalProperties": true
+}

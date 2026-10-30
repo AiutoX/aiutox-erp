@@ -1,0 +1,12 @@
+apiVersion: v1
+info:
+  title: Approvals Module API
+  description: API contracts for approvals module
+  version: 1.0.0
+
+endpoints:
+  - summary: List approvals
+  - summary: Get approval
+  - summary: Approve
+  - summary: Reject
+  - summary: Get history

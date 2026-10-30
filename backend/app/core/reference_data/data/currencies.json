@@ -1,0 +1,3080 @@
+{
+  "dataset": "currencies",
+  "source": "Unicode CLDR (via Babel)",
+  "source_version": "2.18.0",
+  "license": "Unicode License v3",
+  "generated_at": "2026-09-26T13:50:46.287118+00:00",
+  "checksum": "6339a7daa26825fbe9e846d6b51932e08e71326dca2abe9e1c3bac486dd96517",
+  "rows": [
+    {
+      "code": "ADP",
+      "names": {
+        "es": "peseta andorrana",
+        "en": "Andorran Peseta"
+      },
+      "symbol": "ADP",
+      "minor_units": 0,
+      "is_active": false
+    },
+    {
+      "code": "AED",
+      "names": {
+        "es": "dírham de los Emiratos Árabes Unidos",
+        "en": "United Arab Emirates Dirham"
+      },
+      "symbol": "د.إ.‏",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "AFA",
+      "names": {
+        "es": "afgani (1927–2002)",
+        "en": "Afghan Afghani (1927–2002)"
+      },
+      "symbol": "AFA",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "AFN",
+      "names": {
+        "es": "afgani afgano",
+        "en": "Afghan Afghani"
+      },
+      "symbol": "؋",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "ALK",
+      "names": {
+        "es": "Albanian Lek (1946–1965)",
+        "en": "Albanian Lek (1946–1965)"
+      },
+      "symbol": "ALK",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ALL",
+      "names": {
+        "es": "lek albanés",
+        "en": "Albanian Lek"
+      },
+      "symbol": "Lekë",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "AMD",
+      "names": {
+        "es": "dram armenio",
+        "en": "Armenian Dram"
+      },
+      "symbol": "֏",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "ANG",
+      "names": {
+        "es": "florín antillano",
+        "en": "Netherlands Antillean Guilder"
+      },
+      "symbol": "ANG",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "AOA",
+      "names": {
+        "es": "kuanza angoleño",
+        "en": "Angolan Kwanza"
+      },
+      "symbol": "Kz",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "AOK",
+      "names": {
+        "es": "kwanza angoleño (1977–1990)",
+        "en": "Angolan Kwanza (1977–1991)"
+      },
+      "symbol": "AOK",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "AON",
+      "names": {
+        "es": "nuevo kwanza angoleño (1990–2000)",
+        "en": "Angolan New Kwanza (1990–2000)"
+      },
+      "symbol": "AON",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "AOR",
+      "names": {
+        "es": "kwanza reajustado angoleño (1995–1999)",
+        "en": "Angolan Readjusted Kwanza (1995–1999)"
+      },
+      "symbol": "AOR",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ARA",
+      "names": {
+        "es": "austral argentino",
+        "en": "Argentine Austral"
+      },
+      "symbol": "ARA",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ARL",
+      "names": {
+        "es": "Argentine Peso Ley (1970–1983)",
+        "en": "Argentine Peso Ley (1970–1983)"
+      },
+      "symbol": "ARL",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ARM",
+      "names": {
+        "es": "Argentine Peso (1881–1970)",
+        "en": "Argentine Peso (1881–1970)"
+      },
+      "symbol": "ARM",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ARP",
+      "names": {
+        "es": "peso argentino (1983–1985)",
+        "en": "Argentine Peso (1983–1985)"
+      },
+      "symbol": "ARP",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ARS",
+      "names": {
+        "es": "peso argentino",
+        "en": "Argentine Peso"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "ATS",
+      "names": {
+        "es": "chelín austriaco",
+        "en": "Austrian Schilling"
+      },
+      "symbol": "ATS",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "AUD",
+      "names": {
+        "es": "dólar australiano",
+        "en": "Australian Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "AWG",
+      "names": {
+        "es": "florín arubeño",
+        "en": "Aruban Florin"
+      },
+      "symbol": "Afl.",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "AZM",
+      "names": {
+        "es": "manat azerí (1993–2006)",
+        "en": "Azerbaijani Manat (1993–2006)"
+      },
+      "symbol": "AZM",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "AZN",
+      "names": {
+        "es": "manat azerbaiyano",
+        "en": "Azerbaijani Manat"
+      },
+      "symbol": "₼",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "BAD",
+      "names": {
+        "es": "dinar bosnio",
+        "en": "Bosnia-Herzegovina Dinar (1992–1994)"
+      },
+      "symbol": "BAD",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BAM",
+      "names": {
+        "es": "marco convertible de Bosnia y Herzegovina",
+        "en": "Bosnia-Herzegovina Convertible Mark"
+      },
+      "symbol": "KM",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "BAN",
+      "names": {
+        "es": "Bosnia-Herzegovina New Dinar (1994–1997)",
+        "en": "Bosnia-Herzegovina New Dinar (1994–1997)"
+      },
+      "symbol": "BAN",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BBD",
+      "names": {
+        "es": "dólar barbadense",
+        "en": "Barbadian Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "BDT",
+      "names": {
+        "es": "taka bangladesí",
+        "en": "Bangladeshi Taka"
+      },
+      "symbol": "৳",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "BEC",
+      "names": {
+        "es": "franco belga (convertible)",
+        "en": "Belgian Franc (convertible)"
+      },
+      "symbol": "BEC",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BEF",
+      "names": {
+        "es": "franco belga",
+        "en": "Belgian Franc"
+      },
+      "symbol": "BEF",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BEL",
+      "names": {
+        "es": "franco belga (financiero)",
+        "en": "Belgian Franc (financial)"
+      },
+      "symbol": "BEL",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BGL",
+      "names": {
+        "es": "lev fuerte búlgaro",
+        "en": "Bulgarian Hard Lev"
+      },
+      "symbol": "BGL",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BGM",
+      "names": {
+        "es": "Bulgarian Socialist Lev",
+        "en": "Bulgarian Socialist Lev"
+      },
+      "symbol": "BGM",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BGN",
+      "names": {
+        "es": "leva búlgara",
+        "en": "Bulgarian Lev"
+      },
+      "symbol": "лв.",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "BGO",
+      "names": {
+        "es": "Bulgarian Lev (1879–1952)",
+        "en": "Bulgarian Lev (1879–1952)"
+      },
+      "symbol": "BGO",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BHD",
+      "names": {
+        "es": "dinar bareiní",
+        "en": "Bahraini Dinar"
+      },
+      "symbol": "د.ب.‏",
+      "minor_units": 3,
+      "is_active": true
+    },
+    {
+      "code": "BIF",
+      "names": {
+        "es": "franco burundés",
+        "en": "Burundian Franc"
+      },
+      "symbol": "FBu",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "BMD",
+      "names": {
+        "es": "dólar bermudeño",
+        "en": "Bermudan Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "BND",
+      "names": {
+        "es": "dólar bruneano",
+        "en": "Brunei Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "BOB",
+      "names": {
+        "es": "boliviano",
+        "en": "Bolivian Boliviano"
+      },
+      "symbol": "Bs",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "BOL",
+      "names": {
+        "es": "Bolivian Boliviano (1863–1963)",
+        "en": "Bolivian Boliviano (1863–1963)"
+      },
+      "symbol": "BOL",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BOP",
+      "names": {
+        "es": "peso boliviano",
+        "en": "Bolivian Peso"
+      },
+      "symbol": "BOP",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BOV",
+      "names": {
+        "es": "MVDOL boliviano",
+        "en": "Bolivian Mvdol"
+      },
+      "symbol": "BOV",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BRB",
+      "names": {
+        "es": "nuevo cruceiro brasileño (1967–1986)",
+        "en": "Brazilian New Cruzeiro (1967–1986)"
+      },
+      "symbol": "BRB",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BRC",
+      "names": {
+        "es": "cruzado brasileño",
+        "en": "Brazilian Cruzado (1986–1989)"
+      },
+      "symbol": "BRC",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BRE",
+      "names": {
+        "es": "cruceiro brasileño (1990–1993)",
+        "en": "Brazilian Cruzeiro (1990–1993)"
+      },
+      "symbol": "BRE",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BRL",
+      "names": {
+        "es": "real brasileño",
+        "en": "Brazilian Real"
+      },
+      "symbol": "R$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "BRN",
+      "names": {
+        "es": "nuevo cruzado brasileño",
+        "en": "Brazilian New Cruzado (1989–1990)"
+      },
+      "symbol": "BRN",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BRR",
+      "names": {
+        "es": "cruceiro brasileño",
+        "en": "Brazilian Cruzeiro (1993–1994)"
+      },
+      "symbol": "BRR",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BRZ",
+      "names": {
+        "es": "Brazilian Cruzeiro (1942–1967)",
+        "en": "Brazilian Cruzeiro (1942–1967)"
+      },
+      "symbol": "BRZ",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BSD",
+      "names": {
+        "es": "dólar bahameño",
+        "en": "Bahamian Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "BTN",
+      "names": {
+        "es": "gultrum butanés",
+        "en": "Bhutanese Ngultrum"
+      },
+      "symbol": "Nu.",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "BUK",
+      "names": {
+        "es": "kyat birmano",
+        "en": "Burmese Kyat"
+      },
+      "symbol": "BUK",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BWP",
+      "names": {
+        "es": "pula botsuano",
+        "en": "Botswanan Pula"
+      },
+      "symbol": "P",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "BYB",
+      "names": {
+        "es": "nuevo rublo bielorruso (1994–1999)",
+        "en": "Belarusian Ruble (1994–1999)"
+      },
+      "symbol": "BYB",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "BYN",
+      "names": {
+        "es": "rublo bielorruso",
+        "en": "Belarusian Ruble"
+      },
+      "symbol": "Br",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "BYR",
+      "names": {
+        "es": "rublo bielorruso (2000–2016)",
+        "en": "Belarusian Ruble (2000–2016)"
+      },
+      "symbol": "BYR",
+      "minor_units": 0,
+      "is_active": false
+    },
+    {
+      "code": "BZD",
+      "names": {
+        "es": "dólar beliceño",
+        "en": "Belize Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "CAD",
+      "names": {
+        "es": "dólar canadiense",
+        "en": "Canadian Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "CDF",
+      "names": {
+        "es": "franco congoleño",
+        "en": "Congolese Franc"
+      },
+      "symbol": "FC",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "CHE",
+      "names": {
+        "es": "euro WIR",
+        "en": "WIR Euro"
+      },
+      "symbol": "CHE",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "CHF",
+      "names": {
+        "es": "franco suizo",
+        "en": "Swiss Franc"
+      },
+      "symbol": "CHF",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "CHW",
+      "names": {
+        "es": "franco WIR",
+        "en": "WIR Franc"
+      },
+      "symbol": "CHW",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "CLE",
+      "names": {
+        "es": "Chilean Escudo",
+        "en": "Chilean Escudo"
+      },
+      "symbol": "CLE",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "CLF",
+      "names": {
+        "es": "unidad de fomento chilena",
+        "en": "Chilean Unit of Account (UF)"
+      },
+      "symbol": "CLF",
+      "minor_units": 4,
+      "is_active": false
+    },
+    {
+      "code": "CLP",
+      "names": {
+        "es": "peso chileno",
+        "en": "Chilean Peso"
+      },
+      "symbol": "$",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "CNH",
+      "names": {
+        "es": "yuan chino (extracontinental)",
+        "en": "Chinese Yuan (offshore)"
+      },
+      "symbol": "CNH",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "CNX",
+      "names": {
+        "es": "Chinese People’s Bank Dollar",
+        "en": "Chinese People’s Bank Dollar"
+      },
+      "symbol": "CNX",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "CNY",
+      "names": {
+        "es": "yuan renminbi",
+        "en": "Chinese Yuan"
+      },
+      "symbol": "¥",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "COP",
+      "names": {
+        "es": "peso colombiano",
+        "en": "Colombian Peso"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "COU",
+      "names": {
+        "es": "unidad de valor real colombiana",
+        "en": "Colombian Real Value Unit"
+      },
+      "symbol": "COU",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "CRC",
+      "names": {
+        "es": "colón costarricense",
+        "en": "Costa Rican Colón"
+      },
+      "symbol": "₡",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "CSD",
+      "names": {
+        "es": "antiguo dinar serbio",
+        "en": "Serbian Dinar (2002–2006)"
+      },
+      "symbol": "CSD",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "CSK",
+      "names": {
+        "es": "corona fuerte checoslovaca",
+        "en": "Czechoslovak Hard Koruna"
+      },
+      "symbol": "CSK",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "CUC",
+      "names": {
+        "es": "peso cubano convertible",
+        "en": "Cuban Convertible Peso"
+      },
+      "symbol": "CUC",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "CUP",
+      "names": {
+        "es": "peso cubano",
+        "en": "Cuban Peso"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "CVE",
+      "names": {
+        "es": "escudo de Cabo Verde",
+        "en": "Cape Verdean Escudo"
+      },
+      "symbol": "​",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "CYP",
+      "names": {
+        "es": "libra chipriota",
+        "en": "Cypriot Pound"
+      },
+      "symbol": "CYP",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "CZK",
+      "names": {
+        "es": "corona checa",
+        "en": "Czech Koruna"
+      },
+      "symbol": "Kč",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "DDM",
+      "names": {
+        "es": "ostmark de Alemania del Este",
+        "en": "East German Mark"
+      },
+      "symbol": "DDM",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "DEM",
+      "names": {
+        "es": "marco alemán",
+        "en": "German Mark"
+      },
+      "symbol": "DEM",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "DJF",
+      "names": {
+        "es": "franco yibutiano",
+        "en": "Djiboutian Franc"
+      },
+      "symbol": "Fdj",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "DKK",
+      "names": {
+        "es": "corona danesa",
+        "en": "Danish Krone"
+      },
+      "symbol": "kr.",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "DOP",
+      "names": {
+        "es": "peso dominicano",
+        "en": "Dominican Peso"
+      },
+      "symbol": "RD$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "DZD",
+      "names": {
+        "es": "dinar argelino",
+        "en": "Algerian Dinar"
+      },
+      "symbol": "د.ج.‏",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "ECS",
+      "names": {
+        "es": "sucre ecuatoriano",
+        "en": "Ecuadorian Sucre"
+      },
+      "symbol": "ECS",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ECV",
+      "names": {
+        "es": "unidad de valor constante (UVC) ecuatoriana",
+        "en": "Ecuadorian Unit of Constant Value"
+      },
+      "symbol": "ECV",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "EEK",
+      "names": {
+        "es": "corona estonia",
+        "en": "Estonian Kroon"
+      },
+      "symbol": "EEK",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "EGP",
+      "names": {
+        "es": "libra egipcia",
+        "en": "Egyptian Pound"
+      },
+      "symbol": "ج.م.‏",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "ERN",
+      "names": {
+        "es": "nakfa eritreo",
+        "en": "Eritrean Nakfa"
+      },
+      "symbol": "Nfk",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "ESA",
+      "names": {
+        "es": "peseta española (cuenta A)",
+        "en": "Spanish Peseta (A account)"
+      },
+      "symbol": "ESA",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ESB",
+      "names": {
+        "es": "peseta española (cuenta convertible)",
+        "en": "Spanish Peseta (convertible account)"
+      },
+      "symbol": "ESB",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ESP",
+      "names": {
+        "es": "peseta española",
+        "en": "Spanish Peseta"
+      },
+      "symbol": "ESP",
+      "minor_units": 0,
+      "is_active": false
+    },
+    {
+      "code": "ETB",
+      "names": {
+        "es": "bir etíope",
+        "en": "Ethiopian Birr"
+      },
+      "symbol": "ብር",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "EUR",
+      "names": {
+        "es": "euro",
+        "en": "Euro"
+      },
+      "symbol": "€",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "FIM",
+      "names": {
+        "es": "marco finlandés",
+        "en": "Finnish Markka"
+      },
+      "symbol": "FIM",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "FJD",
+      "names": {
+        "es": "dólar fiyiano",
+        "en": "Fijian Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "FKP",
+      "names": {
+        "es": "libra malvinense",
+        "en": "Falkland Islands Pound"
+      },
+      "symbol": "£",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "FRF",
+      "names": {
+        "es": "franco francés",
+        "en": "French Franc"
+      },
+      "symbol": "FRF",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "GBP",
+      "names": {
+        "es": "libra esterlina",
+        "en": "British Pound"
+      },
+      "symbol": "£",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "GEK",
+      "names": {
+        "es": "kupon larit georgiano",
+        "en": "Georgian Kupon Larit"
+      },
+      "symbol": "GEK",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "GEL",
+      "names": {
+        "es": "lari georgiano",
+        "en": "Georgian Lari"
+      },
+      "symbol": "₾",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "GHC",
+      "names": {
+        "es": "cedi ghanés (1979–2007)",
+        "en": "Ghanaian Cedi (1979–2007)"
+      },
+      "symbol": "GHC",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "GHS",
+      "names": {
+        "es": "cedi ghanés",
+        "en": "Ghanaian Cedi"
+      },
+      "symbol": "GH₵",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "GIP",
+      "names": {
+        "es": "libra gibraltareña",
+        "en": "Gibraltar Pound"
+      },
+      "symbol": "£",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "GMD",
+      "names": {
+        "es": "dalasi gambiano",
+        "en": "Gambian Dalasi"
+      },
+      "symbol": "D",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "GNF",
+      "names": {
+        "es": "franco guineano",
+        "en": "Guinean Franc"
+      },
+      "symbol": "FG",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "GNS",
+      "names": {
+        "es": "syli guineano",
+        "en": "Guinean Syli"
+      },
+      "symbol": "GNS",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "GQE",
+      "names": {
+        "es": "ekuele de Guinea Ecuatorial",
+        "en": "Equatorial Guinean Ekwele"
+      },
+      "symbol": "GQE",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "GRD",
+      "names": {
+        "es": "dracma griego",
+        "en": "Greek Drachma"
+      },
+      "symbol": "GRD",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "GTQ",
+      "names": {
+        "es": "quetzal guatemalteco",
+        "en": "Guatemalan Quetzal"
+      },
+      "symbol": "Q",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "GWE",
+      "names": {
+        "es": "escudo de Guinea Portuguesa",
+        "en": "Portuguese Guinea Escudo"
+      },
+      "symbol": "GWE",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "GWP",
+      "names": {
+        "es": "peso de Guinea-Bissáu",
+        "en": "Guinea-Bissau Peso"
+      },
+      "symbol": "GWP",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "GYD",
+      "names": {
+        "es": "dólar guyanés",
+        "en": "Guyanaese Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "HKD",
+      "names": {
+        "es": "dólar hongkonés",
+        "en": "Hong Kong Dollar"
+      },
+      "symbol": "HK$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "HNL",
+      "names": {
+        "es": "lempira hondureño",
+        "en": "Honduran Lempira"
+      },
+      "symbol": "L",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "HRD",
+      "names": {
+        "es": "dinar croata",
+        "en": "Croatian Dinar"
+      },
+      "symbol": "HRD",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "HRK",
+      "names": {
+        "es": "kuna croata",
+        "en": "Croatian Kuna"
+      },
+      "symbol": "HRK",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "HTG",
+      "names": {
+        "es": "gurde haitiano",
+        "en": "Haitian Gourde"
+      },
+      "symbol": "G",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "HUF",
+      "names": {
+        "es": "forinto húngaro",
+        "en": "Hungarian Forint"
+      },
+      "symbol": "Ft",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "IDR",
+      "names": {
+        "es": "rupia indonesia",
+        "en": "Indonesian Rupiah"
+      },
+      "symbol": "Rp",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "IEP",
+      "names": {
+        "es": "libra irlandesa",
+        "en": "Irish Pound"
+      },
+      "symbol": "IEP",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ILP",
+      "names": {
+        "es": "libra israelí",
+        "en": "Israeli Pound"
+      },
+      "symbol": "ILP",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ILR",
+      "names": {
+        "es": "Israeli Shekel (1980–1985)",
+        "en": "Israeli Shekel (1980–1985)"
+      },
+      "symbol": "ILR",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ILS",
+      "names": {
+        "es": "nuevo séquel israelí",
+        "en": "Israeli New Shekel"
+      },
+      "symbol": "₪",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "INR",
+      "names": {
+        "es": "rupia india",
+        "en": "Indian Rupee"
+      },
+      "symbol": "₹",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "IQD",
+      "names": {
+        "es": "dinar iraquí",
+        "en": "Iraqi Dinar"
+      },
+      "symbol": "د.ع.‏",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "IRR",
+      "names": {
+        "es": "rial iraní",
+        "en": "Iranian Rial"
+      },
+      "symbol": "ریال",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "ISJ",
+      "names": {
+        "es": "Icelandic Króna (1918–1981)",
+        "en": "Icelandic Króna (1918–1981)"
+      },
+      "symbol": "ISJ",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ISK",
+      "names": {
+        "es": "corona islandesa",
+        "en": "Icelandic Króna"
+      },
+      "symbol": "kr.",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "ITL",
+      "names": {
+        "es": "lira italiana",
+        "en": "Italian Lira"
+      },
+      "symbol": "ITL",
+      "minor_units": 0,
+      "is_active": false
+    },
+    {
+      "code": "JMD",
+      "names": {
+        "es": "dólar jamaicano",
+        "en": "Jamaican Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "JOD",
+      "names": {
+        "es": "dinar jordano",
+        "en": "Jordanian Dinar"
+      },
+      "symbol": "د.أ.‏",
+      "minor_units": 3,
+      "is_active": true
+    },
+    {
+      "code": "JPY",
+      "names": {
+        "es": "yen japonés",
+        "en": "Japanese Yen"
+      },
+      "symbol": "￥",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "KES",
+      "names": {
+        "es": "chelín keniano",
+        "en": "Kenyan Shilling"
+      },
+      "symbol": "Ksh",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "KGS",
+      "names": {
+        "es": "som kirguís",
+        "en": "Kyrgystani Som"
+      },
+      "symbol": "сом",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "KHR",
+      "names": {
+        "es": "riel camboyano",
+        "en": "Cambodian Riel"
+      },
+      "symbol": "៛",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "KMF",
+      "names": {
+        "es": "franco comorense",
+        "en": "Comorian Franc"
+      },
+      "symbol": "CF",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "KPW",
+      "names": {
+        "es": "won norcoreano",
+        "en": "North Korean Won"
+      },
+      "symbol": "KPW",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "KRH",
+      "names": {
+        "es": "South Korean Hwan (1953–1962)",
+        "en": "South Korean Hwan (1953–1962)"
+      },
+      "symbol": "KRH",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "KRO",
+      "names": {
+        "es": "South Korean Won (1945–1953)",
+        "en": "South Korean Won (1945–1953)"
+      },
+      "symbol": "KRO",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "KRW",
+      "names": {
+        "es": "won surcoreano",
+        "en": "South Korean Won"
+      },
+      "symbol": "₩",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "KWD",
+      "names": {
+        "es": "dinar kuwaití",
+        "en": "Kuwaiti Dinar"
+      },
+      "symbol": "د.ك.‏",
+      "minor_units": 3,
+      "is_active": true
+    },
+    {
+      "code": "KYD",
+      "names": {
+        "es": "dólar de las Islas Caimán",
+        "en": "Cayman Islands Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "KZT",
+      "names": {
+        "es": "tengue kazajo",
+        "en": "Kazakhstani Tenge"
+      },
+      "symbol": "₸",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "LAK",
+      "names": {
+        "es": "kip laosiano",
+        "en": "Laotian Kip"
+      },
+      "symbol": "₭",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "LBP",
+      "names": {
+        "es": "libra libanesa",
+        "en": "Lebanese Pound"
+      },
+      "symbol": "ل.ل.‏",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "LKR",
+      "names": {
+        "es": "rupia esrilanquesa",
+        "en": "Sri Lankan Rupee"
+      },
+      "symbol": "රු.",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "LRD",
+      "names": {
+        "es": "dólar liberiano",
+        "en": "Liberian Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "LSL",
+      "names": {
+        "es": "loti lesotense",
+        "en": "Lesotho Loti"
+      },
+      "symbol": "M",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "LTL",
+      "names": {
+        "es": "litas lituano",
+        "en": "Lithuanian Litas"
+      },
+      "symbol": "LTL",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "LTT",
+      "names": {
+        "es": "talonas lituano",
+        "en": "Lithuanian Talonas"
+      },
+      "symbol": "LTT",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "LUC",
+      "names": {
+        "es": "franco convertible luxemburgués",
+        "en": "Luxembourgian Convertible Franc"
+      },
+      "symbol": "LUC",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "LUF",
+      "names": {
+        "es": "franco luxemburgués",
+        "en": "Luxembourgian Franc"
+      },
+      "symbol": "LUF",
+      "minor_units": 0,
+      "is_active": false
+    },
+    {
+      "code": "LUL",
+      "names": {
+        "es": "franco financiero luxemburgués",
+        "en": "Luxembourg Financial Franc"
+      },
+      "symbol": "LUL",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "LVL",
+      "names": {
+        "es": "lats letón",
+        "en": "Latvian Lats"
+      },
+      "symbol": "LVL",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "LVR",
+      "names": {
+        "es": "rublo letón",
+        "en": "Latvian Ruble"
+      },
+      "symbol": "LVR",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "LYD",
+      "names": {
+        "es": "dinar libio",
+        "en": "Libyan Dinar"
+      },
+      "symbol": "د.ل.‏",
+      "minor_units": 3,
+      "is_active": true
+    },
+    {
+      "code": "MAD",
+      "names": {
+        "es": "dírham marroquí",
+        "en": "Moroccan Dirham"
+      },
+      "symbol": "د.م.‏",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "MAF",
+      "names": {
+        "es": "franco marroquí",
+        "en": "Moroccan Franc"
+      },
+      "symbol": "MAF",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "MCF",
+      "names": {
+        "es": "Monegasque Franc",
+        "en": "Monegasque Franc"
+      },
+      "symbol": "MCF",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "MDC",
+      "names": {
+        "es": "Moldovan Cupon",
+        "en": "Moldovan Cupon"
+      },
+      "symbol": "MDC",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "MDL",
+      "names": {
+        "es": "leu moldavo",
+        "en": "Moldovan Leu"
+      },
+      "symbol": "L",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "MGA",
+      "names": {
+        "es": "ariari malgache",
+        "en": "Malagasy Ariary"
+      },
+      "symbol": "Ar",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "MGF",
+      "names": {
+        "es": "franco malgache",
+        "en": "Malagasy Franc"
+      },
+      "symbol": "MGF",
+      "minor_units": 0,
+      "is_active": false
+    },
+    {
+      "code": "MKD",
+      "names": {
+        "es": "dinar macedonio",
+        "en": "Macedonian Denar"
+      },
+      "symbol": "ден.",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "MKN",
+      "names": {
+        "es": "Macedonian Denar (1992–1993)",
+        "en": "Macedonian Denar (1992–1993)"
+      },
+      "symbol": "MKN",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "MLF",
+      "names": {
+        "es": "franco malí",
+        "en": "Malian Franc"
+      },
+      "symbol": "MLF",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "MMK",
+      "names": {
+        "es": "kiat de Myanmar",
+        "en": "Myanmar Kyat"
+      },
+      "symbol": "K",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "MNT",
+      "names": {
+        "es": "tugrik mongol",
+        "en": "Mongolian Tugrik"
+      },
+      "symbol": "₮",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "MOP",
+      "names": {
+        "es": "pataca macaense",
+        "en": "Macanese Pataca"
+      },
+      "symbol": "MOP$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "MRO",
+      "names": {
+        "es": "uguiya (1973–2017)",
+        "en": "Mauritanian Ouguiya (1973–2017)"
+      },
+      "symbol": "MRO",
+      "minor_units": 0,
+      "is_active": false
+    },
+    {
+      "code": "MRU",
+      "names": {
+        "es": "uguiya mauritano",
+        "en": "Mauritanian Ouguiya"
+      },
+      "symbol": "أ.م.",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "MTL",
+      "names": {
+        "es": "lira maltesa",
+        "en": "Maltese Lira"
+      },
+      "symbol": "MTL",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "MTP",
+      "names": {
+        "es": "libra maltesa",
+        "en": "Maltese Pound"
+      },
+      "symbol": "MTP",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "MUR",
+      "names": {
+        "es": "rupia mauriciana",
+        "en": "Mauritian Rupee"
+      },
+      "symbol": "Rs",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "MVP",
+      "names": {
+        "es": "Maldivian Rupee (1947–1981)",
+        "en": "Maldivian Rupee (1947–1981)"
+      },
+      "symbol": "MVP",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "MVR",
+      "names": {
+        "es": "rufiya maldiva",
+        "en": "Maldivian Rufiyaa"
+      },
+      "symbol": "ރ.",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "MWK",
+      "names": {
+        "es": "kuacha malauí",
+        "en": "Malawian Kwacha"
+      },
+      "symbol": "MK",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "MXN",
+      "names": {
+        "es": "peso mexicano",
+        "en": "Mexican Peso"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "MXP",
+      "names": {
+        "es": "peso de plata mexicano (1861–1992)",
+        "en": "Mexican Silver Peso (1861–1992)"
+      },
+      "symbol": "MXP",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "MXV",
+      "names": {
+        "es": "unidad de inversión (UDI) mexicana",
+        "en": "Mexican Investment Unit"
+      },
+      "symbol": "MXV",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "MYR",
+      "names": {
+        "es": "ringit malasio",
+        "en": "Malaysian Ringgit"
+      },
+      "symbol": "RM",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "MZE",
+      "names": {
+        "es": "escudo mozambiqueño",
+        "en": "Mozambican Escudo"
+      },
+      "symbol": "MZE",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "MZM",
+      "names": {
+        "es": "antiguo metical mozambiqueño",
+        "en": "Mozambican Metical (1980–2006)"
+      },
+      "symbol": "MZM",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "MZN",
+      "names": {
+        "es": "metical mozambiqueño",
+        "en": "Mozambican Metical"
+      },
+      "symbol": "MTn",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "NAD",
+      "names": {
+        "es": "dólar namibio",
+        "en": "Namibian Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "NGN",
+      "names": {
+        "es": "naira nigeriano",
+        "en": "Nigerian Naira"
+      },
+      "symbol": "₦",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "NIC",
+      "names": {
+        "es": "córdoba nicaragüense (1988–1991)",
+        "en": "Nicaraguan Córdoba (1988–1991)"
+      },
+      "symbol": "NIC",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "NIO",
+      "names": {
+        "es": "córdoba oro",
+        "en": "Nicaraguan Córdoba"
+      },
+      "symbol": "C$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "NLG",
+      "names": {
+        "es": "florín neerlandés",
+        "en": "Dutch Guilder"
+      },
+      "symbol": "NLG",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "NOK",
+      "names": {
+        "es": "corona noruega",
+        "en": "Norwegian Krone"
+      },
+      "symbol": "NOK",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "NPR",
+      "names": {
+        "es": "rupia nepalí",
+        "en": "Nepalese Rupee"
+      },
+      "symbol": "नेरू",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "NZD",
+      "names": {
+        "es": "dólar neozelandés",
+        "en": "New Zealand Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "OMR",
+      "names": {
+        "es": "rial omaní",
+        "en": "Omani Rial"
+      },
+      "symbol": "ر.ع.‏",
+      "minor_units": 3,
+      "is_active": true
+    },
+    {
+      "code": "PAB",
+      "names": {
+        "es": "balboa panameño",
+        "en": "Panamanian Balboa"
+      },
+      "symbol": "B/.",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "PEI",
+      "names": {
+        "es": "inti peruano",
+        "en": "Peruvian Inti"
+      },
+      "symbol": "PEI",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "PEN",
+      "names": {
+        "es": "sol peruano",
+        "en": "Peruvian Sol"
+      },
+      "symbol": "S/",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "PES",
+      "names": {
+        "es": "sol peruano (1863–1965)",
+        "en": "Peruvian Sol (1863–1965)"
+      },
+      "symbol": "PES",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "PGK",
+      "names": {
+        "es": "kina papú",
+        "en": "Papua New Guinean Kina"
+      },
+      "symbol": "PGK",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "PHP",
+      "names": {
+        "es": "peso filipino",
+        "en": "Philippine Peso"
+      },
+      "symbol": "₱",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "PKR",
+      "names": {
+        "es": "rupia pakistaní",
+        "en": "Pakistani Rupee"
+      },
+      "symbol": "Rs",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "PLN",
+      "names": {
+        "es": "esloti polaco",
+        "en": "Polish Zloty"
+      },
+      "symbol": "zł",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "PLZ",
+      "names": {
+        "es": "zloty polaco (1950–1995)",
+        "en": "Polish Zloty (1950–1995)"
+      },
+      "symbol": "PLZ",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "PTE",
+      "names": {
+        "es": "escudo portugués",
+        "en": "Portuguese Escudo"
+      },
+      "symbol": "PTE",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "PYG",
+      "names": {
+        "es": "guaraní paraguayo",
+        "en": "Paraguayan Guarani"
+      },
+      "symbol": "₲",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "QAR",
+      "names": {
+        "es": "rial catarí",
+        "en": "Qatari Riyal"
+      },
+      "symbol": "ر.ق.‏",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "RHD",
+      "names": {
+        "es": "dólar rodesiano",
+        "en": "Rhodesian Dollar"
+      },
+      "symbol": "RHD",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ROL",
+      "names": {
+        "es": "antiguo leu rumano",
+        "en": "Romanian Leu (1952–2006)"
+      },
+      "symbol": "ROL",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "RON",
+      "names": {
+        "es": "leu rumano",
+        "en": "Romanian Leu"
+      },
+      "symbol": "RON",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "RSD",
+      "names": {
+        "es": "dinar serbio",
+        "en": "Serbian Dinar"
+      },
+      "symbol": "RSD",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "RUB",
+      "names": {
+        "es": "rublo ruso",
+        "en": "Russian Ruble"
+      },
+      "symbol": "₽",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "RUR",
+      "names": {
+        "es": "rublo ruso (1991–1998)",
+        "en": "Russian Ruble (1991–1998)"
+      },
+      "symbol": "RUR",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "RWF",
+      "names": {
+        "es": "franco ruandés",
+        "en": "Rwandan Franc"
+      },
+      "symbol": "RF",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "SAR",
+      "names": {
+        "es": "rial saudí",
+        "en": "Saudi Riyal"
+      },
+      "symbol": "ر.س.‏",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "SBD",
+      "names": {
+        "es": "dólar salomonense",
+        "en": "Solomon Islands Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "SCR",
+      "names": {
+        "es": "rupia seychellense",
+        "en": "Seychellois Rupee"
+      },
+      "symbol": "SR",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "SDD",
+      "names": {
+        "es": "dinar sudanés",
+        "en": "Sudanese Dinar (1992–2007)"
+      },
+      "symbol": "SDD",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "SDG",
+      "names": {
+        "es": "libra sudanesa",
+        "en": "Sudanese Pound"
+      },
+      "symbol": "ج.س.",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "SDP",
+      "names": {
+        "es": "libra sudanesa antigua",
+        "en": "Sudanese Pound (1957–1998)"
+      },
+      "symbol": "SDP",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "SEK",
+      "names": {
+        "es": "corona sueca",
+        "en": "Swedish Krona"
+      },
+      "symbol": "kr",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "SGD",
+      "names": {
+        "es": "dólar singapurense",
+        "en": "Singapore Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "SHP",
+      "names": {
+        "es": "libra de Santa Elena",
+        "en": "St. Helena Pound"
+      },
+      "symbol": "£",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "SIT",
+      "names": {
+        "es": "tólar esloveno",
+        "en": "Slovenian Tolar"
+      },
+      "symbol": "SIT",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "SKK",
+      "names": {
+        "es": "corona eslovaca",
+        "en": "Slovak Koruna"
+      },
+      "symbol": "SKK",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "SLE",
+      "names": {
+        "es": "leona sierraleonesa",
+        "en": "Sierra Leonean Leone"
+      },
+      "symbol": "Le",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "SLL",
+      "names": {
+        "es": "leona sierraleonesa (1964–2022)",
+        "en": "Sierra Leonean Leone (1964—2022)"
+      },
+      "symbol": "SLL",
+      "minor_units": 0,
+      "is_active": false
+    },
+    {
+      "code": "SOS",
+      "names": {
+        "es": "chelín somalí",
+        "en": "Somali Shilling"
+      },
+      "symbol": "S",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "SRD",
+      "names": {
+        "es": "dólar surinamés",
+        "en": "Surinamese Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "SRG",
+      "names": {
+        "es": "florín surinamés",
+        "en": "Surinamese Guilder"
+      },
+      "symbol": "SRG",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "SSP",
+      "names": {
+        "es": "libra sursudanesa",
+        "en": "South Sudanese Pound"
+      },
+      "symbol": "£",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "STD",
+      "names": {
+        "es": "dobra (1977–2017)",
+        "en": "São Tomé & Príncipe Dobra (1977–2017)"
+      },
+      "symbol": "STD",
+      "minor_units": 0,
+      "is_active": false
+    },
+    {
+      "code": "STN",
+      "names": {
+        "es": "dobra santotomense",
+        "en": "São Tomé & Príncipe Dobra"
+      },
+      "symbol": "Db",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "SUR",
+      "names": {
+        "es": "rublo soviético",
+        "en": "Soviet Rouble"
+      },
+      "symbol": "SUR",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "SVC",
+      "names": {
+        "es": "colón salvadoreño",
+        "en": "Salvadoran Colón"
+      },
+      "symbol": "SVC",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "SYP",
+      "names": {
+        "es": "libra siria",
+        "en": "Syrian Pound"
+      },
+      "symbol": "ل.س.‏",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "SZL",
+      "names": {
+        "es": "lilangeni esuatiní",
+        "en": "Swazi Lilangeni"
+      },
+      "symbol": "E",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "THB",
+      "names": {
+        "es": "bat tailandés",
+        "en": "Thai Baht"
+      },
+      "symbol": "฿",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "TJR",
+      "names": {
+        "es": "rublo tayiko",
+        "en": "Tajikistani Ruble"
+      },
+      "symbol": "TJR",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "TJS",
+      "names": {
+        "es": "somoni tayiko",
+        "en": "Tajikistani Somoni"
+      },
+      "symbol": "TJS",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "TMM",
+      "names": {
+        "es": "manat turcomano (1993–2009)",
+        "en": "Turkmenistani Manat (1993–2009)"
+      },
+      "symbol": "TMM",
+      "minor_units": 0,
+      "is_active": false
+    },
+    {
+      "code": "TMT",
+      "names": {
+        "es": "manat turcomano",
+        "en": "Turkmenistani Manat"
+      },
+      "symbol": "TMT",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "TND",
+      "names": {
+        "es": "dinar tunecino",
+        "en": "Tunisian Dinar"
+      },
+      "symbol": "د.ت.‏",
+      "minor_units": 3,
+      "is_active": true
+    },
+    {
+      "code": "TOP",
+      "names": {
+        "es": "paanga tongano",
+        "en": "Tongan Paʻanga"
+      },
+      "symbol": "T$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "TPE",
+      "names": {
+        "es": "escudo timorense",
+        "en": "Timorese Escudo"
+      },
+      "symbol": "TPE",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "TRL",
+      "names": {
+        "es": "lira turca (1922–2005)",
+        "en": "Turkish Lira (1922–2005)"
+      },
+      "symbol": "TRL",
+      "minor_units": 0,
+      "is_active": false
+    },
+    {
+      "code": "TRY",
+      "names": {
+        "es": "lira turca",
+        "en": "Turkish Lira"
+      },
+      "symbol": "₺",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "TTD",
+      "names": {
+        "es": "dólar de Trinidad y Tobago",
+        "en": "Trinidad & Tobago Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "TWD",
+      "names": {
+        "es": "nuevo dólar taiwanés",
+        "en": "New Taiwan Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "TZS",
+      "names": {
+        "es": "chelín tanzano",
+        "en": "Tanzanian Shilling"
+      },
+      "symbol": "TSh",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "UAH",
+      "names": {
+        "es": "grivna ucraniana",
+        "en": "Ukrainian Hryvnia"
+      },
+      "symbol": "₴",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "UAK",
+      "names": {
+        "es": "karbovanet ucraniano",
+        "en": "Ukrainian Karbovanets"
+      },
+      "symbol": "UAK",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "UGS",
+      "names": {
+        "es": "chelín ugandés (1966–1987)",
+        "en": "Ugandan Shilling (1966–1987)"
+      },
+      "symbol": "UGS",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "UGX",
+      "names": {
+        "es": "chelín ugandés",
+        "en": "Ugandan Shilling"
+      },
+      "symbol": "USh",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "USD",
+      "names": {
+        "es": "dólar estadounidense",
+        "en": "US Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "USN",
+      "names": {
+        "es": "dólar estadounidense (día siguiente)",
+        "en": "US Dollar (Next day)"
+      },
+      "symbol": "USN",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "USS",
+      "names": {
+        "es": "dólar estadounidense (mismo día)",
+        "en": "US Dollar (Same day)"
+      },
+      "symbol": "USS",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "UYI",
+      "names": {
+        "es": "peso uruguayo en unidades indexadas",
+        "en": "Uruguayan Peso (Indexed Units)"
+      },
+      "symbol": "UYI",
+      "minor_units": 0,
+      "is_active": false
+    },
+    {
+      "code": "UYP",
+      "names": {
+        "es": "peso uruguayo (1975–1993)",
+        "en": "Uruguayan Peso (1975–1993)"
+      },
+      "symbol": "UYP",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "UYU",
+      "names": {
+        "es": "peso uruguayo",
+        "en": "Uruguayan Peso"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "UYW",
+      "names": {
+        "es": "unidad previsional uruguayo",
+        "en": "Uruguayan Nominal Wage Index Unit"
+      },
+      "symbol": "UYW",
+      "minor_units": 4,
+      "is_active": false
+    },
+    {
+      "code": "UZS",
+      "names": {
+        "es": "sum uzbeko",
+        "en": "Uzbekistani Som"
+      },
+      "symbol": "soʻm",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "VEB",
+      "names": {
+        "es": "bolívar venezolano (1871–2008)",
+        "en": "Venezuelan Bolívar (1871–2008)"
+      },
+      "symbol": "VEB",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "VED",
+      "names": {
+        "es": "Bolívar Soberano",
+        "en": "Bolívar Soberano"
+      },
+      "symbol": "VED",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "VEF",
+      "names": {
+        "es": "bolívar venezolano (2008–2018)",
+        "en": "Venezuelan Bolívar (2008–2018)"
+      },
+      "symbol": "VEF",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "VES",
+      "names": {
+        "es": "bolívar venezolano",
+        "en": "Venezuelan Bolívar"
+      },
+      "symbol": "Bs.S",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "VND",
+      "names": {
+        "es": "dong vietnamita",
+        "en": "Vietnamese Dong"
+      },
+      "symbol": "₫",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "VNN",
+      "names": {
+        "es": "Vietnamese Dong (1978–1985)",
+        "en": "Vietnamese Dong (1978–1985)"
+      },
+      "symbol": "VNN",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "VUV",
+      "names": {
+        "es": "vatu vanuatense",
+        "en": "Vanuatu Vatu"
+      },
+      "symbol": "VT",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "WST",
+      "names": {
+        "es": "tala samoano",
+        "en": "Samoan Tala"
+      },
+      "symbol": "WS$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "XAF",
+      "names": {
+        "es": "franco CFA de África Central",
+        "en": "Central African CFA Franc"
+      },
+      "symbol": "FCFA",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "XAG",
+      "names": {
+        "es": "plata",
+        "en": "Silver"
+      },
+      "symbol": "XAG",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "XAU",
+      "names": {
+        "es": "oro",
+        "en": "Gold"
+      },
+      "symbol": "XAU",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "XBA",
+      "names": {
+        "es": "unidad compuesta europea",
+        "en": "European Composite Unit"
+      },
+      "symbol": "XBA",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "XBB",
+      "names": {
+        "es": "unidad monetaria europea",
+        "en": "European Monetary Unit"
+      },
+      "symbol": "XBB",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "XBC",
+      "names": {
+        "es": "unidad de cuenta europea (XBC)",
+        "en": "European Unit of Account (XBC)"
+      },
+      "symbol": "XBC",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "XBD",
+      "names": {
+        "es": "unidad de cuenta europea (XBD)",
+        "en": "European Unit of Account (XBD)"
+      },
+      "symbol": "XBD",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "XCD",
+      "names": {
+        "es": "dólar del Caribe Oriental",
+        "en": "East Caribbean Dollar"
+      },
+      "symbol": "$",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "XCG",
+      "names": {
+        "es": "florín caribeño",
+        "en": "Caribbean guilder"
+      },
+      "symbol": "Cg.",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "XDR",
+      "names": {
+        "es": "derechos especiales de giro",
+        "en": "Special Drawing Rights"
+      },
+      "symbol": "XDR",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "XEU",
+      "names": {
+        "es": "unidad de moneda europea",
+        "en": "European Currency Unit"
+      },
+      "symbol": "XEU",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "XFO",
+      "names": {
+        "es": "franco oro francés",
+        "en": "French Gold Franc"
+      },
+      "symbol": "XFO",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "XFU",
+      "names": {
+        "es": "franco UIC francés",
+        "en": "French UIC-Franc"
+      },
+      "symbol": "XFU",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "XOF",
+      "names": {
+        "es": "franco CFA de África Occidental",
+        "en": "West African CFA Franc"
+      },
+      "symbol": "F CFA",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "XPD",
+      "names": {
+        "es": "paladio",
+        "en": "Palladium"
+      },
+      "symbol": "XPD",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "XPF",
+      "names": {
+        "es": "franco CFP",
+        "en": "CFP Franc"
+      },
+      "symbol": "FCFP",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "XPT",
+      "names": {
+        "es": "platino",
+        "en": "Platinum"
+      },
+      "symbol": "XPT",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "XRE",
+      "names": {
+        "es": "fondos RINET",
+        "en": "RINET Funds"
+      },
+      "symbol": "XRE",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "XSU",
+      "names": {
+        "es": "Sucre",
+        "en": "Sucre"
+      },
+      "symbol": "XSU",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "XTS",
+      "names": {
+        "es": "código reservado para pruebas",
+        "en": "Testing Currency Code"
+      },
+      "symbol": "XTS",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "XUA",
+      "names": {
+        "es": "ADB Unit of Account",
+        "en": "ADB Unit of Account"
+      },
+      "symbol": "XUA",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "XXX",
+      "names": {
+        "es": "moneda desconocida",
+        "en": "Unknown Currency"
+      },
+      "symbol": "¤",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "YDD",
+      "names": {
+        "es": "dinar yemení",
+        "en": "Yemeni Dinar"
+      },
+      "symbol": "YDD",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "YER",
+      "names": {
+        "es": "rial yemení",
+        "en": "Yemeni Rial"
+      },
+      "symbol": "ر.ي.‏",
+      "minor_units": 0,
+      "is_active": true
+    },
+    {
+      "code": "YUD",
+      "names": {
+        "es": "dinar fuerte yugoslavo",
+        "en": "Yugoslavian Hard Dinar (1966–1990)"
+      },
+      "symbol": "YUD",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "YUM",
+      "names": {
+        "es": "super dinar yugoslavo",
+        "en": "Yugoslavian New Dinar (1994–2002)"
+      },
+      "symbol": "YUM",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "YUN",
+      "names": {
+        "es": "dinar convertible yugoslavo",
+        "en": "Yugoslavian Convertible Dinar (1990–1992)"
+      },
+      "symbol": "YUN",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "YUR",
+      "names": {
+        "es": "Yugoslavian Reformed Dinar (1992–1993)",
+        "en": "Yugoslavian Reformed Dinar (1992–1993)"
+      },
+      "symbol": "YUR",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ZAL",
+      "names": {
+        "es": "rand sudafricano (financiero)",
+        "en": "South African Rand (financial)"
+      },
+      "symbol": "ZAL",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ZAR",
+      "names": {
+        "es": "rand sudafricano",
+        "en": "South African Rand"
+      },
+      "symbol": "R",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "ZMK",
+      "names": {
+        "es": "kwacha zambiano (1968–2012)",
+        "en": "Zambian Kwacha (1968–2012)"
+      },
+      "symbol": "ZMK",
+      "minor_units": 0,
+      "is_active": false
+    },
+    {
+      "code": "ZMW",
+      "names": {
+        "es": "kuacha zambiano",
+        "en": "Zambian Kwacha"
+      },
+      "symbol": "K",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "ZRN",
+      "names": {
+        "es": "nuevo zaire zaireño",
+        "en": "Zairean New Zaire (1993–1998)"
+      },
+      "symbol": "ZRN",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ZRZ",
+      "names": {
+        "es": "zaire zaireño",
+        "en": "Zairean Zaire (1971–1993)"
+      },
+      "symbol": "ZRZ",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ZWD",
+      "names": {
+        "es": "dólar de Zimbabue",
+        "en": "Zimbabwean Dollar (1980–2008)"
+      },
+      "symbol": "ZWD",
+      "minor_units": 0,
+      "is_active": false
+    },
+    {
+      "code": "ZWG",
+      "names": {
+        "es": "Zimbabwean Gold",
+        "en": "Zimbabwean Gold"
+      },
+      "symbol": "ZWG",
+      "minor_units": 2,
+      "is_active": true
+    },
+    {
+      "code": "ZWL",
+      "names": {
+        "es": "dólar zimbabuense",
+        "en": "Zimbabwean Dollar (2009–2024)"
+      },
+      "symbol": "ZWL",
+      "minor_units": 2,
+      "is_active": false
+    },
+    {
+      "code": "ZWR",
+      "names": {
+        "es": "Zimbabwean Dollar (2008)",
+        "en": "Zimbabwean Dollar (2008)"
+      },
+      "symbol": "ZWR",
+      "minor_units": 2,
+      "is_active": false
+    }
+  ]
+}

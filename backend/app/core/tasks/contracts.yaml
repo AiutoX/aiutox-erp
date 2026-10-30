@@ -1,0 +1,823 @@
+module: tasks
+version: 1.0.0
+description: Task management module contracts and API specifications
+
+# Event specifications
+events:
+  # Lifecycle events
+  task.created:
+    category: lifecycle
+    description: New task created
+    severity: info
+    payload:
+      task_id:
+        type: uuid
+        description: ID of the created task
+      tenant_id:
+        type: uuid
+        description: Tenant ID
+      created_by_id:
+        type: uuid
+        description: User who created the task
+      title:
+        type: string
+        description: Task title
+      status:
+        type: string
+        description: Initial status
+      task_data:
+        type: object
+        description: Complete task data
+
+  task.updated:
+    category: lifecycle
+    description: Task updated
+    severity: info
+    payload:
+      task_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+      updated_by_id:
+        type: uuid
+      changes:
+        type: object
+        description: Fields that changed
+
+  task.deleted:
+    category: lifecycle
+    description: Task deleted
+    severity: warning
+    payload:
+      task_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+      deleted_by_id:
+        type: uuid
+
+  # Status events
+  task.status_changed:
+    category: status
+    description: Task status changed
+    severity: info
+    payload:
+      task_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+      old_status:
+        type: string
+      new_status:
+        type: string
+      changed_by_id:
+        type: uuid
+
+  task.completed:
+    category: status
+    description: Task marked as complete
+    severity: info
+    payload:
+      task_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+      completed_by_id:
+        type: uuid
+      completed_at:
+        type: datetime
+
+  task.cancelled:
+    category: status
+    description: Task cancelled
+    severity: warning
+    payload:
+      task_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+      cancelled_by_id:
+        type: uuid
+
+  # Interaction events
+  task.assigned:
+    category: interaction
+    description: Task assigned to user
+    severity: info
+    payload:
+      task_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+      assigned_to_id:
+        type: uuid
+      assigned_by_id:
+        type: uuid
+
+  task.unassigned:
+    category: interaction
+    description: Task unassigned
+    severity: info
+    payload:
+      task_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+      unassigned_by_id:
+        type: uuid
+
+  task.comment_added:
+    category: interaction
+    description: Comment added to task
+    severity: info
+    payload:
+      task_id:
+        type: uuid
+      comment_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+      created_by_id:
+        type: uuid
+
+  task.comment_updated:
+    category: interaction
+    description: Task comment updated
+    severity: info
+    payload:
+      task_id:
+        type: uuid
+      comment_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+      updated_by_id:
+        type: uuid
+
+  task.comment_deleted:
+    category: interaction
+    description: Task comment deleted
+    severity: info
+    payload:
+      task_id:
+        type: uuid
+      comment_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+      deleted_by_id:
+        type: uuid
+
+  task.user_mentioned:
+    category: interaction
+    description: User mentioned in task comment
+    severity: info
+    payload:
+      task_id:
+        type: uuid
+      comment_id:
+        type: uuid
+      mentioned_user_id:
+        type: uuid
+      mentioned_by_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+
+  task.file_attached:
+    category: interaction
+    description: File attached to task
+    severity: info
+    payload:
+      task_id:
+        type: uuid
+      file_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+      attached_by_id:
+        type: uuid
+
+  task.file_removed:
+    category: interaction
+    description: File removed from task
+    severity: info
+    payload:
+      task_id:
+        type: uuid
+      file_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+      removed_by_id:
+        type: uuid
+
+  # System events
+  task.due_soon:
+    category: system
+    description: Task due date is approaching (24 hours)
+    severity: warning
+    payload:
+      task_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+      due_date:
+        type: datetime
+      hours_until_due:
+        type: integer
+
+  task.overdue:
+    category: system
+    description: Task deadline passed
+    severity: error
+    payload:
+      task_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+      due_date:
+        type: datetime
+      hours_overdue:
+        type: integer
+
+  task.calendar_synced:
+    category: system
+    description: Task synced to calendar
+    severity: info
+    payload:
+      task_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+      calendar_event_id:
+        type: string
+
+  task.calendar_unsynced:
+    category: system
+    description: Task removed from calendar
+    severity: info
+    payload:
+      task_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+      calendar_event_id:
+        type: string
+
+  task.calendar_updated:
+    category: system
+    description: Calendar event updated for task
+    severity: info
+    payload:
+      task_id:
+        type: uuid
+      tenant_id:
+        type: uuid
+      calendar_event_id:
+        type: string
+
+  task.dependency.added:
+    category: interaction
+    description: Task dependency created
+    severity: info
+    payload:
+      task_id:
+        type: uuid
+      depends_on_task_id:
+        type: uuid
+      dependency_type:
+        type: string
+      tenant_id:
+        type: uuid
+      created_by_id:
+        type: uuid
+
+# API Endpoint specifications
+endpoints:
+  # Core CRUD operations
+  tasks:
+    list:
+      method: GET
+      path: /tasks
+      summary: List tasks with filtering and pagination
+      description: Retrieve a paginated list of tasks with optional filtering by status, priority, assignee, etc.
+      authentication: required
+      permissions:
+        - task.read
+      parameters:
+        - name: page
+          in: query
+          type: integer
+          default: 1
+        - name: page_size
+          in: query
+          type: integer
+          default: 50
+          maximum: 200
+        - name: status
+          in: query
+          type: string
+        - name: priority
+          in: query
+          type: string
+        - name: assigned_to_id
+          in: query
+          type: uuid
+        - name: search
+          in: query
+          type: string
+      response:
+        status_code: 200
+        schema: TaskListResponse
+
+    create:
+      method: POST
+      path: /tasks
+      summary: Create a new task
+      description: Create a new task with the provided details
+      authentication: required
+      permissions:
+        - task.write
+      request_body:
+        required: true
+        schema: TaskCreate
+      response:
+        status_code: 201
+        schema: TaskResponse
+      events:
+        - task.created
+
+    get:
+      method: GET
+      path: /tasks/{task_id}
+      summary: Get task details
+      description: Retrieve complete details of a specific task
+      authentication: required
+      permissions:
+        - task.read
+      parameters:
+        - name: task_id
+          in: path
+          type: uuid
+          required: true
+      response:
+        status_code: 200
+        schema: TaskResponse
+
+    update:
+      method: PATCH
+      path: /tasks/{task_id}
+      summary: Update a task
+      description: Update one or more fields of an existing task
+      authentication: required
+      permissions:
+        - task.write
+      parameters:
+        - name: task_id
+          in: path
+          type: uuid
+          required: true
+      request_body:
+        required: true
+        schema: TaskUpdate
+      response:
+        status_code: 200
+        schema: TaskResponse
+      events:
+        - task.updated
+
+    delete:
+      method: DELETE
+      path: /tasks/{task_id}
+      summary: Delete a task
+      description: Delete (soft delete) a task
+      authentication: required
+      permissions:
+        - task.delete
+      parameters:
+        - name: task_id
+          in: path
+          type: uuid
+          required: true
+      response:
+        status_code: 204
+      events:
+        - task.deleted
+
+  # Task actions
+  assignments:
+    assign:
+      method: POST
+      path: /tasks/{task_id}/assign
+      summary: Assign task to user
+      description: Assign a task to one or more users
+      authentication: required
+      permissions:
+        - task.write
+      parameters:
+        - name: task_id
+          in: path
+          type: uuid
+          required: true
+      request_body:
+        required: true
+        schema: TaskAssignmentCreate
+      response:
+        status_code: 200
+        schema: TaskResponse
+      events:
+        - task.assigned
+
+    unassign:
+      method: DELETE
+      path: /tasks/{task_id}/assignments/{user_id}
+      summary: Remove assignment
+      description: Remove a user from task assignments
+      authentication: required
+      permissions:
+        - task.write
+      parameters:
+        - name: task_id
+          in: path
+          type: uuid
+        - name: user_id
+          in: path
+          type: uuid
+      response:
+        status_code: 204
+      events:
+        - task.unassigned
+
+  # Status management
+  status:
+    list_statuses:
+      method: GET
+      path: /statuses
+      summary: List custom status definitions
+      description: Get all custom task status definitions for tenant
+      authentication: required
+      permissions:
+        - task.read
+      response:
+        status_code: 200
+        schema: TaskStatusResponse
+
+    create_status:
+      method: POST
+      path: /statuses
+      summary: Create custom status
+      description: Define a new custom status for tasks
+      authentication: required
+      permissions:
+        - task.admin
+      request_body:
+        required: true
+        schema: TaskStatusCreate
+      response:
+        status_code: 201
+        schema: TaskStatusResponse
+
+    update_status:
+      method: PATCH
+      path: /statuses/{status_id}
+      summary: Update status definition
+      authentication: required
+      permissions:
+        - task.admin
+      response:
+        status_code: 200
+        schema: TaskStatusResponse
+
+    delete_status:
+      method: DELETE
+      path: /statuses/{status_id}
+      summary: Delete custom status
+      authentication: required
+      permissions:
+        - task.admin
+      response:
+        status_code: 204
+
+  # Bulk operations
+  bulk:
+    bulk_update:
+      method: POST
+      path: /tasks/bulk/update
+      summary: Update multiple tasks
+      description: Update multiple tasks with the same changes
+      authentication: required
+      permissions:
+        - task.write
+      request_body:
+        required: true
+        schema: TaskBulkUpdate
+      response:
+        status_code: 200
+        schema: BulkOperationResponse
+      events:
+        - task.updated (multiple)
+
+    bulk_delete:
+      method: POST
+      path: /tasks/bulk/delete
+      summary: Delete multiple tasks
+      description: Delete multiple tasks in one operation
+      authentication: required
+      permissions:
+        - task.delete
+      request_body:
+        required: true
+        schema: TaskBulkDelete
+      response:
+        status_code: 200
+        schema: BulkOperationResponse
+      events:
+        - task.deleted (multiple)
+
+  # Checklist management
+  checklist:
+    add_item:
+      method: POST
+      path: /tasks/{task_id}/checklist
+      summary: Add checklist item
+      description: Add item to task checklist
+      authentication: required
+      permissions:
+        - task.write
+      response:
+        status_code: 201
+        schema: TaskChecklistItemResponse
+
+    update_item:
+      method: PATCH
+      path: /tasks/{task_id}/checklist/{item_id}
+      summary: Update checklist item
+      description: Update checklist item (mark complete, change text)
+      authentication: required
+      permissions:
+        - task.write
+      response:
+        status_code: 200
+        schema: TaskChecklistItemResponse
+
+    remove_item:
+      method: DELETE
+      path: /tasks/{task_id}/checklist/{item_id}
+      summary: Remove checklist item
+      authentication: required
+      permissions:
+        - task.write
+      response:
+        status_code: 204
+
+  # Dependencies
+  dependencies:
+    list:
+      method: GET
+      path: /tasks/{task_id}/dependencies
+      summary: List task dependencies
+      description: Get all tasks that this task depends on
+      authentication: required
+      permissions:
+        - task.read
+      response:
+        status_code: 200
+        schema: TaskDependencyResponse
+
+    add:
+      method: POST
+      path: /tasks/{task_id}/dependencies
+      summary: Add task dependency
+      description: Create a dependency relationship between two tasks
+      authentication: required
+      permissions:
+        - task.write
+      request_body:
+        required: true
+        schema: TaskDependencyCreate
+      response:
+        status_code: 201
+        schema: TaskDependencyResponse
+      events:
+        - task.dependency.added
+
+    remove:
+      method: DELETE
+      path: /tasks/{task_id}/dependencies/{dep_id}
+      summary: Remove task dependency
+      authentication: required
+      permissions:
+        - task.write
+      response:
+        status_code: 204
+
+  # Analytics
+  analytics:
+    dashboard_stats:
+      method: GET
+      path: /analytics/dashboard
+      summary: Task dashboard statistics
+      description: Get aggregated task statistics for dashboard
+      authentication: required
+      permissions:
+        - task.read
+      response:
+        status_code: 200
+        schema: DashboardStatsResponse
+
+    trends:
+      method: GET
+      path: /analytics/trends
+      summary: Task trends over time
+      description: Get historical trends in task completion, creation rate, etc.
+      authentication: required
+      permissions:
+        - task.read
+      parameters:
+        - name: period
+          in: query
+          type: string
+          enum: [daily, weekly, monthly]
+          default: weekly
+      response:
+        status_code: 200
+        schema: TrendAnalysisResponse
+
+# Schemas
+schemas:
+  TaskCreate:
+    type: object
+    required: [title, tenant_id]
+    properties:
+      title:
+        type: string
+        minLength: 1
+        maxLength: 255
+      description:
+        type: string
+        maxLength: 5000
+      status:
+        type: string
+      priority:
+        type: string
+        enum: [low, medium, high, urgent]
+      assigned_to_id:
+        type: uuid
+      due_date:
+        type: datetime
+      start_at:
+        type: datetime
+      tag_ids:
+        type: array
+        items:
+          type: uuid
+
+  TaskUpdate:
+    type: object
+    properties:
+      title:
+        type: string
+      description:
+        type: string
+      status:
+        type: string
+      priority:
+        type: string
+      assigned_to_id:
+        type: uuid
+      due_date:
+        type: datetime
+
+  TaskResponse:
+    type: object
+    properties:
+      id:
+        type: uuid
+      title:
+        type: string
+      description:
+        type: string
+      status:
+        type: string
+      priority:
+        type: string
+      assigned_to_id:
+        type: uuid
+      due_date:
+        type: datetime
+      created_at:
+        type: datetime
+      updated_at:
+        type: datetime
+      created_by:
+        type: object
+        properties:
+          id:
+            type: uuid
+          name:
+            type: string
+
+  TaskListResponse:
+    type: object
+    properties:
+      tasks:
+        type: array
+        items:
+          $ref: "#/schemas/TaskResponse"
+      total:
+        type: integer
+      page:
+        type: integer
+      page_size:
+        type: integer
+      total_pages:
+        type: integer
+
+# Dependencies with other modules
+dependencies:
+  modules:
+    - name: files
+      reason: Task file attachments
+      events_consumed:
+        - file.uploaded
+        - file.deleted
+      events_produced:
+        - task.file_attached
+        - task.file_removed
+
+    - name: comments
+      reason: Task discussions and comments
+      events_consumed:
+        - comment.created
+        - comment.updated
+        - comment.deleted
+      events_produced:
+        - task.comment_added
+        - task.comment_updated
+        - task.comment_deleted
+        - task.user_mentioned
+
+    - name: notifications
+      reason: Real-time task notifications
+      events_consumed:
+        - notification.sent
+      events_produced:
+        - task.assigned
+        - task.overdue
+        - task.due_soon
+
+    - name: approvals
+      reason: Task approval workflows
+      events_consumed:
+        - approval.approved
+        - approval.rejected
+
+    - name: users
+      reason: Task assignment and ownership
+      optional: false
+
+    - name: tenants
+      reason: Multi-tenancy support
+      optional: false
+
+# Rate limiting
+rate_limiting:
+  enabled: true
+  endpoints:
+    list_tasks:
+      limit: 100
+      window: 60s
+    create_task:
+      limit: 50
+      window: 60s
+    bulk_operations:
+      limit: 20
+      window: 60s
+
+# Caching
+caching:
+  enabled: true
+  strategies:
+    task_by_id:
+      ttl: 300
+      invalidate_on:
+        - task.updated
+        - task.deleted
+    task_list:
+      ttl: 60
+      invalidate_on:
+        - task.created
+        - task.updated
+        - task.deleted
+    task_statuses:
+      ttl: 3600
+      invalidate_on:
+        - status created/updated/deleted
+
+# Versioning
+versioning:
+  current: v1
+  deprecated: []
+  upcoming: [v2]
+  breaking_changes: []

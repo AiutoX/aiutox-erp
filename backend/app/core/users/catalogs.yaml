@@ -1,0 +1,35 @@
+catalogs:
+  - key: core.gender
+    labels: {es: "Género", en: "Gender"}
+    description: {es: "Opciones de género del perfil de usuario", en: "User profile gender options"}
+    tenant_can_manage: true
+    is_extensible: false
+    is_locked: false
+    manage_permission: null
+    items:
+      - {code: male,              labels: {es: "Masculino",          en: "Male"},              sort_order: 10}
+      - {code: female,            labels: {es: "Femenino",           en: "Female"},            sort_order: 20}
+      - {code: other,             labels: {es: "Otro",               en: "Other"},             sort_order: 30}
+      - {code: prefer_not_to_say, labels: {es: "Prefiero no decirlo", en: "Prefer not to say"}, sort_order: 40}
+  - key: core.organization_type
+    labels: {es: "Tipo de organización", en: "Organization type"}
+    tenant_can_manage: true
+    is_extensible: false
+    is_locked: false
+    items:
+      - {code: customer, labels: {es: "Cliente",   en: "Customer"}, sort_order: 10}
+      - {code: supplier, labels: {es: "Proveedor", en: "Supplier"}, sort_order: 20}
+      - {code: partner,  labels: {es: "Socio",     en: "Partner"},  sort_order: 30}
+      - {code: other,    labels: {es: "Otro",      en: "Other"},    sort_order: 40}
+  - key: core.identity_document_type
+    labels: {es: "Tipo de documento de identidad", en: "Identity document type"}
+    tenant_can_manage: true
+    is_extensible: false
+    is_locked: false
+    items:
+      - {code: national_id,     labels: {es: "Documento nacional de identidad", en: "National ID"},     sort_order: 10}
+      - {code: dni,             labels: {es: "DNI",                              en: "DNI"},             sort_order: 20}
+      - {code: passport,        labels: {es: "Pasaporte",                        en: "Passport"},        sort_order: 30}
+      - {code: drivers_license, labels: {es: "Licencia de conducción",           en: "Driver's license"}, sort_order: 40}
+      - {code: tax_id,          labels: {es: "Identificación tributaria",        en: "Tax ID"},          sort_order: 50}
+      - {code: other,           labels: {es: "Otro",                             en: "Other"},           sort_order: 60}

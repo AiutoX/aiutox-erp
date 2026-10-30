@@ -1,0 +1,204 @@
+{
+  "module": "tags",
+  "name": "Tags Module",
+  "description": "Polymorphic tagging system for organizing entities across the platform",
+  "version": "1.0.0",
+  "status": "production",
+  "phase": "1",
+  "maturity": "100%",
+  "dependencies": [
+    "core.auth",
+    "core.pubsub",
+    "core.events"
+  ],
+  "models": {
+    "Tag": {
+      "table": "tags",
+      "description": "Tag entity with name, color, category, and soft delete",
+      "fields": [
+        "id (UUID)",
+        "tenant_id (UUID, FK)",
+        "name (String, unique per tenant)",
+        "color (String, hex color code)",
+        "description (String)",
+        "category_id (UUID, optional FK to TagCategory)",
+        "is_active (Boolean, for soft delete)",
+        "created_at, updated_at (TIMESTAMP)"
+      ]
+    },
+    "TagCategory": {
+      "table": "tag_categories",
+      "description": "Hierarchical organization of tags",
+      "fields": [
+        "id (UUID)",
+        "tenant_id (UUID, FK)",
+        "name (String, unique per tenant)",
+        "color (String, hex color code)",
+        "description (String)",
+        "parent_id (UUID, optional self-referencing FK)",
+        "sort_order (Integer)",
+        "created_at, updated_at (TIMESTAMP)"
+      ]
+    },
+    "EntityTag": {
+      "table": "entity_tags",
+      "description": "Polymorphic junction table for applying tags to any entity",
+      "fields": [
+        "id (UUID)",
+        "tenant_id (UUID, FK)",
+        "tag_id (UUID, FK to tags)",
+        "entity_type (String, e.g. 'task', 'project', 'file')",
+        "entity_id (UUID, ID of target entity)",
+        "created_at (TIMESTAMP)",
+        "unique constraint: (tag_id, entity_type, entity_id)"
+      ]
+    }
+  },
+  "permissions": [
+    {
+      "name": "tags.read",
+      "description": "View tags and tag relationships"
+    },
+    {
+      "name": "tags.write",
+      "description": "Create, apply and update tags"
+    },
+    {
+      "name": "tags.delete",
+      "description": "Remove tags and tag relationships"
+    },
+    {
+      "name": "tags.admin",
+      "description": "Administer tags module (all permissions)"
+    }
+  ],
+  "events": [
+    {
+      "name": "tag.created",
+      "description": "Fired when a new tag is created",
+      "payload": {
+        "tag_id": "UUID",
+        "tenant_id": "UUID",
+        "name": "String"
+      }
+    },
+    {
+      "name": "tag.updated",
+      "description": "Fired when a tag is updated",
+      "payload": {
+        "tag_id": "UUID",
+        "tenant_id": "UUID",
+        "changes": "Dict[str, Any]"
+      }
+    },
+    {
+      "name": "tag.deleted",
+      "description": "Fired when a tag is deleted",
+      "payload": {
+        "tag_id": "UUID",
+        "tenant_id": "UUID"
+      }
+    },
+    {
+      "name": "tag.applied",
+      "description": "Fired when a tag is applied to an entity",
+      "payload": {
+        "tag_id": "UUID",
+        "entity_type": "String",
+        "entity_id": "UUID",
+        "tenant_id": "UUID"
+      }
+    },
+    {
+      "name": "tag.removed",
+      "description": "Fired when a tag is removed from an entity",
+      "payload": {
+        "tag_id": "UUID",
+        "entity_type": "String",
+        "entity_id": "UUID",
+        "tenant_id": "UUID"
+      }
+    }
+  ],
+  "api_endpoints": [
+    {
+      "method": "POST",
+      "path": "/api/tags",
+      "description": "Create a new tag",
+      "requires_permission": "tags.write"
+    },
+    {
+      "method": "GET",
+      "path": "/api/tags/{tag_id}",
+      "description": "Get a tag by ID",
+      "requires_permission": "tags.read"
+    },
+    {
+      "method": "GET",
+      "path": "/api/tags",
+      "description": "List all tags for tenant",
+      "requires_permission": "tags.read"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/tags/{tag_id}",
+      "description": "Update a tag",
+      "requires_permission": "tags.write"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/tags/{tag_id}",
+      "description": "Delete a tag (soft delete)",
+      "requires_permission": "tags.delete"
+    },
+    {
+      "method": "POST",
+      "path": "/api/tags/search",
+      "description": "Search tags by name",
+      "requires_permission": "tags.read"
+    },
+    {
+      "method": "POST",
+      "path": "/api/tags/entities/apply",
+      "description": "Apply a tag to an entity (polymorphic)",
+      "requires_permission": "tags.write"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/tags/entities/{entity_type}/{entity_id}/{tag_id}",
+      "description": "Remove a tag from an entity",
+      "requires_permission": "tags.delete"
+    },
+    {
+      "method": "GET",
+      "path": "/api/tags/entities/{entity_type}/{entity_id}",
+      "description": "Get all tags for an entity",
+      "requires_permission": "tags.read"
+    }
+  ],
+  "key_features": [
+    "Polymorphic tagging: Tags can be applied to any entity type",
+    "Multi-level categorization: Tags can be organized hierarchically",
+    "Soft delete: Tags are soft-deleted via is_active flag",
+    "PubSub events: Full event integration for real-time updates",
+    "RBAC: Granular permission control (4 standard permissions)",
+    "Tenant isolation: All operations scoped to tenant_id"
+  ],
+  "constraints": [
+    "Tag names are unique per tenant",
+    "Entity-tag relationships are unique (tag cannot be applied twice to same entity)",
+    "No explicit foreign keys to entity tables (polymorphic pattern)",
+    "All timestamps are UTC"
+  ],
+  "testing": {
+    "unit_tests": [
+      "tests/core/tags/test_tag_model.py",
+      "tests/core/tags/test_tag_service.py",
+      "tests/core/tags/test_entity_tag_polymorphic.py",
+      "tests/core/tags/test_tag_permissions.py",
+      "tests/core/tags/test_tag_events.py"
+    ],
+    "coverage_target": 80,
+    "run_command": "uv run pytest tests/core/tags/ --cov=app/core/tags --cov-fail-under=80"
+  }
+}

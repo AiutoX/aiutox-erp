@@ -1,0 +1,600 @@
+{
+  "version": 1,
+  "max_entries": 99,
+  "entries": [
+    {
+      "from": "app/components/layout/AppShell.tsx",
+      "import": "~/features/automation/ai/components/FloatingChatButton",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/components/layout/AppShell.tsx",
+      "import": "~/features/automation/ai/components/EmbeddedAssistant",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/components/layout/AppShell.tsx",
+      "import": "~/features/tasks/components/TaskCalendar",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/components/layout/GlobalSearch.tsx",
+      "import": "~/features/search/api/search.api",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/components/layout/GlobalSearch.tsx",
+      "import": "~/features/search/hooks/useSearch",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/components/layout/Header.tsx",
+      "import": "~/features/tasks/components/TaskQuickAdd",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/components/layout/Header.tsx",
+      "import": "~/features/tasks/hooks/useTasks",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/components/notifications/NotificationBell.tsx",
+      "import": "~/features/notifications/hooks/useNotificationsWebSocket",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/components/reporting/ReportResultRenderer.tsx",
+      "import": "~/features/reporting/hooks/useColumnLabel",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/components/reporting/ReportResultRenderer.tsx",
+      "import": "~/features/dashboard/components/charts/SimpleBarChart",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/components/reporting/ReportResultRenderer.tsx",
+      "import": "~/features/reporting/types/reporting.types",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/components/tasks/TaskCard.tsx",
+      "import": "~/features/tasks/types/task.types",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/components/tasks/TaskForm.tsx",
+      "import": "~/features/tasks/types/task.types",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/automation/ai/types/chat.types.ts",
+      "import": "~/features/reporting/types/reporting.types",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/automation/components/AnalyticsDashboard.tsx",
+      "import": "~/features/dashboard/components/charts/SimpleBarChart",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/automation/components/config/NotifyActionConfig.tsx",
+      "import": "~/features/notifications/hooks/useNotifications",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/calendar/components/CalendarPanel.tsx",
+      "import": "~/features/tasks/components/TaskQuickAdd",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/calendar/components/CalendarPanel.tsx",
+      "import": "~/features/tasks/hooks/useTasks",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/calendar/components/CalendarShareDialog.tsx",
+      "import": "~/features/users/hooks/useUsers",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/calendar/components/CalendarView.tsx",
+      "import": "~/features/activity-icons/hooks/useActivityIcons",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/calendar/components/CalendarView.tsx",
+      "import": "~/features/tasks/types/task.types",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/calendar/components/EventEdit.tsx",
+      "import": "~/features/tags/hooks/useTags",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/calendar/components/EventEdit.tsx",
+      "import": "~/features/users/hooks/useUsers",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/comments/components/CommentAttachments.tsx",
+      "import": "~/features/files/hooks/useFiles",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/comments/components/CommentForm.tsx",
+      "import": "~/features/users/hooks/useUsers",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/comments/components/CommentItem.tsx",
+      "import": "~/features/users/hooks/useUsers",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/comments/components/CommentRevisionHistory.tsx",
+      "import": "~/features/users/hooks/useUsers",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/common/components/EntityFileUploader.tsx",
+      "import": "~/features/tasks/hooks/useTaskFiles",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/crm/components/ContactDialog.tsx",
+      "import": "~/features/users/api/organizations.api",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/crm/components/ContactDialog.tsx",
+      "import": "~/features/users/hooks/useContacts",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/crm/components/ContactDialog.tsx",
+      "import": "~/features/users/types/user.types",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/crm/components/ContactMethodsEditor.tsx",
+      "import": "~/features/users/api/contactMethods.api",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/crm/components/ContactMethodsEditor.tsx",
+      "import": "~/features/users/types/user.types",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/crm/components/SendMessageDialog.tsx",
+      "import": "~/features/notifications/hooks/useNotifications",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/crm/components/SendMessageDialog.tsx",
+      "import": "~/features/notifications/types/notifications.types",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/crm/components/SendMessageDialog.tsx",
+      "import": "~/features/users/types/user.types",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/files/components/FileFilters.tsx",
+      "import": "~/features/tags/components/TagManagerModal",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/files/components/FileFilters.tsx",
+      "import": "~/features/tags/api/tags.api",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/files/components/FileList.tsx",
+      "import": "~/features/users/hooks/useUsers",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/files/components/FilePermissions.tsx",
+      "import": "~/features/users/hooks/useUsers",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/files/components/FilePermissions.tsx",
+      "import": "~/features/users/hooks/useOrganizations",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/files/components/FilePermissions.tsx",
+      "import": "~/features/users/api/roles.api",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/files/components/FileTags.tsx",
+      "import": "~/features/tags/components/TagManagerModal",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/files/components/FileTags.tsx",
+      "import": "~/features/tags/api/tags.api",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/files/components/FileUploadConfig.tsx",
+      "import": "~/features/users/hooks/useUsers",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/files/components/FileUploadConfig.tsx",
+      "import": "~/features/users/hooks/useOrganizations",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/files/components/FileUploadConfig.tsx",
+      "import": "~/features/users/api/roles.api",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/files/components/FileUploadConfig.tsx",
+      "import": "~/features/tags/components/TagManagerModal",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/files/components/FileUploadConfig.tsx",
+      "import": "~/features/tags/api/tags.api",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/files/components/FileUploadConfig.tsx",
+      "import": "~/features/tags/hooks/useTags",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/finances/widgets/FinancialDashboardWidget.tsx",
+      "import": "~/features/dashboard/components/FinancialDashboard",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/preferences/components/NotificationPreferencesPanel.tsx",
+      "import": "~/features/integrations/hooks/useChannelIdentities",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/real_estate/leases/components/LeaseActivityList.tsx",
+      "import": "~/features/activities/hooks/useActivities",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/real_estate/leases/components/LeaseActivityList.tsx",
+      "import": "~/features/activities/types/activity.types",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/real_estate/leases/components/LeaseForm.tsx",
+      "import": "~/features/users/hooks/useOrganizations",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/real_estate/leases/components/TenantCombobox.tsx",
+      "import": "~/features/users/hooks/useOrganizations",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/real_estate/leases/components/TenantCombobox.tsx",
+      "import": "~/features/users/types/user.types",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/real_estate/properties/components/ContactCombobox.tsx",
+      "import": "~/features/users/hooks/useContacts",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/real_estate/properties/components/ContactCombobox.tsx",
+      "import": "~/features/users/types/user.types",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/real_estate/shared/OrganizationCombobox.tsx",
+      "import": "~/features/users/hooks/useOrganizations",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/real_estate/shared/OrganizationCombobox.tsx",
+      "import": "~/features/users/types/user.types",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/real_estate/widgets/CmmsDashboardWidget.tsx",
+      "import": "~/features/dashboard/components/CMOSDashboard",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/real_estate/widgets/RealEstateDashboardWidget.tsx",
+      "import": "~/features/dashboard/components/RealEstateDashboard",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/FileList.tsx",
+      "import": "~/features/files/api/files.api",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/FileUploader.tsx",
+      "import": "~/features/files/api/files.api",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/FileUploader.tsx",
+      "import": "~/features/files/utils/fileValidation",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/FileUploader.tsx",
+      "import": "~/features/files/components/UploadProgress",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/TaskCalendar.tsx",
+      "import": "~/features/calendar/components/EventEdit",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/TaskCalendar.tsx",
+      "import": "~/features/calendar/components/CalendarView",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/TaskCalendar.tsx",
+      "import": "~/features/tags/hooks/useTags",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/TaskCalendar.tsx",
+      "import": "~/features/calendar/hooks/useCalendar",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/TaskCalendar.tsx",
+      "import": "~/features/calendar/types/calendar.types",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/TaskDetail.tsx",
+      "import": "~/features/automation/ai/components/ContextualAssistant",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/TaskEdit.tsx",
+      "import": "~/features/users/hooks/useUsers",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/TaskEdit.tsx",
+      "import": "~/features/tags/hooks/useTags",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/TaskEdit.tsx",
+      "import": "~/features/comments/components/EntityCommentList",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/TaskForm.tsx",
+      "import": "~/features/users/hooks/useUsers",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/TaskQuickAdd.tsx",
+      "import": "~/features/users/hooks/useUsers",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/TaskQuickAdd.tsx",
+      "import": "~/features/calendar/hooks/useCalendar",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/TaskQuickAdd.tsx",
+      "import": "~/features/calendar/api/calendar.api",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/TaskQuickAdd.tsx",
+      "import": "~/features/tags/hooks/useTags",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/TaskQuickAdd.tsx",
+      "import": "~/features/comments/components/EntityCommentList",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/components/TaskQuickAdd.tsx",
+      "import": "~/features/calendar/types/calendar.types",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/tasks/hooks/useTasks.ts",
+      "import": "~/features/users/hooks/useUsers",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/users/components/UserForm.tsx",
+      "import": "~/features/files/api/files.api",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/users/components/UsersList.tsx",
+      "import": "../../views/components/SavedFilters",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/users/components/UsersList.tsx",
+      "import": "../../views/components/FilterEditorModal",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/users/components/UsersList.tsx",
+      "import": "../../views/components/FilterManagementModal",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/users/components/UsersList.tsx",
+      "import": "../../views/config/userFields",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/users/components/UsersList.tsx",
+      "import": "../../views/hooks/useSavedFilters",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/users/components/UsersList.tsx",
+      "import": "../../views/hooks/useFilterUrlSync",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/users/components/UsersList.tsx",
+      "import": "../../views/types/savedFilter.types",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/features/views/utils/permissions.ts",
+      "import": "~/features/users/types/user.types",
+      "rule": "cross-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/hooks/useAuth.ts",
+      "import": "~/features/users/types/user.types",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/hooks/useNavigation.ts",
+      "import": "~/features/tasks/hooks/useTasks",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/hooks/useThemeConfig.ts",
+      "import": "~/features/config/api/config.api",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/lib/api/auth.api.ts",
+      "import": "../../features/views/types/savedFilter.types",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/lib/security/sanitizeFormData.ts",
+      "import": "~/features/users/types/user.types",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    },
+    {
+      "from": "app/stores/authStore.ts",
+      "import": "../features/users/types/user.types",
+      "rule": "shared-to-feature",
+      "reason": "legacy, tracked by ISSUE-033"
+    }
+  ]
+}
